@@ -11,8 +11,9 @@ import java.util.List;
 
 /**
  *
- * @author Ruan
+ * @author daniel
  */
+
 public class Medico extends Pessoa{
     private float salario;
     private LocalDate dataAdmissao;
