@@ -11,34 +11,21 @@ import java.time.LocalDateTime;
  *
  * @author daniel
  */
-public class Exame implements Procedimento{
+public class Exame extends Procedimento implements MarcacaoProcedimento{
     
-    private final String cpfDoPaciente;
-    private LocalDateTime horarioDoExame;
+    
     private String descricaoDoExame;
     private String tipoDeExame;
     private String resultado;
 
-    public Exame(String cpfDoPaciente, String descricaoDoExame, String tipoDeExame, LocalDateTime horarioDoExame) {
-        this.cpfDoPaciente = cpfDoPaciente;
+    public Exame(String descricaoDoExame, String tipoDeExame, String resultado, String cpfDoPaciente, LocalDateTime horario) {
+        super(cpfDoPaciente, horario);
         this.descricaoDoExame = descricaoDoExame;
         this.tipoDeExame = tipoDeExame;
-        this.horarioDoExame = horarioDoExame;
-    }
-
-    public LocalDateTime getHorarioDoExame() {
-        return horarioDoExame;
-    }
-
-    public void setHorarioDoExame(LocalDateTime horarioDoExame) {
-        this.horarioDoExame = horarioDoExame;
+        this.resultado = resultado;
     }
     
-    public String getCpfDoPaciente() {
-        return cpfDoPaciente;
-    }
-
-
+    
     public String getDescricaoDoExame() {
         return descricaoDoExame;
     }
@@ -65,9 +52,9 @@ public class Exame implements Procedimento{
 
     @Override
     public String toString() {
-        return "Exame{" + "cpfDoPaciente=" + cpfDoPaciente + ", horarioDoExame=" + horarioDoExame + ", descricaoDoExame=" + descricaoDoExame + ", tipoDeExame=" + tipoDeExame + ", resultado=" + resultado + '}';
+        return "Exame{" +"cpf do pacinte="+getCpfDoPaciente()+",horario="+getHorario()+ ",descricaoDoExame=" + descricaoDoExame + ", tipoDeExame=" + tipoDeExame + ", resultado=" + resultado + '}';
     }
-    
+
     
     
     

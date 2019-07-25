@@ -3,7 +3,7 @@ package com.ifpb.projetopoo.view;
 
 import com.ifpb.projetopoo.model.Consulta;
 import com.ifpb.projetopoo.model.Exame;
-import com.ifpb.projetopoo.model.Procedimento;
+import com.ifpb.projetopoo.model.MarcacaoProcedimento;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -24,14 +24,12 @@ public class App {
      */
     public static void main(String[] args) {
         
-        List<Procedimento> historicoDeProcedimentos = new ArrayList<>();
+        List<MarcacaoProcedimento> historicoDeProcedimentos = new ArrayList<>();
         
-        historicoDeProcedimentos.add(new Consulta("111", LocalDateTime.now(), "Dor de barriga", "222"));
-        historicoDeProcedimentos.add(new Exame("111", "Colesterol", "Sangue", LocalDateTime.now()));
+        historicoDeProcedimentos.add(new Consulta("Dor de barriga", "23123", "2123", LocalDateTime.now()));
+        historicoDeProcedimentos.add(new Exame("Exame de Colesterol", "Sangue", "Positivo", "23132", LocalDateTime.now()));
         
-        historicoDeProcedimentos.forEach(p->{
-            System.out.println(p);
-        });
+        historicoDeProcedimentos.forEach(System.out::println);
         
     }
     
