@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
  *
  * @author daniel
  */
-public abstract class Procedimento {
+public abstract class Procedimento implements MarcacaoProcedimento{
     private final String cpfDoPaciente;
     private LocalDateTime horario;
 

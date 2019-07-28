@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
  *
  * @author daniel
  */
-public class Consulta extends Procedimento implements MarcacaoProcedimento{
+public class Consulta extends Procedimento{
     
     private String sintomas;
     private final String cpfDoMedico;

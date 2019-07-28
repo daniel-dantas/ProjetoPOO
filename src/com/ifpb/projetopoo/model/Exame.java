@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
  *
  * @author daniel
  */
-public class Exame extends Procedimento implements MarcacaoProcedimento{
+public class Exame extends Procedimento{
     
     
     private String descricaoDoExame;
