@@ -19,7 +19,7 @@ public class Atendente extends Pessoa {
     private String usuario;
     private String senha;
     
-    public Atendente(float salario, LocalDate dataAdmissao, String cpf, String nome, LocalDate nascimento, String Usuario, String Senha, Endereco endereco, Contato contato) {
+    public Atendente(float salario, LocalDate dataAdmissao, String cpf, String nome, LocalDate nascimento, String usuario, String senha, Endereco endereco, Contato contato) {
         super(cpf, nome, nascimento, endereco, contato);
         this.salario = salario;
         this.dataAdmissao = dataAdmissao;
@@ -51,7 +51,7 @@ public class Atendente extends Pessoa {
         this.usuario = usuario;
     }
     
-    public void setSenha(String Senha) {
+    public void setSenha(String senha) {
         this.senha = senha;
     }
     
