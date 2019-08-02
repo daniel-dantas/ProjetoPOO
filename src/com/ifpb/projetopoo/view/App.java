@@ -1,6 +1,7 @@
 package com.ifpb.projetopoo.view;
 
 
+import com.ifpb.projetopoo.dao.DAO;
 import com.ifpb.projetopoo.model.Consulta;
 import com.ifpb.projetopoo.model.Contato;
 import com.ifpb.projetopoo.model.Endereco;
@@ -35,6 +36,7 @@ public class App {
         
         historicoDeProcedimentos.forEach(System.out::println);
         */
+        
         Paciente paciente = new Paciente("abc", "def", LocalDate.now(), new Endereco("a", "b", "c", "d"), new Contato("a", "b"));
         
         paciente.addProcedimento(new Exame("Exame de Colesterol", "Sangue", "Positivo", "23132", LocalDateTime.now()));
