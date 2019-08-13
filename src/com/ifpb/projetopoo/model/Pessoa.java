@@ -6,6 +6,7 @@
 package com.ifpb.projetopoo.model;
 
 import java.time.LocalDate;
+import java.util.Objects;
 
 /**
  *
@@ -19,7 +20,14 @@ public abstract class Pessoa {
     private LocalDate nascimento;
     private Endereco endereco;
     private Contato contato;
-
+    
+    public Pessoa(String cpf, String nome, LocalDate nascimento){
+        this.cpf = cpf;
+        this.nome = nome;
+        this.nascimento = nascimento;
+    }
+    
+    
     public Pessoa(String cpf, String nome, LocalDate nascimento, Endereco endereco, Contato contato) {
         this.cpf = cpf;
         this.nome = nome;
@@ -63,6 +71,28 @@ public abstract class Pessoa {
 
     public String getCpf() {
         return cpf;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        hash = 97 * hash + Objects.hashCode(this.cpf);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Pessoa other = (Pessoa) obj;
+        if (!Objects.equals(this.cpf, other.cpf)) {
+            return false;
+        }
+        return true;
     }
     
     
