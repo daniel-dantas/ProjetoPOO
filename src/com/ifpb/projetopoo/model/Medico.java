@@ -19,7 +19,7 @@ public class Medico extends Pessoa{
     private LocalDate dataAdmissao;
     private List<String> especialidades;
 
-    public Medico(float salario, LocalDate dataAdmissao, List<String> especialidades, String cpf, String nome, LocalDate nascimento, Endereco endereco, Contato contato) {
+    public Medico(float salario, LocalDate dataAdmissao, String cpf, String nome, LocalDate nascimento, Endereco endereco, Contato contato) {
         super(cpf, nome, nascimento, endereco, contato);
         this.salario = salario;
         this.dataAdmissao = dataAdmissao;

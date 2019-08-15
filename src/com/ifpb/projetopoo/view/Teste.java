@@ -5,7 +5,7 @@
  */
 package com.ifpb.projetopoo.view;
 
-import com.ifpb.projetopoo.dao.AtendenteDAO;
+import com.ifpb.projetopoo.dao.*;
 import com.ifpb.projetopoo.model.*;
 import java.time.LocalDate;
 
@@ -15,9 +15,9 @@ import java.time.LocalDate;
  */
 public class Teste {
     public static void main(String[] args) {
-       Atendente pessoa = new Atendente(20000, LocalDate.now(), "111.111.111-11", "Pessoa 2", LocalDate.now(), "UsuarioPessoa1", "123456", new Endereco("rua", "cidade", "bairro", "estado"), new Contato("pessoa1@gmail.com", "1111-1111"));
+       Medico pessoa = new Medico(20000, LocalDate.now(), "111.111.111-11", "Pessoa 2", LocalDate.now(), new Endereco("rua", "cidade", "bairro", "estado"), new Contato("pessoa1@gmail.com", "1111-1111"));
         
-        AtendenteDAO dao = new AtendenteDAO();
+        DAO dao = new MedicoDAO();
         
         
         
