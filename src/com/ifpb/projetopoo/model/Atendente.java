@@ -79,21 +79,4 @@ public class Atendente extends Pessoa {
         return "Atendente{" + "salario=" + salario + ", dataAdmissao=" + dataAdmissao + ", usuario=" + usuario + ", senha=" + senha + '}';
     }
     
-    public void create() {
-        
-        System.out.println(Date.valueOf(dataAdmissao));
-        
-        String sql = "INSERT INTO Atendente VALUES('" + getCpf() + "','" + getNome() + "'," + salario + ",'" + 
-        Date.valueOf(dataAdmissao) + "','" + usuario + "','" + senha + "','" + Date.valueOf(getNascimento()) + 
-        "','" + getEndereco().getRua() + " " + getEndereco().getBairro() + " " + getEndereco().getCidade() + " " + 
-        getEndereco().getEstado() + "','" + getContato().getEmail() + "','" + getContato().getTelefone() + "')";
-        Conexao con = new Conexao();
-        int res = con.executeUpdate(sql);
-        if (res >= 1) {
-                System.out.println("Inserção realizada!");
-        } else {
-                System.err.println("Inserção NÃO realizada!");
-        }
-    }
-    
 }
