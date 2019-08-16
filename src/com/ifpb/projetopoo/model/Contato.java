@@ -17,6 +17,10 @@ public class Contato {
         this.email = email;
         this.telefone = telefone;
     }
+    
+    public Contato(String telefone){
+        this.telefone = telefone;
+    }
 
     public String getEmail() {
         return email;

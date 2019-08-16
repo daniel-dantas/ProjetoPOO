@@ -9,6 +9,7 @@ import com.ifpb.projetopoo.model.Atendente;
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  *
@@ -20,13 +21,22 @@ public class AtendenteDAO implements DAO<Atendente> {
 
     @Override
     public boolean create(Atendente atendente) {
-        String sql = "INSERT INTO Atendente VALUES('" + atendente.getCpf() + "','" + atendente.getNome() + "'," + atendente.getSalario() + ",'" + 
+        String insertTo = "INSERT INTO Atendente(Cpf, Nome, Salario, DataAdmissao, UserName, Senha, Nascimento, Endereco";
+        
+        String values = " VALUES('" + atendente.getCpf() + "','" + atendente.getNome() + "'," + atendente.getSalario() + ",'" + 
                 Date.valueOf(atendente.getDataAdmissao()) + "','" + atendente.getUsuario() + "','" + atendente.getSenha() + "','" + 
                 Date.valueOf(atendente.getNascimento()) + "','" + atendente.getEndereco().getRua() + " " + atendente.getEndereco().getBairro() + " " + 
-                atendente.getEndereco().getCidade() + " " + atendente.getEndereco().getEstado() + "','" + atendente.getContato().getEmail() + "','" + 
-                atendente.getContato().getTelefone() + "')";
+                atendente.getEndereco().getCidade() + " " + atendente.getEndereco().getEstado() + "',";
+        
+        if(atendente.getContato().getEmail() != null){
+            insertTo += ", Email";
+            values += "'" + atendente.getContato().getEmail() + "',";
+        }
+        insertTo += ", Telefone)";
+        values += "'" + atendente.getContato().getTelefone() + "')";
+        
         Conexao con = new Conexao();
-        int res = con.executeUpdate(sql);
+        int res = con.executeUpdate(insertTo + values);
         if (res >= 1) {
             return true;
         }
