@@ -14,12 +14,35 @@ import java.util.List;
  * @author IFPB
  */
 public class PacienteDAO implements DAO<Paciente>{
-
+    
     @Override
     public boolean create(Paciente paciente) {
-        String sql = "INSERT INTO Paciente VALUES('" + paciente.getCpf() + "','" + paciente.getNome() + "','" + Date.valueOf(paciente.getNascimento()) + "','" + paciente.getEndereco().getRua() + " " + 
-                paciente.getEndereco().getBairro() + " " + paciente.getEndereco().getCidade() + " " + paciente.getEndereco().getEstado() + "','" + 
-                paciente.getContato().getEmail() + "','" + paciente.getContato().getTelefone() + "')";
+        boolean resultado;
+        resultado = addPaciente(paciente);
+        List <String> descricao = paciente.getDescricao();
+        for(String aux : descricao) {
+            boolean resposta = addDescricao(paciente.getCpf(), aux);
+            if(!resposta){
+                resultado = false;
+            }
+        }
+        return resultado;
+    }
+
+    public boolean addPaciente(Paciente paciente) {
+        String sql = "INSERT INTO Paciente VALUES('" + paciente.getCpf() + "','" + paciente.getNome() + "','" + Date.valueOf(paciente.getNascimento()) + "','" + 
+                paciente.getEndereco().getRua() + " " + paciente.getEndereco().getBairro() + " " + paciente.getEndereco().getCidade() + " " + 
+                paciente.getEndereco().getEstado() + "','" + paciente.getContato().getEmail() + "','" + paciente.getContato().getTelefone() + "')";
+        Conexao con = new Conexao();
+        int res = con.executeUpdate(sql);
+        if (res >= 1) {
+            return true;
+        }
+        return false;
+    }
+    
+    public boolean addDescricao(String cpfpaciente, String descricao) {
+        String sql = "INSERT INTO Descricao VALUES('" + cpfpaciente + "','" + descricao + "')";
         Conexao con = new Conexao();
         int res = con.executeUpdate(sql);
         if (res >= 1) {
