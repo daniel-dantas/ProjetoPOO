@@ -20,19 +20,20 @@ public class Teste {
         DAO dao = new MedicoDAO();
         
         dao.create(pessoa);*/
-       /*
-       Paciente paciente = new Paciente("311.111.111-11", "Pessoa 2", LocalDate.now(), new Endereco("rua", "cidade", "bairro", "estado"), new Contato("pessoa1@gmail.com", "1111-1111"));
-       paciente.addDescricao("diabetes2");
-       paciente.addDescricao("gado2");
+       
+       Paciente paciente = new Paciente("711.111.111-11", "Pessoa 7", LocalDate.now(), new Endereco("rua", "cidade", "bairro", "estado"), new Contato("1111-1111"));
+       paciente.addDescricao("Pressão alta");
+       paciente.addDescricao("Enxaqueca");
 
        
        DAO dao = new PacienteDAO();
        
-       dao.create(paciente);*/
+       dao.create(paciente);
+       /*
        Atendente atendente = new Atendente(20000, LocalDate.now(), "411.111.111-11", "Pessoa 6", LocalDate.now(), "atendente1.com", "123", new Endereco("rua", "cidade", "bairro", "estado"), new Contato("1111-1111"));
        
        DAO dao = new AtendenteDAO();
        
-       dao.create(atendente);
+       dao.create(atendente);*/
     }
 }

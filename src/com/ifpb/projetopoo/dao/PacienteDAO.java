@@ -30,11 +30,20 @@ public class PacienteDAO implements DAO<Paciente>{
     }
 
     public boolean addPaciente(Paciente paciente) {
-        String sql = "INSERT INTO Paciente VALUES('" + paciente.getCpf() + "','" + paciente.getNome() + "','" + Date.valueOf(paciente.getNascimento()) + "','" + 
+        String insertTo = "INSERT INTO Paciente(Cpf, Nome, Nascimento, Endereco";
+        String values = " VALUES('" + paciente.getCpf() + "','" + paciente.getNome() + "','" + Date.valueOf(paciente.getNascimento()) + "','" + 
                 paciente.getEndereco().getRua() + " " + paciente.getEndereco().getBairro() + " " + paciente.getEndereco().getCidade() + " " + 
-                paciente.getEndereco().getEstado() + "','" + paciente.getContato().getEmail() + "','" + paciente.getContato().getTelefone() + "')";
+                paciente.getEndereco().getEstado() + "',";
+        
+        if(paciente.getContato().getEmail() != null){
+            insertTo += ", Email";
+            values += "'" + paciente.getContato().getEmail() + "',";
+        }
+        insertTo += ", Telefone)";
+        values += "'" + paciente.getContato().getTelefone() + "')";
+        
         Conexao con = new Conexao();
-        int res = con.executeUpdate(sql);
+        int res = con.executeUpdate(insertTo + values);
         if (res >= 1) {
             return true;
         }
