@@ -5,6 +5,16 @@
  */
 package com.ifpb.projetopoo.view;
 
+import com.ifpb.projetopoo.dao.AtendenteDAO;
+import com.ifpb.projetopoo.model.Atendente;
+import com.ifpb.projetopoo.model.Contato;
+import com.ifpb.projetopoo.model.Endereco;
+import java.time.LocalDate;
+import java.time.Month;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeFormatterBuilder;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author IGOR
@@ -14,8 +24,8 @@ public class TelaCadastroAtendente extends javax.swing.JDialog {
     /**
      * Creates new form TelaCadastroAtendente
      */
-    public TelaCadastroAtendente(java.awt.Frame parent, boolean modal) {
-        super(parent, modal);
+    public TelaCadastroAtendente() {
+        
         initComponents();
     }
 
@@ -33,33 +43,34 @@ public class TelaCadastroAtendente extends javax.swing.JDialog {
         Senha = new javax.swing.JLabel();
         CPF = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        TextPane_Usuario = new javax.swing.JTextPane();
+        campoUsuario = new javax.swing.JTextPane();
         jScrollPane3 = new javax.swing.JScrollPane();
-        TextPane_Nome = new javax.swing.JTextPane();
+        campoNome = new javax.swing.JTextPane();
         Usuario1 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
-        jPasswordField1 = new javax.swing.JPasswordField();
-        jFormattedTextField1 = new javax.swing.JFormattedTextField();
-        jFormattedTextField2 = new javax.swing.JFormattedTextField();
+        campoSenha = new javax.swing.JPasswordField();
+        campoCpf = new javax.swing.JFormattedTextField();
+        campoNascimento = new javax.swing.JFormattedTextField();
         Usuario2 = new javax.swing.JLabel();
         Usuario3 = new javax.swing.JLabel();
         Usuario4 = new javax.swing.JLabel();
         jScrollPane6 = new javax.swing.JScrollPane();
-        TextPane_Nome3 = new javax.swing.JTextPane();
+        campoEmail = new javax.swing.JTextPane();
         Usuario5 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
+        btnCadastrar = new javax.swing.JButton();
+        btnVoltar = new javax.swing.JButton();
+        campoTelefone = new javax.swing.JTextField();
         Usuario6 = new javax.swing.JLabel();
         Usuario7 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jFormattedTextField4 = new javax.swing.JFormattedTextField();
+        campoEndereco = new javax.swing.JTextField();
+        campoDataDeAdmissao = new javax.swing.JFormattedTextField();
         Left_Menu = new javax.swing.JPanel();
         Text_1 = new javax.swing.JLabel();
         Text_2 = new javax.swing.JLabel();
         Text_3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Cadastro");
 
         Right_Menu.setBackground(new java.awt.Color(102, 51, 153));
 
@@ -75,11 +86,11 @@ public class TelaCadastroAtendente extends javax.swing.JDialog {
         CPF.setForeground(new java.awt.Color(241, 231, 254));
         CPF.setText("CPF:");
 
-        TextPane_Usuario.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
-        jScrollPane1.setViewportView(TextPane_Usuario);
+        campoUsuario.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
+        jScrollPane1.setViewportView(campoUsuario);
 
-        TextPane_Nome.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
-        jScrollPane3.setViewportView(TextPane_Nome);
+        campoNome.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
+        jScrollPane3.setViewportView(campoNome);
 
         Usuario1.setFont(new java.awt.Font("Courier New", 1, 28)); // NOI18N
         Usuario1.setForeground(new java.awt.Color(241, 231, 254));
@@ -89,30 +100,30 @@ public class TelaCadastroAtendente extends javax.swing.JDialog {
         jSeparator1.setForeground(new java.awt.Color(140, 20, 252));
         jSeparator1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.lightGray, java.awt.Color.lightGray, java.awt.Color.lightGray, java.awt.Color.lightGray));
 
-        jPasswordField1.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
-        jPasswordField1.addActionListener(new java.awt.event.ActionListener() {
+        campoSenha.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
+        campoSenha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jPasswordField1ActionPerformed(evt);
+                campoSenhaActionPerformed(evt);
             }
         });
 
         try {
-            jFormattedTextField1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
+            campoCpf.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        jFormattedTextField1.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
+        campoCpf.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
 
         try {
-            jFormattedTextField2.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+            campoNascimento.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        jFormattedTextField2.setText("dd/mm/aaaa   ");
-        jFormattedTextField2.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
-        jFormattedTextField2.addActionListener(new java.awt.event.ActionListener() {
+        campoNascimento.setText("dd/mm/aaaa   ");
+        campoNascimento.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
+        campoNascimento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jFormattedTextField2ActionPerformed(evt);
+                campoNascimentoActionPerformed(evt);
             }
         });
 
@@ -128,35 +139,35 @@ public class TelaCadastroAtendente extends javax.swing.JDialog {
         Usuario4.setForeground(new java.awt.Color(241, 231, 254));
         Usuario4.setText("Telefone:");
 
-        TextPane_Nome3.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
-        jScrollPane6.setViewportView(TextPane_Nome3);
+        campoEmail.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
+        jScrollPane6.setViewportView(campoEmail);
 
         Usuario5.setFont(new java.awt.Font("Courier New", 1, 28)); // NOI18N
         Usuario5.setForeground(new java.awt.Color(241, 231, 254));
         Usuario5.setText("Informações");
 
-        jButton1.setBackground(new java.awt.Color(241, 231, 254));
-        jButton1.setFont(new java.awt.Font("Courier New", 3, 24)); // NOI18N
-        jButton1.setText("Cadastrar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnCadastrar.setBackground(new java.awt.Color(241, 231, 254));
+        btnCadastrar.setFont(new java.awt.Font("Courier New", 3, 24)); // NOI18N
+        btnCadastrar.setText("Cadastrar");
+        btnCadastrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnCadastrarActionPerformed(evt);
             }
         });
 
-        jButton2.setBackground(new java.awt.Color(241, 231, 254));
-        jButton2.setFont(new java.awt.Font("Courier New", 3, 24)); // NOI18N
-        jButton2.setText("Voltar");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnVoltar.setBackground(new java.awt.Color(241, 231, 254));
+        btnVoltar.setFont(new java.awt.Font("Courier New", 3, 24)); // NOI18N
+        btnVoltar.setText("Voltar");
+        btnVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnVoltarActionPerformed(evt);
             }
         });
 
-        jTextField1.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        campoTelefone.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
+        campoTelefone.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                campoTelefoneActionPerformed(evt);
             }
         });
 
@@ -168,23 +179,23 @@ public class TelaCadastroAtendente extends javax.swing.JDialog {
         Usuario7.setForeground(new java.awt.Color(241, 231, 254));
         Usuario7.setText("Endereço:");
 
-        jTextField2.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        campoEndereco.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
+        campoEndereco.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                campoEnderecoActionPerformed(evt);
             }
         });
 
         try {
-            jFormattedTextField4.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+            campoDataDeAdmissao.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        jFormattedTextField4.setText("dd/mm/aaaa   ");
-        jFormattedTextField4.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
-        jFormattedTextField4.addActionListener(new java.awt.event.ActionListener() {
+        campoDataDeAdmissao.setText("dd/mm/aaaa   ");
+        campoDataDeAdmissao.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
+        campoDataDeAdmissao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jFormattedTextField4ActionPerformed(evt);
+                campoDataDeAdmissaoActionPerformed(evt);
             }
         });
 
@@ -203,7 +214,7 @@ public class TelaCadastroAtendente extends javax.swing.JDialog {
                             .addComponent(Usuario))
                         .addGap(37, 37, 37)
                         .addGroup(Right_MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPasswordField1)
+                            .addComponent(campoSenha)
                             .addComponent(jScrollPane1)))
                     .addGroup(Right_MenuLayout.createSequentialGroup()
                         .addGap(12, 12, 12)
@@ -222,24 +233,24 @@ public class TelaCadastroAtendente extends javax.swing.JDialog {
                                     .addGroup(Right_MenuLayout.createSequentialGroup()
                                         .addGap(13, 13, 13)
                                         .addGroup(Right_MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jTextField1)
+                                            .addComponent(campoTelefone)
                                             .addComponent(jScrollPane6)))
                                     .addGroup(Right_MenuLayout.createSequentialGroup()
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jTextField2))))
+                                        .addComponent(campoEndereco))))
                             .addGroup(Right_MenuLayout.createSequentialGroup()
                                 .addGroup(Right_MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(Usuario2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jFormattedTextField2))
+                                    .addComponent(campoNascimento))
                                 .addGap(58, 58, 58)
                                 .addGroup(Right_MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(CPF)
-                                    .addComponent(jFormattedTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(campoCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(Right_MenuLayout.createSequentialGroup()
                                 .addComponent(Usuario6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jFormattedTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 446, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(campoDataDeAdmissao, javax.swing.GroupLayout.PREFERRED_SIZE, 446, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap())
             .addGroup(Right_MenuLayout.createSequentialGroup()
                 .addGap(282, 282, 282)
@@ -247,10 +258,10 @@ public class TelaCadastroAtendente extends javax.swing.JDialog {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Right_MenuLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton1)
-                .addGap(21, 21, 21))
+                .addComponent(btnCadastrar)
+                .addGap(20, 20, 20))
         );
         Right_MenuLayout.setVerticalGroup(
             Right_MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -262,11 +273,11 @@ public class TelaCadastroAtendente extends javax.swing.JDialog {
                 .addGap(18, 18, 18)
                 .addGroup(Right_MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Senha)
-                    .addComponent(jPasswordField1))
+                    .addComponent(campoSenha))
                 .addGap(18, 18, 18)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(Usuario5, javax.swing.GroupLayout.DEFAULT_SIZE, 48, Short.MAX_VALUE)
+                .addComponent(Usuario5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(31, 31, 31)
                 .addGroup(Right_MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(Usuario1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -277,8 +288,8 @@ public class TelaCadastroAtendente extends javax.swing.JDialog {
                     .addComponent(CPF))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(Right_MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jFormattedTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jFormattedTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(campoNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(campoCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(Right_MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(Usuario3)
@@ -286,20 +297,20 @@ public class TelaCadastroAtendente extends javax.swing.JDialog {
                 .addGap(18, 18, 18)
                 .addGroup(Right_MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Usuario4, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(campoTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(Right_MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(campoEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Usuario7, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(Right_MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Usuario6)
-                    .addComponent(jFormattedTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(121, 121, 121)
+                    .addComponent(campoDataDeAdmissao, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(34, 34, 34)
                 .addGroup(Right_MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(49, 49, 49))
+                    .addComponent(btnCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(55, 55, 55))
         );
 
         Usuario5.getAccessibleContext().setAccessibleName("");
@@ -354,40 +365,60 @@ public class TelaCadastroAtendente extends javax.swing.JDialog {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Right_Menu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(Left_Menu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(Left_Menu, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(Right_Menu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed
+    private void campoSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoSenhaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jPasswordField1ActionPerformed
+    }//GEN-LAST:event_campoSenhaActionPerformed
 
-    private void jFormattedTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextField2ActionPerformed
+    private void campoNascimentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoNascimentoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jFormattedTextField2ActionPerformed
+    }//GEN-LAST:event_campoNascimentoActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void campoTelefoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoTelefoneActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_campoTelefoneActionPerformed
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void campoEnderecoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoEnderecoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_campoEnderecoActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+        
+        
+        String nascimento = campoNascimento.getText();
+        
+        int dia = Integer.parseInt(nascimento.substring(0, 2));
+        int mes = Integer.parseInt(nascimento.substring(3, 5));
+        int ano = Integer.parseInt(nascimento.substring(6, 10));
+        
+        AtendenteDAO atendentedao = new AtendenteDAO();
+        
+        if(atendentedao.create(new Atendente(0, LocalDate.now(), campoCpf.getText(), campoNome.getText(), LocalDate.of(ano, mes, dia), campoUsuario.getText(), campoSenha.getText(), new Endereco("", "", "", ""), new Contato(campoEmail.getText(), campoTelefone.getText())))){
+            JOptionPane.showMessageDialog(null, "Atendente Cadastrado com sucesso!");
+        }else{
+            JOptionPane.showMessageDialog(null, "Erro ao cadastrar atendente!");
+        }
+        
+        
+    }//GEN-LAST:event_btnCadastrarActionPerformed
 
-    private void jFormattedTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextField4ActionPerformed
+    private void campoDataDeAdmissaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoDataDeAdmissaoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jFormattedTextField4ActionPerformed
+    }//GEN-LAST:event_campoDataDeAdmissaoActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+        
+        this.setVisible(false);
+        
+    }//GEN-LAST:event_btnVoltarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -419,14 +450,9 @@ public class TelaCadastroAtendente extends javax.swing.JDialog {
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                TelaCadastroAtendente dialog = new TelaCadastroAtendente(new javax.swing.JFrame(), true);
-                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-                    @Override
-                    public void windowClosing(java.awt.event.WindowEvent e) {
-                        System.exit(0);
-                    }
-                });
-                dialog.setVisible(true);
+                
+                new TelaCadastroAtendente().setVisible(true);
+                
             }
         });
     }
@@ -436,9 +462,6 @@ public class TelaCadastroAtendente extends javax.swing.JDialog {
     private javax.swing.JPanel Left_Menu;
     private javax.swing.JPanel Right_Menu;
     private javax.swing.JLabel Senha;
-    private javax.swing.JTextPane TextPane_Nome;
-    private javax.swing.JTextPane TextPane_Nome3;
-    private javax.swing.JTextPane TextPane_Usuario;
     private javax.swing.JLabel Text_1;
     private javax.swing.JLabel Text_2;
     private javax.swing.JLabel Text_3;
@@ -450,17 +473,20 @@ public class TelaCadastroAtendente extends javax.swing.JDialog {
     private javax.swing.JLabel Usuario5;
     private javax.swing.JLabel Usuario6;
     private javax.swing.JLabel Usuario7;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JFormattedTextField jFormattedTextField1;
-    private javax.swing.JFormattedTextField jFormattedTextField2;
-    private javax.swing.JFormattedTextField jFormattedTextField4;
-    private javax.swing.JPasswordField jPasswordField1;
+    private javax.swing.JButton btnCadastrar;
+    private javax.swing.JButton btnVoltar;
+    private javax.swing.JFormattedTextField campoCpf;
+    private javax.swing.JFormattedTextField campoDataDeAdmissao;
+    private javax.swing.JTextPane campoEmail;
+    private javax.swing.JTextField campoEndereco;
+    private javax.swing.JFormattedTextField campoNascimento;
+    private javax.swing.JTextPane campoNome;
+    private javax.swing.JPasswordField campoSenha;
+    private javax.swing.JTextField campoTelefone;
+    private javax.swing.JTextPane campoUsuario;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
     // End of variables declaration//GEN-END:variables
 }
