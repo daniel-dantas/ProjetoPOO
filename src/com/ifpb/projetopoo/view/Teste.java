@@ -17,11 +17,11 @@ public class Teste {
     public static void main(String[] args) {
        
         
-        /*Medico pessoa = new Medico(20000, LocalDate.now(), "211.111.111-11", "Pessoa 3", LocalDate.now(), new Endereco("rua", "cidade", "bairro", "estado"), new Contato("pessoa1@gmail.com", "1111-1111"));
+        Medico pessoa = new Medico(20000, LocalDate.now(), "711.111.111-11", "Pessoa 7", LocalDate.now(), new Endereco("rua", "cidade", "bairro", "estado"), new Contato("pessoa7.tudook", "1111-1111"));
        
         DAO dao = new MedicoDAO();
         
-        dao.create(pessoa);*/
+        dao.create(pessoa);
        
         /*
        Paciente paciente = new Paciente("711.111.111-11", "Pessoa 7", LocalDate.now(), new Endereco("rua", "cidade", "bairro", "estado"), new Contato("1111-1111"));
@@ -33,14 +33,12 @@ public class Teste {
        
        dao.create(paciente);
        */
-        
+        /*
        
        AtendenteDAO dao = new AtendenteDAO();
        
         System.out.println(dao.authentication("atendente1.com", "23"));
-        
-        
-        
+        */
        /*
        Atendente atendente = new Atendente(20000, LocalDate.now(), "411.111.111-11", "Pessoa 6", LocalDate.now(), "atendente1.com", "123", new Endereco("rua", "cidade", "bairro", "estado"), new Contato("1111-1111", null));
        

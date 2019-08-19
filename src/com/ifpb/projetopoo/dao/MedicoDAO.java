@@ -30,12 +30,27 @@ public class MedicoDAO implements DAO<Medico>{
     }
     
     public boolean addMedico(Medico medico){
-        String sql = "INSERT INTO Medico VALUES('" + medico.getCpf() + "','" + medico.getNome() + "'," + medico.getSalario() + ",'" + 
+        String insertTo = "INSERT INTO Medico(Cpf, Nome, Salario, DataAdmissao, Nascimento, Endereco";
+        
+        String values = " VALUES('" + medico.getCpf() + "','" + medico.getNome() + "'," + medico.getSalario() + ",'" + 
                 Date.valueOf(medico.getDataAdmissao()) + "','" + Date.valueOf(medico.getNascimento()) + "','" + medico.getEndereco().getRua() + " " + 
-                medico.getEndereco().getBairro() + " " + medico.getEndereco().getCidade() + " " + medico.getEndereco().getEstado() + "','" + 
-                medico.getContato().getEmail() + "','" + medico.getContato().getTelefone() + "')";
+                medico.getEndereco().getBairro() + " " + medico.getEndereco().getCidade() + " " + medico.getEndereco().getEstado() + "'";
+        
+        if(medico.getContato().getEmail() != null){
+            insertTo += ", Email";
+            values += ",'" + medico.getContato().getEmail() + "'";
+        }
+        
+        if(medico.getContato().getTelefone() != null) {
+            insertTo += ", Telefone";
+            values += ",'" + medico.getContato().getTelefone() + "'";
+        }
+        
+        insertTo += ")";
+        values += ")";
+        
         Conexao con = new Conexao();
-        int res = con.executeUpdate(sql);
+        int res = con.executeUpdate(insertTo + values);
         if (res >= 1) {
             return true;
         }
