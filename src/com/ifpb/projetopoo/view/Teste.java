@@ -34,13 +34,15 @@ public class Teste {
        dao.create(paciente);
        */
         
+       
+       AtendenteDAO dao = new AtendenteDAO();
+       
+        System.out.println(dao.authentication("atendente1.com", "23"));
         
         
         
-        
-        
-       /* 
-       Atendente atendente = new Atendente(20000, LocalDate.now(), "411.111.111-11", "Pessoa 6", LocalDate.now(), "atendente1.com", "123", new Endereco("rua", "cidade", "bairro", "estado"), new Contato("1111-1111"));
+       /*
+       Atendente atendente = new Atendente(20000, LocalDate.now(), "411.111.111-11", "Pessoa 6", LocalDate.now(), "atendente1.com", "123", new Endereco("rua", "cidade", "bairro", "estado"), new Contato("1111-1111", null));
        
        DAO dao = new AtendenteDAO();
        

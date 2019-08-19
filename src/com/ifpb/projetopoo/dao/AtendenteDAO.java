@@ -7,6 +7,8 @@ package com.ifpb.projetopoo.dao;
 
 import com.ifpb.projetopoo.model.Atendente;
 import java.sql.Date;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -86,6 +88,20 @@ public class AtendenteDAO implements DAO<Atendente> {
 
         return false;
 
+    }
+    
+    public boolean authentication (String usuario, String senha) {
+        String sql = "SELECT * FROM Atendente";
+        sql += " Where Username='" + usuario + "'";
+        Conexao con = new Conexao();
+        try{
+            ResultSet consulta = con.executeQuery(sql);
+            consulta.next();
+            String senhaReal = consulta.getString("Senha");
+            return senhaReal.equals(senha);
+        }catch(SQLException e) {
+            return false;
+        }
     }
 
 }
