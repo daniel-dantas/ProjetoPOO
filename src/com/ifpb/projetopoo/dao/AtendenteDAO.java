@@ -78,17 +78,7 @@ public class AtendenteDAO implements DAO<Atendente> {
         return listaAtendentes;
     }
 
-    public boolean autenticar(String usuario, String senha) {
-
-        for (Atendente ate : listaAtendentes) {
-            if (ate.getUsuario().equals(usuario) && ate.getSenha().equals(senha)) {
-                return true;
-            }
-        }
-
-        return false;
-
-    }
+    
     
     public boolean authentication (String usuario, String senha) {
         String sql = "SELECT * FROM Atendente";
