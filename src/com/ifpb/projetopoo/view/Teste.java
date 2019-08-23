@@ -41,9 +41,11 @@ public class Teste {
        dao.create(paciente);
        */
        
+       /*
        DAO dao = new PacienteDAO();
        
        System.out.println(dao.update("711.111.111-11", new Paciente("711.111.111-11", "Pessoa 8", LocalDate.now(), new Endereco("tal", "cidade", "bairro", "estado"), new Contato("pessoa@outlook.com", null))));
+       */
         
        /*
        Atendente atendente = new Atendente(20000, LocalDate.now(), "411.111.111-11", "Pessoa 6", LocalDate.now(), "atendente1.com", "123", new Endereco("rua", "cidade", "bairro", "estado"), new Contato("1111-1111", null));
@@ -65,5 +67,11 @@ public class Teste {
        
        System.out.println(dao.update("411.111.111-11", new Atendente(50000, LocalDate.now(), "411.111.111-11", "Pessoa 5", LocalDate.now(), "atendente5.com", "123", new Endereco("rua", "cidade", "bairro", "estado"), new Contato("1111-1111", "5555555"))));
        */
+       
+       AtendenteDAO dao = new AtendenteDAO();
+       
+       Atendente teste = dao.read("411.111.111-11");
+       
+       System.out.println(teste);
     }
 }

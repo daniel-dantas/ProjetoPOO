@@ -80,7 +80,8 @@ public class MedicoDAO implements DAO<Medico>{
     }
 
     @Override
-    public List<Medico> read() {
+    public Medico read(String Cpf) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
 }

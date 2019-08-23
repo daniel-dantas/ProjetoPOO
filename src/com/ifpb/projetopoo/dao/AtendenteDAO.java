@@ -6,9 +6,12 @@
 package com.ifpb.projetopoo.dao;
 
 import com.ifpb.projetopoo.model.Atendente;
+import com.ifpb.projetopoo.model.Contato;
+import com.ifpb.projetopoo.model.Endereco;
 import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -68,13 +71,6 @@ public class AtendenteDAO implements DAO<Atendente> {
 
         return false;
     }
-
-    @Override
-    public List<Atendente> read() {
-        return listaAtendentes;
-    }
-
-    
     
     public boolean authentication (String usuario, String senha) {
         String sql = "SELECT * FROM Atendente";
@@ -87,6 +83,21 @@ public class AtendenteDAO implements DAO<Atendente> {
             return senhaReal.equals(senha);
         }catch(SQLException e) {
             return false;
+        }
+    }
+
+    @Override
+    public Atendente read(String Cpf) {
+        String sql = "SELECT * FROM Atendente";
+        sql += " Where Cpf='" + Cpf + "'";
+        Conexao con = new Conexao();
+        try{
+            ResultSet consulta = con.executeQuery(sql);
+            consulta.next();
+            return new Atendente(consulta.getFloat("Salario"), consulta.getDate("DataAdmissao").toLocalDate(), consulta.getString("Cpf"), consulta.getString("Nome"), consulta.getDate("Nascimento").toLocalDate(), consulta.getString("UserName"), consulta.getString("Senha"), new Endereco(consulta.getString("Endereco"), null, null, null), new Contato(consulta.getString("Email"), consulta.getString("Telefone")));
+        }catch(SQLException e) {
+            System.out.println("ue");
+            return null;
         }
     }
 

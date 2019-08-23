@@ -72,8 +72,8 @@ public class PacienteDAO implements DAO<Paciente>{
     }
 
     @Override
-    public List<Paciente> read() {
+    public Paciente read(String Cpf) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
+
 }
