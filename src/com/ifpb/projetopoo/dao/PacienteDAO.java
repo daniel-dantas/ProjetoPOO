@@ -44,25 +44,26 @@ public class PacienteDAO implements DAO<Paciente>{
         
         Conexao con = new Conexao();
         int res = con.executeUpdate(insertTo + values);
-        if (res >= 1) {
-            return true;
-        }
-        return false;
+        return res >= 1;
     }
     
     public boolean addDescricao(String cpfpaciente, String descricao) {
         String sql = "INSERT INTO Descricao VALUES('" + cpfpaciente + "','" + descricao + "')";
         Conexao con = new Conexao();
         int res = con.executeUpdate(sql);
-        if (res >= 1) {
-            return true;
-        }
-        return false;
+        return res >= 1;
     }
 
     @Override
-    public boolean update(String elemento, Paciente novoElemento) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public boolean update(String Cpf, Paciente paciente) {
+        String sql = "UPDATE Paciente SET Nome='" + paciente.getNome() + "', Nascimento='" + paciente.getNascimento() + "', Endereco='" + paciente.getEndereco().getRua() + " " + 
+                paciente.getEndereco().getBairro() + " " + paciente.getEndereco().getCidade() + " " + paciente.getEndereco().getEstado() + "', Email='" + 
+                paciente.getContato().getEmail() + "', Telefone='" + paciente.getContato().getTelefone() + "'" + " WHERE Cpf='" + Cpf + "'";
+        
+        Conexao con = new Conexao();
+        int resultado = con.executeUpdate(sql);
+        
+        return resultado >= 1;
     }
 
     @Override
