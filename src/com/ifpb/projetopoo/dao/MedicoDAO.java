@@ -5,8 +5,12 @@
  */
 package com.ifpb.projetopoo.dao;
 
+import com.ifpb.projetopoo.model.Contato;
+import com.ifpb.projetopoo.model.Endereco;
 import com.ifpb.projetopoo.model.Medico;
 import java.sql.Date;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -81,7 +85,16 @@ public class MedicoDAO implements DAO<Medico>{
 
     @Override
     public Medico read(String Cpf) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String sql = "SELECT * FROM Medico";
+        sql += " Where Cpf='" + Cpf + "'";
+        Conexao con = new Conexao();
+        try{
+            ResultSet consulta = con.executeQuery(sql);
+            consulta.next();
+            return new Medico(consulta.getFloat("Salario"), consulta.getDate("DataAdmissao").toLocalDate(), consulta.getString("Cpf"), consulta.getString("Nome"), consulta.getDate("Nascimento").toLocalDate(), new Endereco(consulta.getString("Endereco"), null, null, null), new Contato(consulta.getString("Email"), consulta.getString("Telefone")));
+        }catch(SQLException e) {
+            return null;
+        }
     }
 
 }

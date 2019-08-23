@@ -96,7 +96,6 @@ public class AtendenteDAO implements DAO<Atendente> {
             consulta.next();
             return new Atendente(consulta.getFloat("Salario"), consulta.getDate("DataAdmissao").toLocalDate(), consulta.getString("Cpf"), consulta.getString("Nome"), consulta.getDate("Nascimento").toLocalDate(), consulta.getString("UserName"), consulta.getString("Senha"), new Endereco(consulta.getString("Endereco"), null, null, null), new Contato(consulta.getString("Email"), consulta.getString("Telefone")));
         }catch(SQLException e) {
-            System.out.println("ue");
             return null;
         }
     }

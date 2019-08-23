@@ -30,6 +30,12 @@ public class Teste {
        
        */
        
+       MedicoDAO dao = new MedicoDAO();
+       
+       Medico teste = dao.read("711.111.111-11");
+       
+       System.out.println(teste.getContato().getTelefone());
+       
        /*
        Paciente paciente = new Paciente("711.111.111-11", "Pessoa 7", LocalDate.now(), new Endereco("rua", "cidade", "bairro", "estado"), new Contato(null, "1111-1111"));
        paciente.addDescricao("Pressão alta");
@@ -68,10 +74,12 @@ public class Teste {
        System.out.println(dao.update("411.111.111-11", new Atendente(50000, LocalDate.now(), "411.111.111-11", "Pessoa 5", LocalDate.now(), "atendente5.com", "123", new Endereco("rua", "cidade", "bairro", "estado"), new Contato("1111-1111", "5555555"))));
        */
        
+       /*
        AtendenteDAO dao = new AtendenteDAO();
        
        Atendente teste = dao.read("411.111.111-11");
        
        System.out.println(teste);
+       */
     }
 }
