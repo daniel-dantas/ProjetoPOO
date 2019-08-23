@@ -68,7 +68,7 @@ public class MedicoDAO implements DAO<Medico>{
     }
 
     @Override
-    public boolean update(Medico elemento, Medico novoElemento) {
+    public boolean update(String elemento, Medico novoElemento) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

@@ -61,7 +61,7 @@ public class PacienteDAO implements DAO<Paciente>{
     }
 
     @Override
-    public boolean update(Paciente elemento, Paciente novoElemento) {
+    public boolean update(String elemento, Paciente novoElemento) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

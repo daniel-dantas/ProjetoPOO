@@ -26,7 +26,7 @@ public interface DAO<T>{
      * @param novoElemento elemento que contem as modifições
      * @return Confirmação se a atualização foi feita com sucesso! 
      */
-    boolean update(T elemento, T novoElemento);
+    boolean update(String elemento, T novoElemento);
     
     /** Metodo com finalidade de remover um elemento em um tabela
      * 

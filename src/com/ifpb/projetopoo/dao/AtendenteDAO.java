@@ -39,25 +39,21 @@ public class AtendenteDAO implements DAO<Atendente> {
         
         Conexao con = new Conexao();
         int res = con.executeUpdate(insertTo + values);
-        if (res >= 1) {
-            return true;
-        }
-        return false;
+        return res >= 1;
     }
 
     @Override
-    public boolean update(Atendente elemento, Atendente novoElemento) {
-
-        for (int i = 0; i < listaAtendentes.size(); i++) {
-            if (listaAtendentes.get(i).equals(elemento)) {
-                listaAtendentes.remove(i);
-                listaAtendentes.add(novoElemento);
-                return true;
-            }
-        }
-
-        return false;
-
+    public boolean update(String Cpf, Atendente atendente) {
+        String sql = "UPDATE Atendente SET Nome='" + atendente.getNome() + "', Salario=" + atendente.getSalario() + ", DataAdmissao='" + atendente.getDataAdmissao() + 
+                "', UserName='" + atendente.getUsuario() + "', Senha='" + atendente.getSenha() + "', Nascimento='" + atendente.getNascimento() + "', Endereco='" + 
+                atendente.getEndereco().getRua() + " " + atendente.getEndereco().getBairro() + " " + atendente.getEndereco().getCidade() + " " + 
+                atendente.getEndereco().getEstado() + "', Email='" + atendente.getContato().getEmail() + "', Telefone='" + atendente.getContato().getTelefone() + "'" + 
+                "WHERE Cpf='" + Cpf + "'";
+        
+        Conexao con = new Conexao();
+        int resultado = con.executeUpdate(sql);
+        
+        return resultado >= 1;
     }
 
     @Override
