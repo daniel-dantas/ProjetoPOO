@@ -1,0 +1,11 @@
+CREATE TABLE Medico(
+	Cpf CHAR(14),
+	Nome VARCHAR(100) NOT NULL,
+	Salario FLOAT(2) NOT NULL,
+	DataAdmissao DATE NOT NULL,
+	Nascimento DATE NOT NULL,
+	Endereco VARCHAR(100) NOT NULL,
+	Email VARCHAR(100),
+	Telefone VARCHAR(20),
+	PRIMARY KEY (Cpf)
+)
