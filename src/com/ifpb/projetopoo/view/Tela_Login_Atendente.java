@@ -5,6 +5,9 @@
  */
 package com.ifpb.projetopoo.view;
 
+import com.ifpb.projetopoo.dao.AtendenteDAO;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author IGOR
@@ -35,11 +38,12 @@ public class Tela_Login_Atendente extends javax.swing.JFrame {
         Text_4 = new javax.swing.JLabel();
         campoUsuario = new javax.swing.JTextField();
         campoSenha = new javax.swing.JPasswordField();
-        btnLogin = new javax.swing.JButton();
+        btnVoltar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         btnLogin1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Tela de Login");
 
         jPanel1.setBackground(new java.awt.Color(36, 37, 42));
 
@@ -56,22 +60,23 @@ public class Tela_Login_Atendente extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(24, 24, 24)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Text_1)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(38, 38, 38)
+                        .addGap(24, 24, 24)
+                        .addComponent(Text_1))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(76, 76, 76)
                         .addComponent(Text_2)))
                 .addContainerGap(35, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(203, 203, 203)
+                .addGap(233, 233, 233)
                 .addComponent(Text_2)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(Text_1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(191, Short.MAX_VALUE))
         );
 
         jPanel2.setBackground(new java.awt.Color(102, 51, 153));
@@ -96,12 +101,12 @@ public class Tela_Login_Atendente extends javax.swing.JFrame {
             }
         });
 
-        btnLogin.setBackground(new java.awt.Color(241, 231, 254));
-        btnLogin.setFont(new java.awt.Font("Calibri", 1, 30)); // NOI18N
-        btnLogin.setText("Voltar");
-        btnLogin.addActionListener(new java.awt.event.ActionListener() {
+        btnVoltar.setBackground(new java.awt.Color(241, 231, 254));
+        btnVoltar.setFont(new java.awt.Font("Calibri", 1, 30)); // NOI18N
+        btnVoltar.setText("Voltar");
+        btnVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLoginActionPerformed(evt);
+                btnVoltarActionPerformed(evt);
             }
         });
 
@@ -140,7 +145,7 @@ public class Tela_Login_Atendente extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 121, Short.MAX_VALUE)
-                        .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jLabel1)
                         .addGap(18, 18, 18)
@@ -159,15 +164,13 @@ public class Tela_Login_Atendente extends javax.swing.JFrame {
                 .addComponent(Text_3, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(campoSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 94, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnLogin1, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1)
-                    .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(46, 46, 46))
         );
-
-        btnLogin.getAccessibleContext().setAccessibleName("Voltar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -180,8 +183,8 @@ public class Tela_Login_Atendente extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -191,9 +194,23 @@ public class Tela_Login_Atendente extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_campoSenhaActionPerformed
 
-    private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
+    private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
         // TODO add your handling code here:
 
+        System.exit(0);
+
+    }//GEN-LAST:event_btnVoltarActionPerformed
+
+    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
+        // TODO add your handling code here:
+
+        new Tela_Cadastro_Atendente().setVisible(true);
+
+    }//GEN-LAST:event_jLabel1MouseClicked
+
+    private void btnLogin1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogin1ActionPerformed
+        // TODO add your handling code here:
+        
         AtendenteDAO dao = new AtendenteDAO();
 
         if(dao.authentication(campoUsuario.getText(), campoSenha.getText())){
@@ -201,18 +218,7 @@ public class Tela_Login_Atendente extends javax.swing.JFrame {
         }else{
             JOptionPane.showMessageDialog(null, "Usuario ou senha incorreto!");
         }
-
-    }//GEN-LAST:event_btnLoginActionPerformed
-
-    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
-        // TODO add your handling code here:
-
-        new TelaCadastroAtendente().setVisible(true);
-
-    }//GEN-LAST:event_jLabel1MouseClicked
-
-    private void btnLogin1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogin1ActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_btnLogin1ActionPerformed
 
     /**
@@ -255,8 +261,8 @@ public class Tela_Login_Atendente extends javax.swing.JFrame {
     private javax.swing.JLabel Text_2;
     private javax.swing.JLabel Text_3;
     private javax.swing.JLabel Text_4;
-    private javax.swing.JButton btnLogin;
     private javax.swing.JButton btnLogin1;
+    private javax.swing.JButton btnVoltar;
     private javax.swing.JPasswordField campoSenha;
     private javax.swing.JTextField campoUsuario;
     private javax.swing.JLabel jLabel1;
