@@ -22,7 +22,11 @@ public class Teste {
         DAO dao = new MedicoDAO();
         
         dao.create(pessoa);
-       */
+        */
+       
+       DAO dao = new MedicoDAO();
+       
+       System.out.println(dao.update("711.111.111-11", new Medico(50000, LocalDate.now(), "411.111.111-11", "Pessoa 5", LocalDate.now(), new Endereco("rua", "cidade", "bairro", "estado"), new Contato("1111-1111", "5555555"))));
        
        /*
        Paciente paciente = new Paciente("711.111.111-11", "Pessoa 7", LocalDate.now(), new Endereco("rua", "cidade", "bairro", "estado"), new Contato("1111-1111"));
@@ -50,8 +54,10 @@ public class Teste {
        System.out.println(dao.authentication("atendente1.com", "123"));
        */
        
+       /*
        DAO dao = new AtendenteDAO();
        
        System.out.println(dao.update("411.111.111-11", new Atendente(50000, LocalDate.now(), "411.111.111-11", "Pessoa 5", LocalDate.now(), "atendente5.com", "123", new Endereco("rua", "cidade", "bairro", "estado"), new Contato("1111-1111", "5555555"))));
+       */
     }
 }

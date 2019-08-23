@@ -51,25 +51,27 @@ public class MedicoDAO implements DAO<Medico>{
         
         Conexao con = new Conexao();
         int res = con.executeUpdate(insertTo + values);
-        if (res >= 1) {
-            return true;
-        }
-        return false;
+        return res >= 1;
     }
     
     public boolean addEspecialidade(String cpfMedico, String especialidade){
         String sql = "INSERT INTO Especialidade VALUES('" + cpfMedico + "','" + especialidade + "')";
          Conexao con = new Conexao();
         int res = con.executeUpdate(sql);
-        if (res >= 1) {
-            return true;
-        }
-        return false;
+        return res >= 1;
     }
 
     @Override
-    public boolean update(String elemento, Medico novoElemento) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public boolean update(String Cpf, Medico medico) {
+        String sql = "UPDATE Medico SET Nome='" + medico.getNome() + "', Salario=" + medico.getSalario() + ", DataAdmissao='" + medico.getDataAdmissao() + 
+                "', Nascimento='" + medico.getNascimento() + "', Endereco='" + medico.getEndereco().getRua() + " " + medico.getEndereco().getBairro() + " " + 
+                medico.getEndereco().getCidade() + " " + medico.getEndereco().getEstado() + "', Email='" + medico.getContato().getEmail() + "', Telefone='" + 
+                medico.getContato().getTelefone() + "'" + " WHERE Cpf='" + Cpf + "'";
+        
+        Conexao con = new Conexao();
+        int resultado = con.executeUpdate(sql);
+        
+        return resultado >= 1;
     }
 
     @Override
