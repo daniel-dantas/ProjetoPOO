@@ -5,27 +5,16 @@
  */
 package com.ifpb.projetopoo.view;
 
-import com.ifpb.projetopoo.dao.AtendenteDAO;
-import com.ifpb.projetopoo.model.Atendente;
-import com.ifpb.projetopoo.model.Contato;
-import com.ifpb.projetopoo.model.Endereco;
-import java.time.LocalDate;
-import java.time.Month;
-import java.time.format.DateTimeFormatter;
-import java.time.format.DateTimeFormatterBuilder;
-import javax.swing.JOptionPane;
-
 /**
  *
  * @author IGOR
  */
-public class TelaCadastroAtendente extends javax.swing.JDialog {
+public class Tela_Cadastro_Atendente extends javax.swing.JFrame {
 
     /**
-     * Creates new form TelaCadastroAtendente
+     * Creates new form Tela_Cadastro_Atendente
      */
-    public TelaCadastroAtendente() {
-        
+    public Tela_Cadastro_Atendente() {
         initComponents();
     }
 
@@ -44,8 +33,6 @@ public class TelaCadastroAtendente extends javax.swing.JDialog {
         CPF = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         campoUsuario = new javax.swing.JTextPane();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        campoNome = new javax.swing.JTextPane();
         Usuario1 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         campoSenha = new javax.swing.JPasswordField();
@@ -54,45 +41,47 @@ public class TelaCadastroAtendente extends javax.swing.JDialog {
         Usuario2 = new javax.swing.JLabel();
         Usuario3 = new javax.swing.JLabel();
         Usuario4 = new javax.swing.JLabel();
-        jScrollPane6 = new javax.swing.JScrollPane();
-        campoEmail = new javax.swing.JTextPane();
         Usuario5 = new javax.swing.JLabel();
         btnCadastrar = new javax.swing.JButton();
         btnVoltar = new javax.swing.JButton();
-        campoTelefone = new javax.swing.JTextField();
         Usuario6 = new javax.swing.JLabel();
-        Usuario7 = new javax.swing.JLabel();
-        campoEndereco = new javax.swing.JTextField();
         campoDataDeAdmissao = new javax.swing.JFormattedTextField();
+        campoEndereco1 = new javax.swing.JTextField();
+        campoEndereco2 = new javax.swing.JTextField();
+        campoEndereco3 = new javax.swing.JTextField();
+        Usuario8 = new javax.swing.JLabel();
+        campoEndereco4 = new javax.swing.JTextField();
+        Usuario9 = new javax.swing.JLabel();
+        campoEndereco5 = new javax.swing.JTextField();
+        Usuario10 = new javax.swing.JLabel();
+        Usuario11 = new javax.swing.JLabel();
+        campoEndereco6 = new javax.swing.JTextField();
+        campoEndereco7 = new javax.swing.JTextField();
         Left_Menu = new javax.swing.JPanel();
         Text_1 = new javax.swing.JLabel();
         Text_2 = new javax.swing.JLabel();
         Text_3 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Cadastro");
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         Right_Menu.setBackground(new java.awt.Color(102, 51, 153));
 
-        Usuario.setFont(new java.awt.Font("Courier New", 1, 28)); // NOI18N
+        Usuario.setFont(new java.awt.Font("Calibri", 1, 28)); // NOI18N
         Usuario.setForeground(new java.awt.Color(241, 231, 254));
         Usuario.setText("Usuario:");
 
-        Senha.setFont(new java.awt.Font("Courier New", 1, 28)); // NOI18N
+        Senha.setFont(new java.awt.Font("Calibri", 1, 28)); // NOI18N
         Senha.setForeground(new java.awt.Color(241, 231, 254));
         Senha.setText("Senha:");
 
-        CPF.setFont(new java.awt.Font("Courier New", 1, 26)); // NOI18N
+        CPF.setFont(new java.awt.Font("Calibri", 1, 28)); // NOI18N
         CPF.setForeground(new java.awt.Color(241, 231, 254));
         CPF.setText("CPF:");
 
         campoUsuario.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
         jScrollPane1.setViewportView(campoUsuario);
 
-        campoNome.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
-        jScrollPane3.setViewportView(campoNome);
-
-        Usuario1.setFont(new java.awt.Font("Courier New", 1, 28)); // NOI18N
+        Usuario1.setFont(new java.awt.Font("Calibri", 1, 28)); // NOI18N
         Usuario1.setForeground(new java.awt.Color(241, 231, 254));
         Usuario1.setText("Nome:");
 
@@ -127,27 +116,24 @@ public class TelaCadastroAtendente extends javax.swing.JDialog {
             }
         });
 
-        Usuario2.setFont(new java.awt.Font("Courier New", 1, 28)); // NOI18N
+        Usuario2.setFont(new java.awt.Font("Calibri", 1, 28)); // NOI18N
         Usuario2.setForeground(new java.awt.Color(241, 231, 254));
         Usuario2.setText("Data de Nascimento:");
 
-        Usuario3.setFont(new java.awt.Font("Courier New", 1, 28)); // NOI18N
+        Usuario3.setFont(new java.awt.Font("Calibri", 1, 28)); // NOI18N
         Usuario3.setForeground(new java.awt.Color(241, 231, 254));
         Usuario3.setText("Email:");
 
-        Usuario4.setFont(new java.awt.Font("Courier New", 1, 28)); // NOI18N
+        Usuario4.setFont(new java.awt.Font("Calibri", 1, 28)); // NOI18N
         Usuario4.setForeground(new java.awt.Color(241, 231, 254));
         Usuario4.setText("Telefone:");
 
-        campoEmail.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
-        jScrollPane6.setViewportView(campoEmail);
-
-        Usuario5.setFont(new java.awt.Font("Courier New", 1, 28)); // NOI18N
+        Usuario5.setFont(new java.awt.Font("Calibri", 1, 30)); // NOI18N
         Usuario5.setForeground(new java.awt.Color(241, 231, 254));
         Usuario5.setText("Informações");
 
         btnCadastrar.setBackground(new java.awt.Color(241, 231, 254));
-        btnCadastrar.setFont(new java.awt.Font("Courier New", 3, 24)); // NOI18N
+        btnCadastrar.setFont(new java.awt.Font("Calibri", 1, 26)); // NOI18N
         btnCadastrar.setText("Cadastrar");
         btnCadastrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -156,7 +142,7 @@ public class TelaCadastroAtendente extends javax.swing.JDialog {
         });
 
         btnVoltar.setBackground(new java.awt.Color(241, 231, 254));
-        btnVoltar.setFont(new java.awt.Font("Courier New", 3, 24)); // NOI18N
+        btnVoltar.setFont(new java.awt.Font("Calibri", 1, 26)); // NOI18N
         btnVoltar.setText("Voltar");
         btnVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -164,27 +150,9 @@ public class TelaCadastroAtendente extends javax.swing.JDialog {
             }
         });
 
-        campoTelefone.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
-        campoTelefone.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                campoTelefoneActionPerformed(evt);
-            }
-        });
-
-        Usuario6.setFont(new java.awt.Font("Courier New", 1, 28)); // NOI18N
+        Usuario6.setFont(new java.awt.Font("Calibri", 1, 28)); // NOI18N
         Usuario6.setForeground(new java.awt.Color(241, 231, 254));
         Usuario6.setText("Data de Admissão:");
-
-        Usuario7.setFont(new java.awt.Font("Courier New", 1, 28)); // NOI18N
-        Usuario7.setForeground(new java.awt.Color(241, 231, 254));
-        Usuario7.setText("Endereço:");
-
-        campoEndereco.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
-        campoEndereco.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                campoEnderecoActionPerformed(evt);
-            }
-        });
 
         try {
             campoDataDeAdmissao.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
@@ -199,16 +167,79 @@ public class TelaCadastroAtendente extends javax.swing.JDialog {
             }
         });
 
+        campoEndereco1.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
+        campoEndereco1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                campoEndereco1ActionPerformed(evt);
+            }
+        });
+
+        campoEndereco2.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
+        campoEndereco2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                campoEndereco2ActionPerformed(evt);
+            }
+        });
+
+        campoEndereco3.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
+        campoEndereco3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                campoEndereco3ActionPerformed(evt);
+            }
+        });
+
+        Usuario8.setFont(new java.awt.Font("Calibri", 1, 28)); // NOI18N
+        Usuario8.setForeground(new java.awt.Color(241, 231, 254));
+        Usuario8.setText("Bairro:");
+
+        campoEndereco4.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
+        campoEndereco4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                campoEndereco4ActionPerformed(evt);
+            }
+        });
+
+        Usuario9.setFont(new java.awt.Font("Calibri", 1, 28)); // NOI18N
+        Usuario9.setForeground(new java.awt.Color(241, 231, 254));
+        Usuario9.setText("Rua:");
+
+        campoEndereco5.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
+        campoEndereco5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                campoEndereco5ActionPerformed(evt);
+            }
+        });
+
+        Usuario10.setFont(new java.awt.Font("Calibri", 1, 28)); // NOI18N
+        Usuario10.setForeground(new java.awt.Color(241, 231, 254));
+        Usuario10.setText("Cidade:");
+
+        Usuario11.setFont(new java.awt.Font("Calibri", 1, 28)); // NOI18N
+        Usuario11.setForeground(new java.awt.Color(241, 231, 254));
+        Usuario11.setText("Estado:");
+
+        campoEndereco6.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
+        campoEndereco6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                campoEndereco6ActionPerformed(evt);
+            }
+        });
+
+        campoEndereco7.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
+        campoEndereco7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                campoEndereco7ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout Right_MenuLayout = new javax.swing.GroupLayout(Right_Menu);
         Right_Menu.setLayout(Right_MenuLayout);
         Right_MenuLayout.setHorizontalGroup(
             Right_MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Right_MenuLayout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(Right_MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jSeparator1)
                     .addGroup(Right_MenuLayout.createSequentialGroup()
-                        .addGap(5, 5, 5)
+                        .addGap(17, 17, 17)
                         .addGroup(Right_MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(Senha)
                             .addComponent(Usuario))
@@ -216,52 +247,48 @@ public class TelaCadastroAtendente extends javax.swing.JDialog {
                         .addGroup(Right_MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(campoSenha)
                             .addComponent(jScrollPane1)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Right_MenuLayout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(Usuario5)
+                        .addGap(321, 321, 321))
                     .addGroup(Right_MenuLayout.createSequentialGroup()
-                        .addGap(12, 12, 12)
-                        .addComponent(Usuario1)
-                        .addGap(81, 81, 81)
-                        .addComponent(jScrollPane3))
+                        .addContainerGap()
+                        .addComponent(jSeparator1))
                     .addGroup(Right_MenuLayout.createSequentialGroup()
-                        .addGap(13, 13, 13)
+                        .addGap(24, 24, 24)
+                        .addGroup(Right_MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Usuario9)
+                            .addComponent(campoEndereco4)
+                            .addComponent(campoEndereco3)
+                            .addComponent(Usuario1)
+                            .addComponent(Usuario2)
+                            .addComponent(Usuario4)
+                            .addComponent(campoNascimento, javax.swing.GroupLayout.DEFAULT_SIZE, 370, Short.MAX_VALUE)
+                            .addComponent(campoEndereco1)
+                            .addComponent(Usuario10)
+                            .addComponent(campoEndereco7))
+                        .addGap(53, 53, 53)
                         .addGroup(Right_MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(Right_MenuLayout.createSequentialGroup()
-                                .addGroup(Right_MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(Usuario3)
-                                    .addComponent(Usuario4)
-                                    .addComponent(Usuario7, javax.swing.GroupLayout.Alignment.TRAILING))
-                                .addGroup(Right_MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(Right_MenuLayout.createSequentialGroup()
-                                        .addGap(13, 13, 13)
-                                        .addGroup(Right_MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(campoTelefone)
-                                            .addComponent(jScrollPane6)))
-                                    .addGroup(Right_MenuLayout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(campoEndereco))))
+                                .addGap(0, 56, Short.MAX_VALUE)
+                                .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnCadastrar))
+                            .addComponent(campoEndereco6, javax.swing.GroupLayout.DEFAULT_SIZE, 370, Short.MAX_VALUE)
+                            .addComponent(campoEndereco2)
+                            .addComponent(campoCpf)
+                            .addComponent(campoDataDeAdmissao)
+                            .addComponent(campoEndereco5)
                             .addGroup(Right_MenuLayout.createSequentialGroup()
-                                .addGroup(Right_MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(Usuario2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(campoNascimento))
-                                .addGap(58, 58, 58)
                                 .addGroup(Right_MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(Usuario6)
                                     .addComponent(CPF)
-                                    .addComponent(campoCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(Right_MenuLayout.createSequentialGroup()
-                                .addComponent(Usuario6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(campoDataDeAdmissao, javax.swing.GroupLayout.PREFERRED_SIZE, 446, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                    .addComponent(Usuario3)
+                                    .addComponent(Usuario8)
+                                    .addComponent(Usuario11))
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(18, 18, 18)))
                 .addContainerGap())
-            .addGroup(Right_MenuLayout.createSequentialGroup()
-                .addGap(282, 282, 282)
-                .addComponent(Usuario5, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Right_MenuLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnCadastrar)
-                .addGap(20, 20, 20))
         );
         Right_MenuLayout.setVerticalGroup(
             Right_MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -276,57 +303,70 @@ public class TelaCadastroAtendente extends javax.swing.JDialog {
                     .addComponent(campoSenha))
                 .addGap(18, 18, 18)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(Usuario5, javax.swing.GroupLayout.DEFAULT_SIZE, 46, Short.MAX_VALUE)
-                .addGap(31, 31, 31)
-                .addGroup(Right_MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(Usuario1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane3))
-                .addGap(18, 18, 18)
+                .addGroup(Right_MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(Right_MenuLayout.createSequentialGroup()
+                        .addGap(86, 86, 86)
+                        .addGroup(Right_MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(Usuario1)
+                            .addComponent(CPF)))
+                    .addGroup(Right_MenuLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(Usuario5)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(Right_MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(campoEndereco1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(campoCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(Right_MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Usuario2)
-                    .addComponent(CPF))
+                    .addComponent(Usuario3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(Right_MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(campoNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(campoCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(Right_MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(Usuario3)
-                    .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addComponent(campoNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(campoEndereco2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(Right_MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Usuario4, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(campoTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Usuario4)
+                    .addComponent(Usuario6))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(Right_MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(campoEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Usuario7, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addComponent(campoEndereco3, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(campoDataDeAdmissao, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(Right_MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Usuario6)
-                    .addComponent(campoDataDeAdmissao, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(34, 34, 34)
+                    .addComponent(Usuario9)
+                    .addComponent(Usuario8))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(Right_MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(campoEndereco4, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(campoEndereco5, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(Right_MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Usuario10)
+                    .addComponent(Usuario11))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(Right_MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(campoEndereco7, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(campoEndereco6, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(63, 63, 63)
                 .addGroup(Right_MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(55, 55, 55))
+                .addGap(40, 40, 40))
         );
-
-        Usuario5.getAccessibleContext().setAccessibleName("");
 
         Left_Menu.setBackground(new java.awt.Color(36, 37, 42));
         Left_Menu.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.darkGray, java.awt.Color.darkGray, java.awt.Color.darkGray, java.awt.Color.darkGray));
 
-        Text_1.setFont(new java.awt.Font("Courier New", 3, 36)); // NOI18N
+        Text_1.setFont(new java.awt.Font("Calibri", 1, 36)); // NOI18N
         Text_1.setForeground(new java.awt.Color(241, 231, 254));
-        Text_1.setText(" Cadastro");
+        Text_1.setText("Cadastro");
 
-        Text_2.setFont(new java.awt.Font("Courier New", 3, 36)); // NOI18N
+        Text_2.setFont(new java.awt.Font("Calibri", 1, 36)); // NOI18N
         Text_2.setForeground(new java.awt.Color(241, 231, 254));
-        Text_2.setText("    de");
+        Text_2.setText("de");
 
-        Text_3.setFont(new java.awt.Font("Courier New", 3, 36)); // NOI18N
+        Text_3.setFont(new java.awt.Font("Calibri", 1, 36)); // NOI18N
         Text_3.setForeground(new java.awt.Color(241, 231, 254));
         Text_3.setText(" Atendente");
 
@@ -334,24 +374,30 @@ public class TelaCadastroAtendente extends javax.swing.JDialog {
         Left_Menu.setLayout(Left_MenuLayout);
         Left_MenuLayout.setHorizontalGroup(
             Left_MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Text_2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(Left_MenuLayout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Left_MenuLayout.createSequentialGroup()
+                .addContainerGap(49, Short.MAX_VALUE)
                 .addGroup(Left_MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Text_1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Text_3, javax.swing.GroupLayout.DEFAULT_SIZE, 234, Short.MAX_VALUE))
-                .addContainerGap())
+                    .addGroup(Left_MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(Text_3, javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Left_MenuLayout.createSequentialGroup()
+                            .addComponent(Text_1)
+                            .addGap(20, 20, 20)))
+                    .addGroup(Left_MenuLayout.createSequentialGroup()
+                        .addGap(59, 59, 59)
+                        .addComponent(Text_2)
+                        .addGap(69, 69, 69)))
+                .addGap(44, 44, 44))
         );
         Left_MenuLayout.setVerticalGroup(
             Left_MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Left_MenuLayout.createSequentialGroup()
-                .addGap(161, 161, 161)
-                .addComponent(Text_1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Text_2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Text_3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(241, 241, 241))
+            .addGroup(Left_MenuLayout.createSequentialGroup()
+                .addGap(297, 297, 297)
+                .addComponent(Text_1)
+                .addGap(18, 18, 18)
+                .addComponent(Text_2)
+                .addGap(18, 18, 18)
+                .addComponent(Text_3)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -380,45 +426,63 @@ public class TelaCadastroAtendente extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_campoNascimentoActionPerformed
 
-    private void campoTelefoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoTelefoneActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_campoTelefoneActionPerformed
-
-    private void campoEnderecoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoEnderecoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_campoEnderecoActionPerformed
-
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
         // TODO add your handling code here:
-        
-        
+
         String nascimento = campoNascimento.getText();
-        
+
         int dia = Integer.parseInt(nascimento.substring(0, 2));
         int mes = Integer.parseInt(nascimento.substring(3, 5));
         int ano = Integer.parseInt(nascimento.substring(6, 10));
-        
+
         AtendenteDAO atendentedao = new AtendenteDAO();
-        
+
         if(atendentedao.create(new Atendente(0, LocalDate.now(), campoCpf.getText(), campoNome.getText(), LocalDate.of(ano, mes, dia), campoUsuario.getText(), campoSenha.getText(), new Endereco("", "", "", ""), new Contato(campoEmail.getText(), campoTelefone.getText())))){
             JOptionPane.showMessageDialog(null, "Atendente Cadastrado com sucesso!");
         }else{
             JOptionPane.showMessageDialog(null, "Erro ao cadastrar atendente!");
         }
-        
-        
+
     }//GEN-LAST:event_btnCadastrarActionPerformed
+
+    private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
+        // TODO add your handling code here:
+
+        this.setVisible(false);
+
+    }//GEN-LAST:event_btnVoltarActionPerformed
 
     private void campoDataDeAdmissaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoDataDeAdmissaoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_campoDataDeAdmissaoActionPerformed
 
-    private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
+    private void campoEndereco1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoEndereco1ActionPerformed
         // TODO add your handling code here:
-        
-        this.setVisible(false);
-        
-    }//GEN-LAST:event_btnVoltarActionPerformed
+    }//GEN-LAST:event_campoEndereco1ActionPerformed
+
+    private void campoEndereco2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoEndereco2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_campoEndereco2ActionPerformed
+
+    private void campoEndereco3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoEndereco3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_campoEndereco3ActionPerformed
+
+    private void campoEndereco4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoEndereco4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_campoEndereco4ActionPerformed
+
+    private void campoEndereco5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoEndereco5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_campoEndereco5ActionPerformed
+
+    private void campoEndereco6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoEndereco6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_campoEndereco6ActionPerformed
+
+    private void campoEndereco7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoEndereco7ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_campoEndereco7ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -437,22 +501,20 @@ public class TelaCadastroAtendente extends javax.swing.JDialog {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaCadastroAtendente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Tela_Cadastro_Atendente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaCadastroAtendente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Tela_Cadastro_Atendente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaCadastroAtendente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Tela_Cadastro_Atendente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaCadastroAtendente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Tela_Cadastro_Atendente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
-        /* Create and display the dialog */
+        /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                
-                new TelaCadastroAtendente().setVisible(true);
-                
+                new Tela_Cadastro_Atendente().setVisible(true);
             }
         });
     }
@@ -467,26 +529,30 @@ public class TelaCadastroAtendente extends javax.swing.JDialog {
     private javax.swing.JLabel Text_3;
     private javax.swing.JLabel Usuario;
     private javax.swing.JLabel Usuario1;
+    private javax.swing.JLabel Usuario10;
+    private javax.swing.JLabel Usuario11;
     private javax.swing.JLabel Usuario2;
     private javax.swing.JLabel Usuario3;
     private javax.swing.JLabel Usuario4;
     private javax.swing.JLabel Usuario5;
     private javax.swing.JLabel Usuario6;
-    private javax.swing.JLabel Usuario7;
+    private javax.swing.JLabel Usuario8;
+    private javax.swing.JLabel Usuario9;
     private javax.swing.JButton btnCadastrar;
     private javax.swing.JButton btnVoltar;
     private javax.swing.JFormattedTextField campoCpf;
     private javax.swing.JFormattedTextField campoDataDeAdmissao;
-    private javax.swing.JTextPane campoEmail;
-    private javax.swing.JTextField campoEndereco;
+    private javax.swing.JTextField campoEndereco1;
+    private javax.swing.JTextField campoEndereco2;
+    private javax.swing.JTextField campoEndereco3;
+    private javax.swing.JTextField campoEndereco4;
+    private javax.swing.JTextField campoEndereco5;
+    private javax.swing.JTextField campoEndereco6;
+    private javax.swing.JTextField campoEndereco7;
     private javax.swing.JFormattedTextField campoNascimento;
-    private javax.swing.JTextPane campoNome;
     private javax.swing.JPasswordField campoSenha;
-    private javax.swing.JTextField campoTelefone;
     private javax.swing.JTextPane campoUsuario;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JSeparator jSeparator1;
     // End of variables declaration//GEN-END:variables
 }
