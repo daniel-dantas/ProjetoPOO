@@ -65,7 +65,7 @@ public class Tela_Login_Atendente extends javax.swing.JFrame {
                         .addGap(24, 24, 24)
                         .addComponent(Text_1))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(76, 76, 76)
+                        .addGap(64, 64, 64)
                         .addComponent(Text_2)))
                 .addContainerGap(35, Short.MAX_VALUE))
         );
