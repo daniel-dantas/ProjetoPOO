@@ -23,5 +23,15 @@ public class ProcedimentoDAO {
         int res = con.executeUpdatewithId(sql);
         return res;
     }
+    
+    public boolean update(int id, Procedimento elemento) {
+        String sql = "UPDATE Procedimento SET Dia='" + Date.valueOf(elemento.getHorario().toLocalDate()) + "', Hora='" + Time.valueOf(elemento.getHorario().toLocalTime()) + 
+                "' WHERE Id=" + id;
+        
+        Conexao con = new Conexao();
+        int resultado = con.executeUpdate(sql);
+        
+        return resultado >= 1;
+    }
 
 }

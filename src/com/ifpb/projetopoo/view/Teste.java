@@ -99,8 +99,14 @@ public class Teste {
        teste.create(new Consulta("Pressão Alta", "711.111.111-11", "711.111.111-11", LocalDateTime.now()));
        */
         
+       /*
        ExameDAO teste = new ExameDAO();
        
        teste.create(new Exame(null, "Sangue", "Tudo em harmonia, meu bom", "711.111.111-11", LocalDateTime.now()));
+       */
+       
+       ConsultaDAO teste = new ConsultaDAO();
+       
+       teste.update(3, new Consulta("Nada", "711.111.111-11", "711.111.111-11", LocalDateTime.now()));
     }
 }

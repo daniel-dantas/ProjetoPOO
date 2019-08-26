@@ -33,4 +33,19 @@ public class ConsultaDAO extends ProcedimentoDAO{
         }
         return false;
     }
+    
+    public boolean update(int id, Consulta elemento) {
+        boolean retorno = super.update(id, elemento);
+        
+        String sql = "UPDATE Consulta SET Sintomas='" + elemento.getSintomas() + "' WHERE IdProcedimento=" + id;
+        
+        Conexao con = new Conexao();
+        int resultado = con.executeUpdate(sql);
+        
+        if(resultado < 1) {
+            retorno = false;
+        }
+        
+        return retorno;
+    }
 }
