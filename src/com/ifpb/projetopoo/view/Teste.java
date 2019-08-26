@@ -8,6 +8,7 @@ package com.ifpb.projetopoo.view;
 import com.ifpb.projetopoo.dao.*;
 import com.ifpb.projetopoo.model.*;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 /**
  *
@@ -55,13 +56,13 @@ public class Teste {
        System.out.println(dao.update("711.111.111-11", new Paciente("711.111.111-11", "Pessoa 8", LocalDate.now(), new Endereco("tal", "cidade", "bairro", "estado"), new Contato("pessoa@outlook.com", null))));
        */
        
-       
+       /*
        PacienteDAO dao = new PacienteDAO();
        
        Paciente teste = dao.read("711.111.111-11");
        
        System.out.println(teste.getNome());
-       
+       */
         
        /*
        Atendente atendente = new Atendente(20000, LocalDate.now(), "411.111.111-11", "Pessoa 6", LocalDate.now(), "atendente1.com", "123", new Endereco("rua", "cidade", "bairro", "estado"), new Contato("1111-1111", null));
@@ -91,5 +92,10 @@ public class Teste {
        
        System.out.println(teste);
        */
+       
+       Consulta teste = new Consulta("Pressão Alta", "711.111.111-11", "711.111.111-11", LocalDateTime.now());
+       
+       teste.create();
+        
     }
 }

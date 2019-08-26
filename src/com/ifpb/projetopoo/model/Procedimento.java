@@ -5,7 +5,10 @@
  */
 package com.ifpb.projetopoo.model;
 
+import com.ifpb.projetopoo.dao.Conexao;
 import java.time.LocalDateTime;
+import java.sql.Date;
+import java.sql.Time;
 
 /**
  *
@@ -37,7 +40,14 @@ public abstract class Procedimento implements MarcacaoProcedimento{
         return "Procedimento{" + "cpfDoPaciente=" + cpfDoPaciente + ", horario=" + horario + '}';
     }
     
-    
+    public int createBase(){
+        String sql = "INSERT INTO Procedimento(CpfPaciente, Dia, Hora) Values('" + getCpfDoPaciente() + "','" + Date.valueOf(getHorario().toLocalDate()) + "','" + 
+                Time.valueOf(getHorario().toLocalTime()) + "')";
+        
+        Conexao con = new Conexao();
+        int res = con.executeUpdatewithId(sql);
+        return res;
+    }
     
     
 }

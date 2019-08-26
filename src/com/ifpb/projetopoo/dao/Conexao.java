@@ -21,7 +21,7 @@ public class Conexao {
     public Conexao() {     
         url="jdbc:postgresql://localhost:5432/POO";
         usr="postgres";
-        pass="123";
+        pass="1234";
     }
     
     private Connection getConnection(){
@@ -47,6 +47,22 @@ public class Conexao {
             int res=stm.executeUpdate(query);
             con.close();
             return res;
+        }catch(SQLException ex){
+            JOptionPane.showMessageDialog(null, "Problemas com a conexão\n"+ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+            return 0;
+        }
+    }
+    
+    public int executeUpdatewithId (String query) {
+        try{
+            Connection con = getConnection();
+            PreparedStatement ps = con.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+            System.out.println(query);
+            ps.executeUpdate();
+            ResultSet rs = ps.getGeneratedKeys();
+            con.close();
+            rs.next();
+            return rs.getInt("Id");
         }catch(SQLException ex){
             JOptionPane.showMessageDialog(null, "Problemas com a conexão\n"+ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
             return 0;
