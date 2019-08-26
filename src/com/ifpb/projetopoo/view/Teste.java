@@ -93,9 +93,10 @@ public class Teste {
        System.out.println(teste);
        */
        
-       Consulta teste = new Consulta("Pressão Alta", "711.111.111-11", "711.111.111-11", LocalDateTime.now());
        
-       teste.create();
+       ConsultaDAO teste = new ConsultaDAO();
+        
+       teste.create(new Consulta("Pressão Alta", "711.111.111-11", "711.111.111-11", LocalDateTime.now()));
         
     }
 }

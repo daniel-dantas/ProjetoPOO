@@ -40,27 +40,4 @@ public class Consulta extends Procedimento{
         return "Consulta{"+"cpf do pacinte="+getCpfDoPaciente()+",horario="+getHorario()+",sintomas=" + sintomas + ", cpfDoMedico=" + cpfDoMedico + '}';
     }
 
-    public boolean create (){
-        int resultado = createBase();
-        if(resultado>=1) {
-            String insertInto = "INSERT INTO Consulta(IdProcedimento, CpfMedico";
-            String values = " VALUES (" + resultado + ",'" + cpfDoMedico + "'";
-            
-            if (sintomas != null) {
-                insertInto += ", Sintomas";
-                values += ",'" + sintomas + "'";
-            }
-            
-            insertInto += ")";
-            values += ")";
-            
-            Conexao con = new Conexao();
-            int res = con.executeUpdate(insertInto + values);
-            return res >= 1;
-        }
-        return false;
-    }
-    
-    
-    
 }
