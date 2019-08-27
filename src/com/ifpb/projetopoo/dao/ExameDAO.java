@@ -32,4 +32,19 @@ public class ExameDAO extends ProcedimentoDAO{
         }
         return false;
     }
+    
+    public boolean update(int id, Exame elemento) {
+        boolean retorno = super.update(id, elemento);
+        
+        String sql = "UPDATE Exame SET Resultado='" + elemento.getResultado() + "' WHERE IdProcedimento=" + id;
+        
+        Conexao con = new Conexao();
+        int resultado = con.executeUpdate(sql);
+        
+        if(resultado < 1) {
+            retorno = false;
+        }
+        
+        return retorno;
+    }
 }
