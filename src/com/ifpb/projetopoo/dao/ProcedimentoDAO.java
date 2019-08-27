@@ -5,9 +5,14 @@
  */
 package com.ifpb.projetopoo.dao;
 
+import com.ifpb.projetopoo.model.Consulta;
+import com.ifpb.projetopoo.model.Exame;
 import com.ifpb.projetopoo.model.Procedimento;
 import java.sql.Date;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Time;
+import java.time.LocalDateTime;
 
 /**
  *
@@ -33,5 +38,21 @@ public class ProcedimentoDAO {
         
         return resultado >= 1;
     }
-
+    
+    public Procedimento read(int id, String tipo){
+        String sql = "SELECT * FROM Procedimento";
+        sql += " Where Id='" + id + "'";
+        Conexao con = new Conexao();
+        try{
+            ResultSet consulta = con.executeQuery(sql);
+            consulta.next();
+            if (tipo.equals("consulta")) {
+                return new Consulta(null, null, consulta.getString("CpfPaciente"), LocalDateTime.of(consulta.getDate("Dia").toLocalDate(), consulta.getTime("Hora").toLocalTime()));
+            } else {
+                return new Exame(null, null, null, consulta.getString("CpfPaciente"), LocalDateTime.of(consulta.getDate("Dia").toLocalDate(), consulta.getTime("Hora").toLocalTime()));
+            }
+        }catch(SQLException e) {
+            return null;
+        }
+    }
 }

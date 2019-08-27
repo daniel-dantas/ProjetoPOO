@@ -6,6 +6,8 @@
 package com.ifpb.projetopoo.dao;
 
 import com.ifpb.projetopoo.model.Exame;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 /**
  *
@@ -46,5 +48,21 @@ public class ExameDAO extends ProcedimentoDAO{
         }
         
         return retorno;
+    }
+    
+    public Exame read(int id) {
+        String sql = "SELECT * FROM Exame";
+        sql += " Where IdProcedimento='" + id + "'";
+        Conexao con = new Conexao();
+        try{
+            ResultSet consulta = con.executeQuery(sql);
+            consulta.next();
+            Exame retorno = (Exame) super.read(id, "exame");
+            retorno.setTipoDeExame(consulta.getString("Tipo"));
+            retorno.setResultado(consulta.getString("Resultado"));
+            return retorno;
+        }catch(SQLException e) {
+            return null;
+        }
     }
 }
