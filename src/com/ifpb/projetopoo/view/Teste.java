@@ -117,8 +117,15 @@ public class Teste {
        teste.update(1, new Exame(null, "Sangue", "oops", "711.111.111-11", LocalDateTime.now()));
        */
        
+       /*
        ExameDAO teste = new ExameDAO();
        
-        System.out.println(teste.read(1));;
+       System.out.println(teste.read(1));
+       */
+       
+       
+       ConsultaDAO teste = new ConsultaDAO();
+       
+       System.out.println(teste.read(2));
     }
 }

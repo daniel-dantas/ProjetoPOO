@@ -15,7 +15,7 @@ import java.time.LocalDateTime;
 public class Consulta extends Procedimento{
     
     private String sintomas;
-    private final String cpfDoMedico;
+    private String cpfDoMedico;
 
     public Consulta(String sintomas, String cpfDoMedico, String cpfDoPaciente, LocalDateTime horario) {
         super(cpfDoPaciente, horario);
@@ -29,6 +29,10 @@ public class Consulta extends Procedimento{
     
     public String getSintomas() {
         return sintomas;
+    }
+    
+    public void setCpfMedico(String cpfDoMedico) {
+        this.cpfDoMedico = cpfDoMedico;
     }
 
     public void setSintomas(String sintomas) {
