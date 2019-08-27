@@ -26,14 +26,14 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <Component id="Left_Menu" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Component id="jScrollPane1" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jScrollPane1" alignment="0" pref="825" max="32767" attributes="0"/>
+          <Component id="jScrollPane1" alignment="0" max="32767" attributes="0"/>
           <Component id="Left_Menu" alignment="1" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
@@ -62,33 +62,47 @@
               <Group type="102" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
-                          <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="Text_1" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
+                                  <Component id="Text_1" min="-2" max="-2" attributes="0"/>
+                              </Group>
                               <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="101" max="-2" attributes="0"/>
                                   <Component id="Text_2" min="-2" max="-2" attributes="0"/>
                               </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                                  <Component id="Text_3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <EmptySpace min="0" pref="27" max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jSeparator1" alignment="0" max="32767" attributes="0"/>
+                              <Component id="jSeparator2" alignment="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
-                          <Component id="Text_3" min="-2" max="-2" attributes="0"/>
-                      </Group>
                   </Group>
-                  <EmptySpace pref="36" max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="299" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="282" max="-2" attributes="0"/>
+                  <Component id="jSeparator2" min="-2" pref="10" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
                   <Component id="Text_1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="Text_2" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
                   <Component id="Text_3" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                  <Component id="jSeparator1" min="-2" pref="10" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -128,6 +142,26 @@
             <Property name="text" type="java.lang.String" value=" Atendente"/>
           </Properties>
         </Component>
+        <Component class="javax.swing.JSeparator" name="jSeparator1">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="0" red="0" type="rgb"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="0" red="0" type="rgb"/>
+            </Property>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JSeparator" name="jSeparator2">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="0" red="0" type="rgb"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="0" red="0" type="rgb"/>
+            </Property>
+          </Properties>
+        </Component>
       </SubComponents>
     </Container>
     <Container class="javax.swing.JScrollPane" name="jScrollPane1">
@@ -145,80 +179,75 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="316" max="-2" attributes="0"/>
+                      <Component id="Usuario49" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jSeparator5" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="Usuario45" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="Usuario52" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="Usuario46" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="Usuario48" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="Usuario53" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                      <Component id="campoCidade4" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="campoRua4" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="campoTelefone4" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="campoNascimento4" alignment="0" pref="300" max="32767" attributes="0"/>
-                                      <Component id="campoNome4" alignment="0" max="32767" attributes="0"/>
-                                  </Group>
+                                  <Component id="Senha4" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="Usuario44" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace pref="70" max="32767" attributes="0"/>
+                              <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="campoSenha4" max="32767" attributes="0"/>
+                                  <Component id="campoUsuario4" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="campoRua4" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="campoNascimento4" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="campoTelefone4" alignment="0" max="32767" attributes="0"/>
                                   <Group type="102" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="102" alignment="1" attributes="0">
-                                              <EmptySpace min="0" pref="12" max="32767" attributes="0"/>
-                                              <Component id="btnVoltar4" min="-2" pref="130" max="-2" attributes="0"/>
-                                              <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
-                                              <Component id="btnCadastrar4" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                                  <Component id="campoEstado4" alignment="0" max="32767" attributes="0"/>
-                                                  <Component id="campoBairro4" alignment="0" max="32767" attributes="0"/>
-                                                  <Component id="campoDataDeAdmissao4" alignment="0" pref="300" max="32767" attributes="0"/>
-                                                  <Component id="Usuario50" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="CPF4" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="Usuario47" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="Usuario51" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="Usuario54" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="campoEmail4" alignment="0" max="32767" attributes="0"/>
-                                              </Group>
-                                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                          </Group>
+                                          <Component id="Usuario45" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="Usuario52" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="Usuario46" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="Usuario48" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="Usuario53" alignment="0" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                                      <EmptySpace min="0" pref="133" max="32767" attributes="0"/>
                                   </Group>
+                                  <Component id="campoCidade4" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="campoNome4" alignment="0" max="32767" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" attributes="0">
-                                      <Component id="campoCpf4" min="-2" pref="300" max="-2" attributes="0"/>
-                                      <EmptySpace min="0" pref="55" max="32767" attributes="0"/>
+                                      <EmptySpace min="0" pref="85" max="32767" attributes="0"/>
+                                      <Component id="btnVoltar4" min="-2" pref="137" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="btnCadastrar4" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="campoBairro4" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="campoDataDeAdmissao4" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="campoEstado4" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="campoEmail4" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="campoCpf4" alignment="1" pref="377" max="32767" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="CPF4" min="-2" max="-2" attributes="0"/>
+                                          <Component id="Usuario50" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="Usuario47" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="Usuario51" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="Usuario54" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
+                              <EmptySpace min="29" pref="29" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Component id="Usuario49" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="333" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="Senha4" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="Usuario44" alignment="0" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="campoSenha4" alignment="0" max="32767" attributes="0"/>
-                          <Component id="campoUsuario4" alignment="0" max="32767" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -228,64 +257,61 @@
                       <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="Usuario44" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="campoUsuario4" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                          <Group type="102" alignment="3" attributes="0">
+                              <EmptySpace min="1" pref="1" max="-2" attributes="0"/>
+                              <Component id="campoUsuario4" min="-2" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                       <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="Senha4" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="campoSenha4" alignment="3" max="32767" attributes="0"/>
+                          <Component id="campoSenha4" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                       <Component id="jSeparator5" min="-2" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="86" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="Usuario45" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="CPF4" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="Usuario49" min="-2" max="-2" attributes="0"/>
-                          </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="Usuario49" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="Usuario45" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="CPF4" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="campoNome4" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                           <Component id="campoCpf4" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace min="-2" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="Usuario46" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="Usuario47" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace min="-2" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="campoNascimento4" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                           <Component id="campoEmail4" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="Usuario48" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="Usuario50" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace min="-2" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="campoTelefone4" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                           <Component id="campoDataDeAdmissao4" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="Usuario52" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="Usuario51" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace min="-2" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="campoRua4" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                           <Component id="campoBairro4" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="Usuario53" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="Usuario54" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -295,12 +321,12 @@
                           <Component id="campoCidade4" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                           <Component id="campoEstado4" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="btnCadastrar4" alignment="3" min="-2" pref="56" max="-2" attributes="0"/>
                           <Component id="btnVoltar4" alignment="3" min="-2" pref="56" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="40" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -353,21 +379,12 @@
             <Component class="javax.swing.JSeparator" name="jSeparator5">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="fc" green="14" red="8c" type="rgb"/>
+                  <Color blue="0" green="0" red="0" type="rgb"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="fc" green="14" red="8c" type="rgb"/>
+                  <Color blue="0" green="0" red="0" type="rgb"/>
                 </Property>
-                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                  <Border info="org.netbeans.modules.form.compat2.border.SoftBevelBorderInfo">
-                    <BevelBorder>
-                      <Color PropertyName="highlightOuter" blue="c0" green="c0" id="lightGray" palette="1" red="c0" type="palette"/>
-                      <Color PropertyName="highlightInner" blue="c0" green="c0" id="lightGray" palette="1" red="c0" type="palette"/>
-                      <Color PropertyName="shadowOuter" blue="c0" green="c0" id="lightGray" palette="1" red="c0" type="palette"/>
-                      <Color PropertyName="shadowInner" blue="c0" green="c0" id="lightGray" palette="1" red="c0" type="palette"/>
-                    </BevelBorder>
-                  </Border>
-                </Property>
+                <Property name="toolTipText" type="java.lang.String" value=""/>
               </Properties>
             </Component>
             <Component class="javax.swing.JPasswordField" name="campoSenha4">
