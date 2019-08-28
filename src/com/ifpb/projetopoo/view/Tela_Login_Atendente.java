@@ -223,6 +223,7 @@ public class Tela_Login_Atendente extends javax.swing.JFrame {
         AtendenteDAO dao = new AtendenteDAO();
 
         if(dao.authentication(campoUsuario.getText(), campoSenha.getText())){
+            new Tela_Principal().setVisible(true);
             JOptionPane.showMessageDialog(null, "Bem vindo!");
         }else{
             JOptionPane.showMessageDialog(null, "Usuario ou senha incorreto!");
