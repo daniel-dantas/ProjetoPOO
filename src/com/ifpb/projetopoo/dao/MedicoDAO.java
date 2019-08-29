@@ -18,8 +18,7 @@ import java.util.List;
  *
  * @author IFPB
  */
-public class MedicoDAO implements DAO<Medico>{
-    @Override
+public class MedicoDAO{
     public boolean create(Medico medico) {
         boolean resultado;
         resultado = addMedico(medico);
@@ -65,7 +64,6 @@ public class MedicoDAO implements DAO<Medico>{
         return res >= 1;
     }
 
-    @Override
     public boolean update(String Cpf, Medico medico) {
         String sql = "UPDATE Medico SET Nome='" + medico.getNome() + "', Salario=" + medico.getSalario() + ", DataAdmissao='" + medico.getDataAdmissao() + 
                 "', Nascimento='" + medico.getNascimento() + "', Endereco='" + medico.getEndereco().getRua() + " " + medico.getEndereco().getBairro() + " " + 
@@ -78,12 +76,10 @@ public class MedicoDAO implements DAO<Medico>{
         return resultado >= 1;
     }
 
-    @Override
     public boolean remove(Medico elemento) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    @Override
     public Medico read(String Cpf) {
         String sql = "SELECT * FROM Medico";
         sql += " Where Cpf='" + Cpf + "'";

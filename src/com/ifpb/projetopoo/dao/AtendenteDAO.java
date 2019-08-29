@@ -8,6 +8,7 @@ package com.ifpb.projetopoo.dao;
 import com.ifpb.projetopoo.model.Atendente;
 import com.ifpb.projetopoo.model.Contato;
 import com.ifpb.projetopoo.model.Endereco;
+import com.ifpb.projetopoo.model.Paciente;
 import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -20,11 +21,10 @@ import java.util.Objects;
  *
  * @author daniel
  */
-public class AtendenteDAO implements DAO<Atendente> {
+public class AtendenteDAO implements DAO<Atendente>{
 
     private static final List<Atendente> listaAtendentes = new ArrayList<>();
 
-    @Override
     public boolean create(Atendente atendente) {
         String insertTo = "INSERT INTO Atendente(Cpf, Nome, Salario, DataAdmissao, UserName, Senha, Nascimento, Endereco";
         
@@ -45,7 +45,6 @@ public class AtendenteDAO implements DAO<Atendente> {
         return res >= 1;
     }
 
-    @Override
     public boolean update(String Cpf, Atendente atendente) {
         String sql = "UPDATE Atendente SET Nome='" + atendente.getNome() + "', Salario=" + atendente.getSalario() + ", DataAdmissao='" + atendente.getDataAdmissao() + 
                 "', UserName='" + atendente.getUsuario() + "', Senha='" + atendente.getSenha() + "', Nascimento='" + atendente.getNascimento() + "', Endereco='" + 
@@ -59,7 +58,6 @@ public class AtendenteDAO implements DAO<Atendente> {
         return resultado >= 1;
     }
 
-    @Override
     public boolean remove(Atendente elemento) {
 
         for (int i = 0; i < listaAtendentes.size(); i++) {
@@ -86,8 +84,7 @@ public class AtendenteDAO implements DAO<Atendente> {
         }
     }
 
-    @Override
-    public Atendente read(String Cpf) {
+    public Atendente search(String Cpf) {
         String sql = "SELECT * FROM Atendente";
         sql += " Where Cpf='" + Cpf + "'";
         Conexao con = new Conexao();
@@ -99,5 +96,16 @@ public class AtendenteDAO implements DAO<Atendente> {
             return null;
         }
     }
+
+    @Override
+    public List<Atendente> read() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    
+    
+    
+    
+    
 
 }

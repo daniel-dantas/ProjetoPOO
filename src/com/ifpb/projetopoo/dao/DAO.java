@@ -38,6 +38,8 @@ public interface DAO<T>{
      * 
      * @return Retorna um List de elementos de determinada tabela
      */
-    T read(String Cpf);
+    List<T> read();
+    
+    
     
 }

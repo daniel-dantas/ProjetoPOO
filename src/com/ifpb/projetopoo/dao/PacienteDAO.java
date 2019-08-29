@@ -11,6 +11,8 @@ import com.ifpb.projetopoo.model.Paciente;
 import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -19,7 +21,6 @@ import java.util.List;
  */
 public class PacienteDAO implements DAO<Paciente>{
     
-    @Override
     public boolean create(Paciente paciente) {
         boolean resultado;
         resultado = addPaciente(paciente);
@@ -58,7 +59,6 @@ public class PacienteDAO implements DAO<Paciente>{
         return res >= 1;
     }
 
-    @Override
     public boolean update(String Cpf, Paciente paciente) {
         String sql = "UPDATE Paciente SET Nome='" + paciente.getNome() + "', Nascimento='" + paciente.getNascimento() + "', Endereco='" + paciente.getEndereco().getRua() + " " + 
                 paciente.getEndereco().getBairro() + " " + paciente.getEndereco().getCidade() + " " + paciente.getEndereco().getEstado() + "', Email='" + 
@@ -70,13 +70,11 @@ public class PacienteDAO implements DAO<Paciente>{
         return resultado >= 1;
     }
 
-    @Override
     public boolean remove(Paciente elemento) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    @Override
-    public Paciente read(String Cpf) {
+    public Paciente search(String Cpf) {
         String sql = "SELECT * FROM Paciente";
         sql += " Where Cpf='" + Cpf + "'";
         Conexao con = new Conexao();
@@ -88,5 +86,31 @@ public class PacienteDAO implements DAO<Paciente>{
             return null;
         }
     }
+    
+    public List<Paciente> read(){
+        
+        List<Paciente> pacientes = new ArrayList<>();
+        
+        String sql = "SELECT * FROM Paciente";
+        
+        
+        Conexao con = new Conexao();
+        try{
+            ResultSet consulta = con.executeQuery(sql);
+            
+            while(consulta.next()){
+                pacientes.add(new Paciente(consulta.getString("Cpf"), consulta.getString("Nome"), consulta.getDate("Nascimento").toLocalDate(), new Endereco(consulta.getString("Endereco"), null, null, null), new Contato(consulta.getString("Email"), consulta.getString("Telefone"))));
+            }
+            
+            
+        }catch(SQLException e) {
+            System.err.println("Erro ao listar");
+        }
+        
+        
+        
+        return pacientes;
+    }
+    
 
 }
