@@ -19,27 +19,25 @@ import javax.swing.table.TableColumn;
  * @author daniel
  */
 public class ListagemPacientes extends javax.swing.JFrame {
-    
-    
+
     /**
      * Creates new form ListagemPacientes
      */
     public ListagemPacientes() {
-        
+
         setTitle("PACIENTES");
         this.setExtendedState(MAXIMIZED_BOTH);
         initComponents();
         btnEditar.setEnabled(false);
         btnDeletar.setEnabled(false);
-        
-        
+
         PacienteDAO dao = new PacienteDAO();
-        List <Paciente> pacientes = dao.read();
-        
-        for(Paciente p : pacientes){
-            
+        List<Paciente> pacientes = dao.read();
+
+        for (Paciente p : pacientes) {
+
             Tabela.addTabela(tabelaDeBusca, new String[]{p.getCpf(), p.getNome()});
-            
+
         }
     }
 
@@ -217,30 +215,39 @@ public class ListagemPacientes extends javax.swing.JFrame {
 
     private void btnBuscaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscaActionPerformed
         // TODO add your handling code here:
-        
-        Tabela.limparTabela(tabelaDeBusca);
-        btnDeletar.setEnabled(false);
-        btnEditar.setEnabled(false);
-        PacienteDAO dao = new PacienteDAO();
-        Paciente paciente = dao.search(campoBusca.getText());
-        
-        
-        if(paciente != null){
-            Tabela.addTabela(tabelaDeBusca, new String[]{paciente.getCpf(), paciente.getNome()});
+
+        if (!campoBusca.getText().equals("   .   .   -  ")) {
+            Tabela.limparTabela(tabelaDeBusca);
+            btnDeletar.setEnabled(false);
+            btnEditar.setEnabled(false);
+            PacienteDAO dao = new PacienteDAO();
+            Paciente paciente = dao.search(campoBusca.getText());
+
+            if (paciente != null) {
+                Tabela.addTabela(tabelaDeBusca, new String[]{paciente.getCpf(), paciente.getNome()});
+            }
+        } else {
+            Tabela.limparTabela(tabelaDeBusca);
+            PacienteDAO dao = new PacienteDAO();
+            List<Paciente> pacientes = dao.read();
+
+            for (Paciente p : pacientes) {
+
+                Tabela.addTabela(tabelaDeBusca, new String[]{p.getCpf(), p.getNome()});
+
+            }
         }
-        
-            
-        
-        
+
+
     }//GEN-LAST:event_btnBuscaActionPerformed
 
     private void tabelaDeBuscaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaDeBuscaMouseClicked
         // TODO add your handling code here:
-        
+
         btnEditar.setEnabled(true);
-        
+
         btnDeletar.setEnabled(true);
-        
+
     }//GEN-LAST:event_tabelaDeBuscaMouseClicked
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
@@ -248,11 +255,10 @@ public class ListagemPacientes extends javax.swing.JFrame {
         PacienteDAO dao = new PacienteDAO();
         System.out.println(Tabela.retornarValorIdentificador(tabelaDeBusca));
         Paciente pac = dao.search(Tabela.retornarValorIdentificador(tabelaDeBusca));
-        
-        
+
         System.out.println(pac);
-        
-        
+
+
     }//GEN-LAST:event_btnEditarActionPerformed
 
     /**
@@ -286,7 +292,7 @@ public class ListagemPacientes extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new ListagemPacientes().setVisible(true);
-                
+
             }
         });
     }
@@ -304,6 +310,4 @@ public class ListagemPacientes extends javax.swing.JFrame {
     private javax.swing.JTable tabelaDeBusca;
     // End of variables declaration//GEN-END:variables
 
-    
-    
 }

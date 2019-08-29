@@ -472,6 +472,7 @@ public class Tela_Cadastro_Atendente extends javax.swing.JFrame {
 
         if(atendentedao.create(new Atendente(0, LocalDate.now(), campoCpf4.getText(), campoNome4.getText(), LocalDate.of(ano, mes, dia), campoUsuario4.getText(), campoSenha4.getText(), new Endereco(campoRua4.getText(), campoCidade4.getText(), campoBairro4.getText(), campoEstado4.getText()), new Contato(campoEmail4.getText(), campoTelefone4.getText())))){
             JOptionPane.showMessageDialog(null, "Atendente Cadastrado com sucesso!");
+            new Tela_Login_Atendente().setVisible(true);
             this.setVisible(false);
         }else{
             JOptionPane.showMessageDialog(null, "Erro ao cadastrar atendente!");
