@@ -16,6 +16,7 @@ public class Tela_Principal extends javax.swing.JFrame {
      */
     public Tela_Principal() {
         initComponents();
+        setExtendedState(MAXIMIZED_BOTH);
     }
 
     /**
@@ -30,9 +31,9 @@ public class Tela_Principal extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         Text_4 = new javax.swing.JLabel();
         Text_5 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btnConsulta = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        btnPacientes = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
@@ -54,14 +55,24 @@ public class Tela_Principal extends javax.swing.JFrame {
         Text_5.setForeground(new java.awt.Color(241, 231, 254));
         Text_5.setText("Visualizar:");
 
-        jButton1.setFont(new java.awt.Font("Calibri", 0, 30)); // NOI18N
-        jButton1.setText("Consulta");
+        btnConsulta.setFont(new java.awt.Font("Calibri", 0, 30)); // NOI18N
+        btnConsulta.setText("Consulta");
+        btnConsulta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConsultaActionPerformed(evt);
+            }
+        });
 
         jButton2.setFont(new java.awt.Font("Calibri", 0, 30)); // NOI18N
         jButton2.setText("Exame");
 
-        jButton3.setFont(new java.awt.Font("Calibri", 0, 30)); // NOI18N
-        jButton3.setText("Paciente");
+        btnPacientes.setFont(new java.awt.Font("Calibri", 0, 30)); // NOI18N
+        btnPacientes.setText("Paciente");
+        btnPacientes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPacientesActionPerformed(evt);
+            }
+        });
 
         jButton4.setFont(new java.awt.Font("Calibri", 0, 30)); // NOI18N
         jButton4.setText("Médico");
@@ -84,17 +95,16 @@ public class Tela_Principal extends javax.swing.JFrame {
                     .addComponent(Text_4)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(jButton2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(btnConsulta, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGap(157, 157, 157)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(143, 143, 143)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jButton5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(Text_5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnPacientes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Text_5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(134, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -103,7 +113,7 @@ public class Tela_Principal extends javax.swing.JFrame {
                 .addGap(83, 83, 83)
                 .addComponent(Text_4)
                 .addGap(66, 66, 66)
-                .addComponent(jButton1)
+                .addComponent(btnConsulta)
                 .addGap(40, 40, 40)
                 .addComponent(jButton2)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -112,7 +122,7 @@ public class Tela_Principal extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(Text_5)
                 .addGap(69, 69, 69)
-                .addComponent(jButton3)
+                .addComponent(btnPacientes)
                 .addGap(40, 40, 40)
                 .addComponent(jButton4)
                 .addGap(39, 39, 39)
@@ -133,7 +143,6 @@ public class Tela_Principal extends javax.swing.JFrame {
         Text_2.setText("Menu Principal");
 
         jSeparator1.setBackground(new java.awt.Color(0, 0, 0));
-        jSeparator1.setForeground(new java.awt.Color(0, 0, 0));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -181,6 +190,21 @@ public class Tela_Principal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnPacientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPacientesActionPerformed
+        // TODO add your handling code here:
+        new ListagemPacientes().setVisible(true);
+        this.setVisible(false);
+        
+    }//GEN-LAST:event_btnPacientesActionPerformed
+
+    private void btnConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultaActionPerformed
+        // TODO add your handling code here:
+        
+        new MarcacaoConsultas().setVisible(true);
+        this.setVisible(false);
+        
+    }//GEN-LAST:event_btnConsultaActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -221,9 +245,9 @@ public class Tela_Principal extends javax.swing.JFrame {
     private javax.swing.JLabel Text_2;
     private javax.swing.JLabel Text_4;
     private javax.swing.JLabel Text_5;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnConsulta;
+    private javax.swing.JButton btnPacientes;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;

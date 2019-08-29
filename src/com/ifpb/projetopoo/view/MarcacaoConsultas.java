@@ -18,19 +18,19 @@ import javax.swing.table.TableColumn;
  *
  * @author daniel
  */
-public class ListagemPacientes extends javax.swing.JFrame {
+public class MarcacaoConsultas extends javax.swing.JFrame {
     
     
     /**
      * Creates new form ListagemPacientes
      */
-    public ListagemPacientes() {
+    public MarcacaoConsultas() {
         
         setTitle("PACIENTES");
         this.setExtendedState(MAXIMIZED_BOTH);
         initComponents();
-        btnEditar.setEnabled(false);
-        btnDeletar.setEnabled(false);
+        
+        btnMarcarConsulta.setEnabled(false);
         
         
         PacienteDAO dao = new PacienteDAO();
@@ -57,8 +57,7 @@ public class ListagemPacientes extends javax.swing.JFrame {
         Text_4 = new javax.swing.JLabel();
         campoBusca = new javax.swing.JFormattedTextField();
         btnVoltar = new javax.swing.JButton();
-        btnEditar = new javax.swing.JButton();
-        btnDeletar = new javax.swing.JButton();
+        btnMarcarConsulta = new javax.swing.JButton();
         btnBusca = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabelaDeBusca = new javax.swing.JTable();
@@ -97,14 +96,7 @@ public class ListagemPacientes extends javax.swing.JFrame {
             }
         });
 
-        btnEditar.setText("Editar");
-        btnEditar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEditarActionPerformed(evt);
-            }
-        });
-
-        btnDeletar.setText("Deletar");
+        btnMarcarConsulta.setText("Marcar Consulta");
 
         btnBusca.setText("Buscar");
         btnBusca.addActionListener(new java.awt.event.ActionListener() {
@@ -149,24 +141,22 @@ public class ListagemPacientes extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(123, Short.MAX_VALUE)
                 .addComponent(Text_4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(campoBusca, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnBusca)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(124, Short.MAX_VALUE))
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap(121, Short.MAX_VALUE)
+                .addContainerGap(137, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jScrollPane1)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
-                        .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 54, Short.MAX_VALUE)
-                        .addComponent(btnDeletar, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(101, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnMarcarConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(117, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -181,8 +171,7 @@ public class ListagemPacientes extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnDeletar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnMarcarConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(37, Short.MAX_VALUE))
         );
 
@@ -219,8 +208,7 @@ public class ListagemPacientes extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         Tabela.limparTabela(tabelaDeBusca);
-        btnDeletar.setEnabled(false);
-        btnEditar.setEnabled(false);
+        btnMarcarConsulta.setEnabled(false);
         PacienteDAO dao = new PacienteDAO();
         Paciente paciente = dao.search(campoBusca.getText());
         
@@ -237,23 +225,10 @@ public class ListagemPacientes extends javax.swing.JFrame {
     private void tabelaDeBuscaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaDeBuscaMouseClicked
         // TODO add your handling code here:
         
-        btnEditar.setEnabled(true);
         
-        btnDeletar.setEnabled(true);
+        btnMarcarConsulta.setEnabled(true);
         
     }//GEN-LAST:event_tabelaDeBuscaMouseClicked
-
-    private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
-        // TODO add your handling code here:
-        PacienteDAO dao = new PacienteDAO();
-        System.out.println(Tabela.retornarValorIdentificador(tabelaDeBusca));
-        Paciente pac = dao.search(Tabela.retornarValorIdentificador(tabelaDeBusca));
-        
-        
-        System.out.println(pac);
-        
-        
-    }//GEN-LAST:event_btnEditarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -272,20 +247,21 @@ public class ListagemPacientes extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ListagemPacientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MarcacaoConsultas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ListagemPacientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MarcacaoConsultas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ListagemPacientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MarcacaoConsultas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ListagemPacientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MarcacaoConsultas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ListagemPacientes().setVisible(true);
+                new MarcacaoConsultas().setVisible(true);
                 
             }
         });
@@ -294,8 +270,7 @@ public class ListagemPacientes extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Text_4;
     private javax.swing.JButton btnBusca;
-    private javax.swing.JButton btnDeletar;
-    private javax.swing.JButton btnEditar;
+    private javax.swing.JButton btnMarcarConsulta;
     private javax.swing.JButton btnVoltar;
     private javax.swing.JFormattedTextField campoBusca;
     private javax.swing.JPanel jPanel1;

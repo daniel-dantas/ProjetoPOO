@@ -94,6 +94,11 @@ public abstract class Pessoa {
         }
         return true;
     }
+
+    @Override
+    public String toString() {
+        return "Pessoa{" + "cpf=" + cpf + ", nome=" + nome + ", nascimento=" + nascimento + ", endereco=" + endereco + ", contato=" + contato + '}';
+    }
     
     
     

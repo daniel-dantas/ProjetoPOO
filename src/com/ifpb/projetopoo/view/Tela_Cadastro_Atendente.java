@@ -23,6 +23,7 @@ public class Tela_Cadastro_Atendente extends javax.swing.JFrame {
      */
     public Tela_Cadastro_Atendente() {
         initComponents();
+        setExtendedState(MAXIMIZED_BOTH);
     }
 
     /**
@@ -90,10 +91,8 @@ public class Tela_Cadastro_Atendente extends javax.swing.JFrame {
         Text_3.setText(" Atendente");
 
         jSeparator1.setBackground(new java.awt.Color(0, 0, 0));
-        jSeparator1.setForeground(new java.awt.Color(0, 0, 0));
 
         jSeparator2.setBackground(new java.awt.Color(0, 0, 0));
-        jSeparator2.setForeground(new java.awt.Color(0, 0, 0));
 
         javax.swing.GroupLayout Left_MenuLayout = new javax.swing.GroupLayout(Left_Menu);
         Left_Menu.setLayout(Left_MenuLayout);
@@ -155,7 +154,6 @@ public class Tela_Cadastro_Atendente extends javax.swing.JFrame {
         Usuario45.setText("Nome:");
 
         jSeparator5.setBackground(new java.awt.Color(0, 0, 0));
-        jSeparator5.setForeground(new java.awt.Color(0, 0, 0));
         jSeparator5.setToolTipText("");
 
         campoSenha4.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
@@ -373,11 +371,11 @@ public class Tela_Cadastro_Atendente extends javax.swing.JFrame {
             Right_Menu4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Right_Menu4Layout.createSequentialGroup()
                 .addGap(30, 30, 30)
-                .addGroup(Right_Menu4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Usuario44)
+                .addGroup(Right_Menu4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(Right_Menu4Layout.createSequentialGroup()
                         .addGap(1, 1, 1)
-                        .addComponent(campoUsuario4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(campoUsuario4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Usuario44))
                 .addGap(18, 18, 18)
                 .addGroup(Right_Menu4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Senha4)
@@ -484,6 +482,7 @@ public class Tela_Cadastro_Atendente extends javax.swing.JFrame {
         // TODO add your handling code here:
 
         this.setVisible(false);
+        new Tela_Login_Atendente().setVisible(true);
     }//GEN-LAST:event_btnVoltar4btnVoltarActionPerformed
 
     private void campoDataDeAdmissao4campoDataDeAdmissaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoDataDeAdmissao4campoDataDeAdmissaoActionPerformed

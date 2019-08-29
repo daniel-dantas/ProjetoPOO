@@ -19,6 +19,7 @@ public class Tela_Login_Atendente extends javax.swing.JFrame {
      */
     public Tela_Login_Atendente() {
         initComponents();
+        setExtendedState(MAXIMIZED_BOTH);
     }
 
     /**
@@ -213,7 +214,9 @@ public class Tela_Login_Atendente extends javax.swing.JFrame {
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
         // TODO add your handling code here:
 
+        
         new Tela_Cadastro_Atendente().setVisible(true);
+        this.setVisible(false);
 
     }//GEN-LAST:event_jLabel1MouseClicked
 
@@ -223,7 +226,9 @@ public class Tela_Login_Atendente extends javax.swing.JFrame {
         AtendenteDAO dao = new AtendenteDAO();
 
         if(dao.authentication(campoUsuario.getText(), campoSenha.getText())){
+            
             new Tela_Principal().setVisible(true);
+            this.setVisible(false);
             JOptionPane.showMessageDialog(null, "Bem vindo!");
         }else{
             JOptionPane.showMessageDialog(null, "Usuario ou senha incorreto!");

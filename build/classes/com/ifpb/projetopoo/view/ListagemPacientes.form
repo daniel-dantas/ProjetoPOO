@@ -83,20 +83,18 @@
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
               <Group type="102" attributes="0">
-                  <EmptySpace pref="85" max="32767" attributes="0"/>
+                  <EmptySpace pref="121" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
                       <Component id="jScrollPane1" max="32767" attributes="0"/>
-                      <Group type="102" attributes="0">
+                      <Group type="102" alignment="1" attributes="0">
                           <Component id="btnVoltar" min="-2" pref="130" max="-2" attributes="0"/>
-                          <EmptySpace pref="9" max="32767" attributes="0"/>
+                          <EmptySpace pref="48" max="32767" attributes="0"/>
                           <Component id="btnEditar" min="-2" pref="130" max="-2" attributes="0"/>
-                          <EmptySpace type="unrelated" pref="15" max="32767" attributes="0"/>
+                          <EmptySpace type="unrelated" pref="54" max="32767" attributes="0"/>
                           <Component id="btnDeletar" min="-2" pref="130" max="-2" attributes="0"/>
-                          <EmptySpace type="unrelated" pref="15" max="32767" attributes="0"/>
-                          <Component id="btnMarcarConsulta" min="-2" pref="136" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace pref="64" max="32767" attributes="0"/>
+                  <EmptySpace pref="101" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -112,13 +110,10 @@
                   <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
                   <Component id="jScrollPane1" min="-2" pref="399" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="btnMarcarConsulta" alignment="1" min="-2" pref="35" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="btnVoltar" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
-                          <Component id="btnEditar" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
-                          <Component id="btnDeletar" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
-                      </Group>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="btnVoltar" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
+                      <Component id="btnEditar" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
+                      <Component id="btnDeletar" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="37" max="32767" attributes="0"/>
               </Group>
@@ -163,11 +158,6 @@
         <Component class="javax.swing.JButton" name="btnDeletar">
           <Properties>
             <Property name="text" type="java.lang.String" value="Deletar"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JButton" name="btnMarcarConsulta">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Marcar Consulta"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="btnBusca">
