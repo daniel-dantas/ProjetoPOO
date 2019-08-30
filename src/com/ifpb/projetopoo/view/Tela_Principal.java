@@ -31,8 +31,7 @@ public class Tela_Principal extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         Text_4 = new javax.swing.JLabel();
         Text_5 = new javax.swing.JLabel();
-        btnConsulta = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnProcedimentos = new javax.swing.JButton();
         btnPacientes = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
@@ -55,16 +54,13 @@ public class Tela_Principal extends javax.swing.JFrame {
         Text_5.setForeground(new java.awt.Color(241, 231, 254));
         Text_5.setText("Visualizar:");
 
-        btnConsulta.setFont(new java.awt.Font("Calibri", 0, 30)); // NOI18N
-        btnConsulta.setText("Consulta");
-        btnConsulta.addActionListener(new java.awt.event.ActionListener() {
+        btnProcedimentos.setFont(new java.awt.Font("Calibri", 0, 30)); // NOI18N
+        btnProcedimentos.setText("Procedimento");
+        btnProcedimentos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnConsultaActionPerformed(evt);
+                btnProcedimentosActionPerformed(evt);
             }
         });
-
-        jButton2.setFont(new java.awt.Font("Calibri", 0, 30)); // NOI18N
-        jButton2.setText("Exame");
 
         btnPacientes.setFont(new java.awt.Font("Calibri", 0, 30)); // NOI18N
         btnPacientes.setText("Paciente");
@@ -90,13 +86,14 @@ public class Tela_Principal extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(106, 106, 106)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Text_4)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jButton2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnConsulta, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addGap(157, 157, 157)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(106, 106, 106)
+                        .addComponent(Text_4))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(80, 80, 80)
+                        .addComponent(btnProcedimentos)))
+                .addGap(183, 183, 183)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(143, 143, 143)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -105,21 +102,19 @@ public class Tela_Principal extends javax.swing.JFrame {
                     .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnPacientes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(Text_5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(134, Short.MAX_VALUE))
+                .addContainerGap(86, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(83, 83, 83)
                 .addComponent(Text_4)
-                .addGap(66, 66, 66)
-                .addComponent(btnConsulta)
-                .addGap(40, 40, 40)
-                .addComponent(jButton2)
+                .addGap(59, 59, 59)
+                .addComponent(btnProcedimentos)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(jSeparator2, javax.swing.GroupLayout.Alignment.TRAILING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(64, Short.MAX_VALUE)
                 .addComponent(Text_5)
                 .addGap(69, 69, 69)
                 .addComponent(btnPacientes)
@@ -197,13 +192,13 @@ public class Tela_Principal extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnPacientesActionPerformed
 
-    private void btnConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultaActionPerformed
+    private void btnProcedimentosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProcedimentosActionPerformed
         // TODO add your handling code here:
         
-        new MarcacaoConsultas().setVisible(true);
+        new MarcarProcedimento().setVisible(true);
         this.setVisible(false);
         
-    }//GEN-LAST:event_btnConsultaActionPerformed
+    }//GEN-LAST:event_btnProcedimentosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -245,9 +240,8 @@ public class Tela_Principal extends javax.swing.JFrame {
     private javax.swing.JLabel Text_2;
     private javax.swing.JLabel Text_4;
     private javax.swing.JLabel Text_5;
-    private javax.swing.JButton btnConsulta;
     private javax.swing.JButton btnPacientes;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton btnProcedimentos;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;

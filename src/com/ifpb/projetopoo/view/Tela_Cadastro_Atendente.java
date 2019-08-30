@@ -462,21 +462,33 @@ public class Tela_Cadastro_Atendente extends javax.swing.JFrame {
     private void btnCadastrar4btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrar4btnCadastrarActionPerformed
         // TODO add your handling code here:
 
-        String nascimento = campoNascimento4.getText();
-
-        int dia = Integer.parseInt(nascimento.substring(0, 2));
-        int mes = Integer.parseInt(nascimento.substring(3, 5));
-        int ano = Integer.parseInt(nascimento.substring(6, 10));
-
         AtendenteDAO atendentedao = new AtendenteDAO();
 
-        if(atendentedao.create(new Atendente(0, LocalDate.now(), campoCpf4.getText(), campoNome4.getText(), LocalDate.of(ano, mes, dia), campoUsuario4.getText(), campoSenha4.getText(), new Endereco(campoRua4.getText(), campoCidade4.getText(), campoBairro4.getText(), campoEstado4.getText()), new Contato(campoEmail4.getText(), campoTelefone4.getText())))){
-            JOptionPane.showMessageDialog(null, "Atendente Cadastrado com sucesso!");
-            new Tela_Login_Atendente().setVisible(true);
-            this.setVisible(false);
-        }else{
-            JOptionPane.showMessageDialog(null, "Erro ao cadastrar atendente!");
+        if (verificarCampos()) {
+
+            if (atendentedao.search(campoCpf4.getText()) != null) {
+                JOptionPane.showMessageDialog(null, "Essa pessoa já está cadastrada no sistema!\nVerifique se você digitou o CPF corretamente");
+            } else {
+                String nascimento = campoNascimento4.getText();
+
+                int dia = Integer.parseInt(nascimento.substring(0, 2));
+                int mes = Integer.parseInt(nascimento.substring(3, 5));
+                int ano = Integer.parseInt(nascimento.substring(6, 10));
+
+                if (atendentedao.create(new Atendente(0, LocalDate.now(), campoCpf4.getText(), campoNome4.getText(), LocalDate.of(ano, mes, dia), campoUsuario4.getText(), campoSenha4.getText(), new Endereco(campoRua4.getText(), campoCidade4.getText(), campoBairro4.getText(), campoEstado4.getText()), new Contato(campoEmail4.getText(), campoTelefone4.getText())))) {
+                    JOptionPane.showMessageDialog(null, "Atendente Cadastrado com sucesso!");
+                    new Tela_Login_Atendente().setVisible(true);
+                    this.setVisible(false);
+                } else {
+                    JOptionPane.showMessageDialog(null, "Erro ao cadastrar atendente!");
+                }
+            }
+
+        } else {
+            JOptionPane.showMessageDialog(null, "Algum campo obrigatório não foi preenchido!\nTodos os campos são obrigatórios menos o email.");
         }
+
+
     }//GEN-LAST:event_btnCadastrar4btnCadastrarActionPerformed
 
     private void btnVoltar4btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltar4btnVoltarActionPerformed
@@ -595,4 +607,19 @@ public class Tela_Cadastro_Atendente extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator5;
     // End of variables declaration//GEN-END:variables
+
+    private boolean verificarCampos() {
+        AtendenteDAO dao = new AtendenteDAO();
+
+        if (campoBairro4.getText().length() == 0 || campoCidade4.getText().length() == 0 || campoCpf4.getText().equals("   .   .   -  ") || campoDataDeAdmissao4.getText().equals("  /  /    ")
+                || campoEstado4.getText().length() == 0 || campoNascimento4.equals("  /  /    ") || campoNome4.getText().length() == 0 || campoRua4.getText().length() == 0 || campoSenha4.getText().length() == 0
+                || campoTelefone4.getText().length() == 0 || campoUsuario4.getText().length() == 0) {
+
+            return false;
+
+        }
+
+
+        return true;
+    }
 }

@@ -12,6 +12,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import javax.swing.JOptionPane;
 /**
  *
  * @author IGOR
@@ -32,6 +33,7 @@ public class Atendente extends Pessoa {
     
     public Atendente(float salario, LocalDate dataAdmissao, String cpf, String nome, LocalDate nascimento, String usuario, String senha, Endereco endereco, Contato contato) {
         super(cpf, nome, nascimento, endereco, contato);
+        
         this.salario = salario;
         this.dataAdmissao = dataAdmissao;
         this.usuario = usuario;
@@ -46,6 +48,7 @@ public class Atendente extends Pessoa {
     }
 
     public void setSalario(float salario) {
+        
         this.salario = salario;
     }
 

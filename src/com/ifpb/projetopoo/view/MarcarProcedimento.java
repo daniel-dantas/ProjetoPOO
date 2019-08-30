@@ -18,20 +18,20 @@ import javax.swing.table.TableColumn;
  *
  * @author daniel
  */
-public class MarcacaoConsultas extends javax.swing.JFrame {
+public class MarcarProcedimento extends javax.swing.JFrame {
     
     
     /**
      * Creates new form ListagemPacientes
      */
-    public MarcacaoConsultas() {
+    public MarcarProcedimento() {
         
         setTitle("PACIENTES");
         this.setExtendedState(MAXIMIZED_BOTH);
         initComponents();
         
         btnMarcarConsulta.setEnabled(false);
-        
+        btnMarcarExame.setEnabled(false);
         
         PacienteDAO dao = new PacienteDAO();
         List <Paciente> pacientes = dao.read();
@@ -61,6 +61,7 @@ public class MarcacaoConsultas extends javax.swing.JFrame {
         btnBusca = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabelaDeBusca = new javax.swing.JTable();
+        btnMarcarExame = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -136,27 +137,31 @@ public class MarcacaoConsultas extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tabelaDeBusca);
 
+        btnMarcarExame.setText("Marcar Exame");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(123, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(Text_4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(campoBusca, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnBusca)
-                .addContainerGap(124, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap(137, Short.MAX_VALUE)
+                .addGap(137, 137, 137)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jScrollPane1)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnMarcarExame, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
                         .addComponent(btnMarcarConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(117, Short.MAX_VALUE))
+                .addGap(121, 121, 121))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -169,9 +174,11 @@ public class MarcacaoConsultas extends javax.swing.JFrame {
                 .addGap(55, 55, 55)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 399, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnMarcarConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnMarcarExame, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnMarcarConsulta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(37, Short.MAX_VALUE))
         );
 
@@ -225,9 +232,8 @@ public class MarcacaoConsultas extends javax.swing.JFrame {
     private void tabelaDeBuscaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaDeBuscaMouseClicked
         // TODO add your handling code here:
         
-        
         btnMarcarConsulta.setEnabled(true);
-        
+        btnMarcarExame.setEnabled(true);
     }//GEN-LAST:event_tabelaDeBuscaMouseClicked
 
     /**
@@ -247,21 +253,23 @@ public class MarcacaoConsultas extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MarcacaoConsultas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MarcarProcedimento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MarcacaoConsultas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MarcarProcedimento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MarcacaoConsultas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MarcarProcedimento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MarcacaoConsultas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MarcarProcedimento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MarcacaoConsultas().setVisible(true);
+                new MarcarProcedimento().setVisible(true);
                 
             }
         });
@@ -271,6 +279,7 @@ public class MarcacaoConsultas extends javax.swing.JFrame {
     private javax.swing.JLabel Text_4;
     private javax.swing.JButton btnBusca;
     private javax.swing.JButton btnMarcarConsulta;
+    private javax.swing.JButton btnMarcarExame;
     private javax.swing.JButton btnVoltar;
     private javax.swing.JFormattedTextField campoBusca;
     private javax.swing.JPanel jPanel1;
