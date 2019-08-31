@@ -61,7 +61,6 @@ public class Tela_Cadastro_Atendente extends javax.swing.JFrame {
         campoDataDeAdmissao4 = new javax.swing.JFormattedTextField();
         campoNome4 = new javax.swing.JTextField();
         campoEmail4 = new javax.swing.JTextField();
-        campoTelefone4 = new javax.swing.JTextField();
         Usuario51 = new javax.swing.JLabel();
         campoRua4 = new javax.swing.JTextField();
         Usuario52 = new javax.swing.JLabel();
@@ -71,6 +70,7 @@ public class Tela_Cadastro_Atendente extends javax.swing.JFrame {
         campoEstado4 = new javax.swing.JTextField();
         campoCidade4 = new javax.swing.JTextField();
         campoUsuario4 = new javax.swing.JTextField();
+        campoCpf5 = new javax.swing.JFormattedTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Tela de Cadastro");
@@ -111,7 +111,7 @@ public class Tela_Cadastro_Atendente extends javax.swing.JFrame {
                             .addGroup(Left_MenuLayout.createSequentialGroup()
                                 .addGap(34, 34, 34)
                                 .addComponent(Text_3)))
-                        .addGap(0, 27, Short.MAX_VALUE))
+                        .addGap(0, 16, Short.MAX_VALUE))
                     .addGroup(Left_MenuLayout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(Left_MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -248,13 +248,6 @@ public class Tela_Cadastro_Atendente extends javax.swing.JFrame {
             }
         });
 
-        campoTelefone4.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
-        campoTelefone4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                campoTelefone4campoTelefoneActionPerformed(evt);
-            }
-        });
-
         Usuario51.setFont(new java.awt.Font("Calibri", 1, 28)); // NOI18N
         Usuario51.setForeground(new java.awt.Color(241, 231, 254));
         Usuario51.setText("Bairro:");
@@ -306,6 +299,13 @@ public class Tela_Cadastro_Atendente extends javax.swing.JFrame {
             }
         });
 
+        try {
+            campoCpf5.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##) #########")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        campoCpf5.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
+
         javax.swing.GroupLayout Right_Menu4Layout = new javax.swing.GroupLayout(Right_Menu4);
         Right_Menu4.setLayout(Right_Menu4Layout);
         Right_Menu4Layout.setHorizontalGroup(
@@ -333,7 +333,6 @@ public class Tela_Cadastro_Atendente extends javax.swing.JFrame {
                         .addGroup(Right_Menu4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(campoRua4)
                             .addComponent(campoNascimento4)
-                            .addComponent(campoTelefone4)
                             .addGroup(Right_Menu4Layout.createSequentialGroup()
                                 .addGroup(Right_Menu4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(Usuario45)
@@ -341,13 +340,14 @@ public class Tela_Cadastro_Atendente extends javax.swing.JFrame {
                                     .addComponent(Usuario46)
                                     .addComponent(Usuario48)
                                     .addComponent(Usuario53))
-                                .addGap(0, 133, Short.MAX_VALUE))
+                                .addGap(0, 157, Short.MAX_VALUE))
                             .addComponent(campoCidade4)
-                            .addComponent(campoNome4))
+                            .addComponent(campoNome4)
+                            .addComponent(campoCpf5))
                         .addGap(40, 40, 40)
                         .addGroup(Right_Menu4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(Right_Menu4Layout.createSequentialGroup()
-                                .addGap(0, 85, Short.MAX_VALUE)
+                                .addGap(0, 110, Short.MAX_VALUE)
                                 .addComponent(btnVoltar4, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(btnCadastrar4))
@@ -355,7 +355,7 @@ public class Tela_Cadastro_Atendente extends javax.swing.JFrame {
                             .addComponent(campoDataDeAdmissao4)
                             .addComponent(campoEstado4)
                             .addComponent(campoEmail4)
-                            .addComponent(campoCpf4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 377, Short.MAX_VALUE)
+                            .addComponent(campoCpf4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 402, Short.MAX_VALUE)
                             .addGroup(Right_Menu4Layout.createSequentialGroup()
                                 .addGroup(Right_Menu4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(CPF4)
@@ -406,8 +406,8 @@ public class Tela_Cadastro_Atendente extends javax.swing.JFrame {
                     .addComponent(Usuario50))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(Right_Menu4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(campoTelefone4, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(campoDataDeAdmissao4, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(campoDataDeAdmissao4, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(campoCpf5, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(Right_Menu4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Usuario52)
@@ -428,7 +428,7 @@ public class Tela_Cadastro_Atendente extends javax.swing.JFrame {
                 .addGroup(Right_Menu4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCadastrar4, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnVoltar4, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(40, Short.MAX_VALUE))
+                .addContainerGap(42, Short.MAX_VALUE))
         );
 
         jScrollPane1.setViewportView(Right_Menu4);
@@ -440,7 +440,7 @@ public class Tela_Cadastro_Atendente extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(Left_Menu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 919, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -509,10 +509,6 @@ public class Tela_Cadastro_Atendente extends javax.swing.JFrame {
     private void campoEmail4campoEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoEmail4campoEmailActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_campoEmail4campoEmailActionPerformed
-
-    private void campoTelefone4campoTelefoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoTelefone4campoTelefoneActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_campoTelefone4campoTelefoneActionPerformed
 
     private void campoRua4campoRuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoRua4campoRuaActionPerformed
         // TODO add your handling code here:
@@ -593,6 +589,7 @@ public class Tela_Cadastro_Atendente extends javax.swing.JFrame {
     private javax.swing.JTextField campoBairro4;
     private javax.swing.JTextField campoCidade4;
     private javax.swing.JFormattedTextField campoCpf4;
+    private javax.swing.JFormattedTextField campoCpf5;
     private javax.swing.JFormattedTextField campoDataDeAdmissao4;
     private javax.swing.JTextField campoEmail4;
     private javax.swing.JTextField campoEstado4;
@@ -600,7 +597,6 @@ public class Tela_Cadastro_Atendente extends javax.swing.JFrame {
     private javax.swing.JTextField campoNome4;
     private javax.swing.JTextField campoRua4;
     private javax.swing.JPasswordField campoSenha4;
-    private javax.swing.JTextField campoTelefone4;
     private javax.swing.JTextField campoUsuario4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
