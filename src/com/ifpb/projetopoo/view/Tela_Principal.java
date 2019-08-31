@@ -43,6 +43,9 @@ public class Tela_Principal extends javax.swing.JFrame {
         Text_1 = new javax.swing.JLabel();
         Text_2 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        btnLogout = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -180,8 +183,22 @@ public class Tela_Principal extends javax.swing.JFrame {
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Text_2)
-                .addContainerGap(281, Short.MAX_VALUE))
+                .addContainerGap(260, Short.MAX_VALUE))
         );
+
+        jMenu1.setText("Usuario");
+
+        btnLogout.setText("Logout");
+        btnLogout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLogoutActionPerformed(evt);
+            }
+        });
+        jMenu1.add(btnLogout);
+
+        jMenuBar1.add(jMenu1);
+
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -215,6 +232,14 @@ public class Tela_Principal extends javax.swing.JFrame {
         this.setVisible(false);
         
     }//GEN-LAST:event_btnProcedimentosActionPerformed
+
+    private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
+        // TODO add your handling code here:
+        
+        new Tela_Login_Atendente().setVisible(true);
+        this.setVisible(false);
+        
+    }//GEN-LAST:event_btnLogoutActionPerformed
 
     /**
      * @param args the command line arguments
@@ -256,11 +281,14 @@ public class Tela_Principal extends javax.swing.JFrame {
     private javax.swing.JLabel Text_2;
     private javax.swing.JLabel Text_4;
     private javax.swing.JLabel Text_5;
+    private javax.swing.JMenuItem btnLogout;
     private javax.swing.JButton btnPacientes;
     private javax.swing.JButton btnProcedimentos;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSeparator jSeparator1;

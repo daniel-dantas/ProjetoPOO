@@ -419,31 +419,7 @@ public class Tela_Cadastro_Medico extends javax.swing.JFrame {
     private void btnCadastrar4btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrar4btnCadastrarActionPerformed
         // TODO add your handling code here:
 
-        AtendenteDAO atendentedao = new AtendenteDAO();
-
-        if (verificarCampos()) {
-
-            if (atendentedao.search(campoCpf4.getText()) != null) {
-                JOptionPane.showMessageDialog(null, "Essa pessoa já está cadastrada no sistema!\nVerifique se você digitou o CPF corretamente");
-            } else {
-                String nascimento = campoNascimento4.getText();
-
-                int dia = Integer.parseInt(nascimento.substring(0, 2));
-                int mes = Integer.parseInt(nascimento.substring(3, 5));
-                int ano = Integer.parseInt(nascimento.substring(6, 10));
-
-                if (atendentedao.create(new Atendente(0, LocalDate.now(), campoCpf4.getText(), campoNome4.getText(), LocalDate.of(ano, mes, dia), campoUsuario4.getText(), campoSenha4.getText(), new Endereco(campoRua4.getText(), campoCidade4.getText(), campoBairro4.getText(), campoEstado4.getText()), new Contato(campoEmail4.getText(), campoTelefone4.getText())))) {
-                    JOptionPane.showMessageDialog(null, "Atendente Cadastrado com sucesso!");
-                    new Tela_Login_Atendente().setVisible(true);
-                    this.setVisible(false);
-                } else {
-                    JOptionPane.showMessageDialog(null, "Erro ao cadastrar atendente!");
-                }
-            }
-
-        } else {
-            JOptionPane.showMessageDialog(null, "Algum campo obrigatório não foi preenchido!\nTodos os campos são obrigatórios menos o email.");
-        }
+        
     }//GEN-LAST:event_btnCadastrar4btnCadastrarActionPerformed
 
     /**
