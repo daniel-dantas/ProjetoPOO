@@ -55,53 +55,72 @@
               </Group>
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="1" attributes="0">
-                      <Component id="campoNome4" alignment="0" max="32767" attributes="0"/>
-                      <Component id="campoRua4" alignment="0" max="32767" attributes="0"/>
-                      <Component id="campoNascimento4" alignment="0" max="32767" attributes="0"/>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="Usuario45" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="Usuario52" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="Usuario46" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="Usuario48" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="Usuario53" alignment="0" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="0" pref="171" max="32767" attributes="0"/>
-                      </Group>
-                      <Component id="campoCidade4" alignment="0" max="32767" attributes="0"/>
-                      <Component id="campoCpf5" alignment="0" max="32767" attributes="0"/>
-                  </Group>
-                  <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
-                          <Component id="Usuario55" min="-2" max="-2" attributes="0"/>
+                          <Component id="Usuario53" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="campoSalario" min="-2" pref="170" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
-                      <Group type="102" alignment="1" attributes="0">
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="campoCidade5" alignment="0" max="32767" attributes="0"/>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="0" pref="124" max="32767" attributes="0"/>
-                                  <Component id="btnVoltar4" min="-2" pref="137" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="btnCadastrar4" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Component id="campoBairro4" alignment="0" max="32767" attributes="0"/>
-                              <Component id="campoEstado4" alignment="0" max="32767" attributes="0"/>
-                              <Component id="campoEmail4" alignment="0" max="32767" attributes="0"/>
-                              <Component id="campoCpf4" alignment="1" pref="416" max="32767" attributes="0"/>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="CPF4" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="Usuario47" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="Usuario51" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="Usuario54" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Group type="103" groupAlignment="1" attributes="0">
+                                      <Component id="campoNome" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="campoNascimento" alignment="0" max="32767" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="Usuario45" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="Usuario52" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="Usuario46" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="Usuario48" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace min="0" pref="171" max="32767" attributes="0"/>
+                                      </Group>
+                                      <Component id="campoCidade" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="campoTelefone" alignment="0" max="32767" attributes="0"/>
                                   </Group>
-                                  <EmptySpace min="0" pref="329" max="32767" attributes="0"/>
+                                  <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="campoRua" min="-2" pref="482" max="-2" attributes="0"/>
+                                      <Component id="Usuario56" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace max="32767" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Component id="Usuario55" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Group type="103" groupAlignment="1" attributes="0">
+                                      <Component id="campoEspecialidade" alignment="0" max="32767" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace min="0" pref="124" max="32767" attributes="0"/>
+                                          <Component id="btnVoltar" min="-2" pref="137" max="-2" attributes="0"/>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Component id="btnCadastrar" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Component id="campoBairro" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="campoEstado" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="campoEmail" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="campoCpf" alignment="1" pref="416" max="32767" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="CPF4" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="Usuario47" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="Usuario51" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="Usuario54" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace min="0" pref="329" max="32767" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
                       </Group>
                   </Group>
               </Group>
@@ -119,8 +138,8 @@
                   </Group>
                   <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="campoNome4" max="32767" attributes="0"/>
-                      <Component id="campoCpf4" max="32767" attributes="0"/>
+                      <Component id="campoNome" max="32767" attributes="0"/>
+                      <Component id="campoCpf" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -129,8 +148,8 @@
                   </Group>
                   <EmptySpace min="-2" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="campoNascimento4" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
-                      <Component id="campoEmail4" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                      <Component id="campoNascimento" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                      <Component id="campoEmail" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -139,8 +158,8 @@
                   </Group>
                   <EmptySpace min="-2" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="campoCpf5" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
-                      <Component id="campoBairro4" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                      <Component id="campoTelefone" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
+                      <Component id="campoBairro" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -149,23 +168,28 @@
                   </Group>
                   <EmptySpace min="-2" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="campoRua4" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
-                      <Component id="campoEstado4" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                      <Component id="campoEstado" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                      <Component id="campoRua" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="Usuario53" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="Usuario55" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="Usuario56" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="campoCidade4" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
-                      <Component id="campoCidade5" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                      <Component id="campoCidade" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                      <Component id="campoEspecialidade" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="137" max="32767" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="btnCadastrar4" alignment="3" min="-2" pref="56" max="-2" attributes="0"/>
-                      <Component id="btnVoltar4" alignment="3" min="-2" pref="56" max="-2" attributes="0"/>
+                      <Component id="Usuario53" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="campoSalario" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace pref="47" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="btnCadastrar" alignment="3" min="-2" pref="56" max="-2" attributes="0"/>
+                      <Component id="btnVoltar" alignment="3" min="-2" pref="56" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -195,17 +219,17 @@
             <Property name="text" type="java.lang.String" value="Nome:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="campoNome4">
+        <Component class="javax.swing.JTextField" name="campoNome">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Serif" size="18" style="0"/>
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="campoNome4campoNomeActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="campoNomecampoNomeActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JFormattedTextField" name="campoNascimento4">
+        <Component class="javax.swing.JFormattedTextField" name="campoNascimento">
           <Properties>
             <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
               <Format format="##/##/####" subtype="-1" type="5"/>
@@ -216,7 +240,7 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="campoNascimento4campoNascimentoActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="campoNascimentocampoNascimentoActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="Usuario46">
@@ -241,7 +265,7 @@
             <Property name="text" type="java.lang.String" value="CPF:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JFormattedTextField" name="campoCpf4">
+        <Component class="javax.swing.JFormattedTextField" name="campoCpf">
           <Properties>
             <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
               <Format format="###.###.###-##" subtype="-1" type="5"/>
@@ -251,7 +275,7 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JFormattedTextField" name="campoCpf5">
+        <Component class="javax.swing.JFormattedTextField" name="campoTelefone">
           <Properties>
             <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
               <Format format="(##) #########" subtype="-1" type="5"/>
@@ -272,14 +296,14 @@
             <Property name="text" type="java.lang.String" value="Email:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="campoEmail4">
+        <Component class="javax.swing.JTextField" name="campoEmail">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Serif" size="18" style="0"/>
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="campoEmail4campoEmailActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="campoEmailcampoEmailActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="Usuario48">
@@ -293,14 +317,14 @@
             <Property name="text" type="java.lang.String" value="Telefone:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="campoRua4">
+        <Component class="javax.swing.JTextField" name="campoSalario">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Serif" size="18" style="0"/>
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="campoRua4campoRuaActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="campoSalariocampoRuaActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="Usuario52">
@@ -336,24 +360,24 @@
             <Property name="text" type="java.lang.String" value="Estado:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="campoBairro4">
+        <Component class="javax.swing.JTextField" name="campoBairro">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Serif" size="18" style="0"/>
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="campoBairro4campoBairroActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="campoBairrocampoBairroActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="campoCidade4">
+        <Component class="javax.swing.JTextField" name="campoCidade">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Serif" size="18" style="0"/>
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="campoCidade4campoCidadeActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="campoCidadecampoCidadeActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="Usuario53">
@@ -364,7 +388,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="fe" green="e7" red="f1" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Cidade:"/>
+            <Property name="text" type="java.lang.String" value="Sal&#xe1;rio: "/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="Usuario55">
@@ -378,27 +402,27 @@
             <Property name="text" type="java.lang.String" value="Especialidade:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="campoEstado4">
+        <Component class="javax.swing.JTextField" name="campoEstado">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Serif" size="18" style="0"/>
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="campoEstado4campoEstadoActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="campoEstadocampoEstadoActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="campoCidade5">
+        <Component class="javax.swing.JTextField" name="campoEspecialidade">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Serif" size="18" style="0"/>
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="campoCidade5campoCidadeActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="campoEspecialidadecampoCidadeActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="btnVoltar4">
+        <Component class="javax.swing.JButton" name="btnVoltar">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="fe" green="e7" red="f1" type="rgb"/>
@@ -409,10 +433,10 @@
             <Property name="text" type="java.lang.String" value="Voltar"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnVoltar4btnVoltarActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnVoltarbtnVoltarActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="btnCadastrar4">
+        <Component class="javax.swing.JButton" name="btnCadastrar">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="fe" green="e7" red="f1" type="rgb"/>
@@ -423,7 +447,28 @@
             <Property name="text" type="java.lang.String" value="Cadastrar"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCadastrar4btnCadastrarActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCadastrarbtnCadastrarActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="Usuario56">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Calibri" size="28" style="1"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="fe" green="e7" red="f1" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Cidade:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="campoRua">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Serif" size="18" style="0"/>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="campoRuacampoRuaActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>

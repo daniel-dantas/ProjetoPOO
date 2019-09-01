@@ -11,6 +11,7 @@ import com.ifpb.projetopoo.model.Medico;
 import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,7 +19,7 @@ import java.util.List;
  *
  * @author IFPB
  */
-public class MedicoDAO{
+public class MedicoDAO implements DAO<Medico>{
     public boolean create(Medico medico) {
         boolean resultado;
         resultado = addMedico(medico);
@@ -80,7 +81,7 @@ public class MedicoDAO{
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    public Medico read(String Cpf) {
+    public Medico search(String Cpf) {
         String sql = "SELECT * FROM Medico";
         sql += " Where Cpf='" + Cpf + "'";
         Conexao con = new Conexao();
@@ -93,4 +94,30 @@ public class MedicoDAO{
         }
     }
 
+    @Override
+    public List<Medico> read() {
+        List<Medico> listaMedicos = new ArrayList<>();
+        
+        String sql = "SELECT * FROM Medico";
+        Conexao con = new Conexao();
+        
+        try{
+            ResultSet consulta = con.executeQuery(sql);
+            
+            while(consulta.next()){
+                listaMedicos.add(new Medico(consulta.getFloat("Salario"), consulta.getDate("DataAdmissao").toLocalDate(), consulta.getString("Cpf"), consulta.getString("Nome"), consulta.getDate("Nascimento").toLocalDate(), new Endereco(consulta.getString("Endereco"), null, null, null), new Contato(consulta.getString("Email"), consulta.getString("Telefone"))));
+            }
+            
+            
+        }catch(SQLException e) {
+            
+        }
+        
+        return listaMedicos;
+        
+    }
+
+    
+    
+    
 }

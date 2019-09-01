@@ -231,7 +231,7 @@ public class Tela_Login_Atendente extends javax.swing.JFrame {
             this.setVisible(false);
             JOptionPane.showMessageDialog(null, "Bem vindo!");
         }else{
-            JOptionPane.showMessageDialog(null, "Usuario ou senha incorreto!");
+            JOptionPane.showMessageDialog(this, "Usuario ou senha incorreto!");
         }
         
     }//GEN-LAST:event_btnLogin1ActionPerformed

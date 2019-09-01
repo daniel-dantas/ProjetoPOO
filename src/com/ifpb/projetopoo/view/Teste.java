@@ -31,13 +31,13 @@ public class Teste {
        
        */
        
-       /*
+       
        MedicoDAO dao = new MedicoDAO();
        
-       Medico teste = dao.read("711.111.111-11");
        
-       System.out.println(teste.getContato().getTelefone());
-       */
+       
+       System.out.println(dao.read());
+       
        
        /*
        Paciente paciente = new Paciente("711.111.111-11", "Pessoa 7", LocalDate.now(), new Endereco("rua", "cidade", "bairro", "estado"), new Contato(null, "1111-1111"));

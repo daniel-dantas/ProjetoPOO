@@ -5,6 +5,13 @@
  */
 package com.ifpb.projetopoo.view;
 
+import com.ifpb.projetopoo.dao.PacienteDAO;
+import com.ifpb.projetopoo.model.Contato;
+import com.ifpb.projetopoo.model.Endereco;
+import com.ifpb.projetopoo.model.Paciente;
+import java.time.LocalDate;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author IGOR
@@ -14,8 +21,12 @@ public class Tela_Cadastro_Paciente extends javax.swing.JFrame {
     /**
      * Creates new form Tela_Cadastro_Paciente
      */
+    private final PacienteDAO dao;
+
     public Tela_Cadastro_Paciente() {
         initComponents();
+        dao = new PacienteDAO();
+        setExtendedState(MAXIMIZED_BOTH);
     }
 
     /**
@@ -37,27 +48,27 @@ public class Tela_Cadastro_Paciente extends javax.swing.JFrame {
         Right_Menu4 = new javax.swing.JPanel();
         CPF4 = new javax.swing.JLabel();
         Usuario45 = new javax.swing.JLabel();
-        campoCpf4 = new javax.swing.JFormattedTextField();
-        campoNascimento4 = new javax.swing.JFormattedTextField();
+        campoCpf = new javax.swing.JFormattedTextField();
+        campoNascimento = new javax.swing.JFormattedTextField();
         Usuario46 = new javax.swing.JLabel();
         Usuario47 = new javax.swing.JLabel();
         Usuario48 = new javax.swing.JLabel();
         Usuario49 = new javax.swing.JLabel();
-        btnCadastrar4 = new javax.swing.JButton();
-        btnVoltar4 = new javax.swing.JButton();
-        campoNome4 = new javax.swing.JTextField();
-        campoEmail4 = new javax.swing.JTextField();
+        btnCadastrar = new javax.swing.JButton();
+        btnVoltar = new javax.swing.JButton();
+        campoNome = new javax.swing.JTextField();
+        campoEmail = new javax.swing.JTextField();
         Usuario51 = new javax.swing.JLabel();
-        campoRua4 = new javax.swing.JTextField();
+        campoRua = new javax.swing.JTextField();
         Usuario52 = new javax.swing.JLabel();
-        campoBairro4 = new javax.swing.JTextField();
+        campoBairro = new javax.swing.JTextField();
         Usuario53 = new javax.swing.JLabel();
         Usuario54 = new javax.swing.JLabel();
-        campoEstado4 = new javax.swing.JTextField();
-        campoCidade4 = new javax.swing.JTextField();
+        campoEstado = new javax.swing.JTextField();
+        campoCidade = new javax.swing.JTextField();
         Usuario55 = new javax.swing.JLabel();
-        campoCidade5 = new javax.swing.JTextField();
-        campoCpf5 = new javax.swing.JFormattedTextField();
+        campoEspecificacao = new javax.swing.JTextField();
+        campoTelefone = new javax.swing.JFormattedTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -128,22 +139,22 @@ public class Tela_Cadastro_Paciente extends javax.swing.JFrame {
         Usuario45.setText("Nome:");
 
         try {
-            campoCpf4.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
+            campoCpf.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        campoCpf4.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
+        campoCpf.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
 
         try {
-            campoNascimento4.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+            campoNascimento.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        campoNascimento4.setText("dd/mm/aaaa   ");
-        campoNascimento4.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
-        campoNascimento4.addActionListener(new java.awt.event.ActionListener() {
+        campoNascimento.setText("dd/mm/aaaa   ");
+        campoNascimento.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
+        campoNascimento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                campoNascimento4campoNascimentoActionPerformed(evt);
+                campoNascimentocampoNascimentoActionPerformed(evt);
             }
         });
 
@@ -163,35 +174,35 @@ public class Tela_Cadastro_Paciente extends javax.swing.JFrame {
         Usuario49.setForeground(new java.awt.Color(241, 231, 254));
         Usuario49.setText("Informações");
 
-        btnCadastrar4.setBackground(new java.awt.Color(241, 231, 254));
-        btnCadastrar4.setFont(new java.awt.Font("Calibri", 1, 26)); // NOI18N
-        btnCadastrar4.setText("Cadastrar");
-        btnCadastrar4.addActionListener(new java.awt.event.ActionListener() {
+        btnCadastrar.setBackground(new java.awt.Color(241, 231, 254));
+        btnCadastrar.setFont(new java.awt.Font("Calibri", 1, 26)); // NOI18N
+        btnCadastrar.setText("Cadastrar");
+        btnCadastrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCadastrar4btnCadastrarActionPerformed(evt);
+                btnCadastrarbtnCadastrarActionPerformed(evt);
             }
         });
 
-        btnVoltar4.setBackground(new java.awt.Color(241, 231, 254));
-        btnVoltar4.setFont(new java.awt.Font("Calibri", 1, 26)); // NOI18N
-        btnVoltar4.setText("Voltar");
-        btnVoltar4.addActionListener(new java.awt.event.ActionListener() {
+        btnVoltar.setBackground(new java.awt.Color(241, 231, 254));
+        btnVoltar.setFont(new java.awt.Font("Calibri", 1, 26)); // NOI18N
+        btnVoltar.setText("Voltar");
+        btnVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnVoltar4btnVoltarActionPerformed(evt);
+                btnVoltarbtnVoltarActionPerformed(evt);
             }
         });
 
-        campoNome4.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
-        campoNome4.addActionListener(new java.awt.event.ActionListener() {
+        campoNome.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
+        campoNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                campoNome4campoNomeActionPerformed(evt);
+                campoNomecampoNomeActionPerformed(evt);
             }
         });
 
-        campoEmail4.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
-        campoEmail4.addActionListener(new java.awt.event.ActionListener() {
+        campoEmail.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
+        campoEmail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                campoEmail4campoEmailActionPerformed(evt);
+                campoEmailcampoEmailActionPerformed(evt);
             }
         });
 
@@ -199,10 +210,10 @@ public class Tela_Cadastro_Paciente extends javax.swing.JFrame {
         Usuario51.setForeground(new java.awt.Color(241, 231, 254));
         Usuario51.setText("Bairro:");
 
-        campoRua4.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
-        campoRua4.addActionListener(new java.awt.event.ActionListener() {
+        campoRua.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
+        campoRua.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                campoRua4campoRuaActionPerformed(evt);
+                campoRuacampoRuaActionPerformed(evt);
             }
         });
 
@@ -210,10 +221,10 @@ public class Tela_Cadastro_Paciente extends javax.swing.JFrame {
         Usuario52.setForeground(new java.awt.Color(241, 231, 254));
         Usuario52.setText("Rua:");
 
-        campoBairro4.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
-        campoBairro4.addActionListener(new java.awt.event.ActionListener() {
+        campoBairro.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
+        campoBairro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                campoBairro4campoBairroActionPerformed(evt);
+                campoBairrocampoBairroActionPerformed(evt);
             }
         });
 
@@ -225,17 +236,17 @@ public class Tela_Cadastro_Paciente extends javax.swing.JFrame {
         Usuario54.setForeground(new java.awt.Color(241, 231, 254));
         Usuario54.setText("Estado:");
 
-        campoEstado4.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
-        campoEstado4.addActionListener(new java.awt.event.ActionListener() {
+        campoEstado.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
+        campoEstado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                campoEstado4campoEstadoActionPerformed(evt);
+                campoEstadocampoEstadoActionPerformed(evt);
             }
         });
 
-        campoCidade4.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
-        campoCidade4.addActionListener(new java.awt.event.ActionListener() {
+        campoCidade.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
+        campoCidade.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                campoCidade4campoCidadeActionPerformed(evt);
+                campoCidadecampoCidadeActionPerformed(evt);
             }
         });
 
@@ -243,19 +254,19 @@ public class Tela_Cadastro_Paciente extends javax.swing.JFrame {
         Usuario55.setForeground(new java.awt.Color(241, 231, 254));
         Usuario55.setText("Especificação:");
 
-        campoCidade5.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
-        campoCidade5.addActionListener(new java.awt.event.ActionListener() {
+        campoEspecificacao.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
+        campoEspecificacao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                campoCidade5campoCidadeActionPerformed(evt);
+                campoEspecificacaocampoCidadeActionPerformed(evt);
             }
         });
 
         try {
-            campoCpf5.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##) #########")));
+            campoTelefone.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##) #########")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        campoCpf5.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
+        campoTelefone.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
 
         javax.swing.GroupLayout Right_Menu4Layout = new javax.swing.GroupLayout(Right_Menu4);
         Right_Menu4.setLayout(Right_Menu4Layout);
@@ -273,12 +284,12 @@ public class Tela_Cadastro_Paciente extends javax.swing.JFrame {
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Right_Menu4Layout.createSequentialGroup()
                         .addGroup(Right_Menu4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(campoCidade5, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(campoNome4)
+                            .addComponent(campoEspecificacao, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(campoNome)
                             .addGroup(Right_Menu4Layout.createSequentialGroup()
                                 .addGroup(Right_Menu4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(campoRua4)
-                                    .addComponent(campoNascimento4)
+                                    .addComponent(campoRua)
+                                    .addComponent(campoNascimento)
                                     .addGroup(Right_Menu4Layout.createSequentialGroup()
                                         .addGroup(Right_Menu4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(Usuario45)
@@ -287,19 +298,19 @@ public class Tela_Cadastro_Paciente extends javax.swing.JFrame {
                                             .addComponent(Usuario48)
                                             .addComponent(Usuario53))
                                         .addGap(0, 179, Short.MAX_VALUE))
-                                    .addComponent(campoCidade4)
-                                    .addComponent(campoCpf5))
+                                    .addComponent(campoCidade)
+                                    .addComponent(campoTelefone))
                                 .addGap(40, 40, 40)
                                 .addGroup(Right_Menu4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(Right_Menu4Layout.createSequentialGroup()
                                         .addGap(0, 131, Short.MAX_VALUE)
-                                        .addComponent(btnVoltar4, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, 18)
-                                        .addComponent(btnCadastrar4))
-                                    .addComponent(campoBairro4)
-                                    .addComponent(campoEstado4)
-                                    .addComponent(campoEmail4)
-                                    .addComponent(campoCpf4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 423, Short.MAX_VALUE)
+                                        .addComponent(btnCadastrar))
+                                    .addComponent(campoBairro)
+                                    .addComponent(campoEstado)
+                                    .addComponent(campoEmail)
+                                    .addComponent(campoCpf, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 423, Short.MAX_VALUE)
                                     .addGroup(Right_Menu4Layout.createSequentialGroup()
                                         .addGroup(Right_Menu4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(CPF4)
@@ -317,47 +328,47 @@ public class Tela_Cadastro_Paciente extends javax.swing.JFrame {
                 .addGap(30, 30, 30)
                 .addComponent(Usuario45)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(campoNome4, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(campoNome, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(Right_Menu4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Usuario46)
                     .addComponent(CPF4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(Right_Menu4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(campoNascimento4, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(campoCpf4, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(campoNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(campoCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(Right_Menu4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Usuario48)
                     .addComponent(Usuario47))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(Right_Menu4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(campoEmail4, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(campoCpf5, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(campoEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(campoTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(Right_Menu4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Usuario52)
                     .addComponent(Usuario51))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(Right_Menu4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(campoRua4, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(campoBairro4, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(campoRua, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(campoBairro, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(Right_Menu4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Usuario53)
                     .addComponent(Usuario54))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(Right_Menu4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(campoCidade4, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(campoEstado4, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(campoCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(campoEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(Usuario55)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(campoCidade5, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(campoEspecificacao, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
                 .addGroup(Right_Menu4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnCadastrar4, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnVoltar4, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -381,54 +392,67 @@ public class Tela_Cadastro_Paciente extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void campoCidade4campoCidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoCidade4campoCidadeActionPerformed
+    private void campoCidadecampoCidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoCidadecampoCidadeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_campoCidade4campoCidadeActionPerformed
+    }//GEN-LAST:event_campoCidadecampoCidadeActionPerformed
 
-    private void campoEstado4campoEstadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoEstado4campoEstadoActionPerformed
+    private void campoEstadocampoEstadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoEstadocampoEstadoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_campoEstado4campoEstadoActionPerformed
+    }//GEN-LAST:event_campoEstadocampoEstadoActionPerformed
 
-    private void campoBairro4campoBairroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoBairro4campoBairroActionPerformed
+    private void campoBairrocampoBairroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoBairrocampoBairroActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_campoBairro4campoBairroActionPerformed
+    }//GEN-LAST:event_campoBairrocampoBairroActionPerformed
 
-    private void campoRua4campoRuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoRua4campoRuaActionPerformed
+    private void campoRuacampoRuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoRuacampoRuaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_campoRua4campoRuaActionPerformed
+    }//GEN-LAST:event_campoRuacampoRuaActionPerformed
 
-    private void campoEmail4campoEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoEmail4campoEmailActionPerformed
+    private void campoEmailcampoEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoEmailcampoEmailActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_campoEmail4campoEmailActionPerformed
+    }//GEN-LAST:event_campoEmailcampoEmailActionPerformed
 
-    private void campoNome4campoNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoNome4campoNomeActionPerformed
+    private void campoNomecampoNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoNomecampoNomeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_campoNome4campoNomeActionPerformed
+    }//GEN-LAST:event_campoNomecampoNomeActionPerformed
 
-    private void btnVoltar4btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltar4btnVoltarActionPerformed
+    private void btnVoltarbtnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarbtnVoltarActionPerformed
         // TODO add your handling code here:
-
+        new Tela_Principal().setVisible(true);
         this.setVisible(false);
-        new Tela_Login_Atendente().setVisible(true);
-    }//GEN-LAST:event_btnVoltar4btnVoltarActionPerformed
+        
+    }//GEN-LAST:event_btnVoltarbtnVoltarActionPerformed
 
-    private void btnCadastrar4btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrar4btnCadastrarActionPerformed
+    private void btnCadastrarbtnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarbtnCadastrarActionPerformed
         // TODO add your handling code here:
-        
-        
-        
-        
-        
-        
-    }//GEN-LAST:event_btnCadastrar4btnCadastrarActionPerformed
 
-    private void campoNascimento4campoNascimentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoNascimento4campoNascimentoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_campoNascimento4campoNascimentoActionPerformed
+        if (verificarCampos() && verificarCpf()) {
+            String nascimento = campoNascimento.getText();
 
-    private void campoCidade5campoCidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoCidade5campoCidadeActionPerformed
+            int dia = Integer.parseInt(nascimento.substring(0, 2));
+            int mes = Integer.parseInt(nascimento.substring(3, 5));
+            int ano = Integer.parseInt(nascimento.substring(6, 10));
+            
+            if(dao.create(new Paciente(campoCpf.getText(), campoNome.getText(), LocalDate.of(ano, mes, dia), new Endereco(campoRua.getText(), campoCidade.getText(), campoBairro.getText(), campoEstado.getText()), new Contato(campoEmail.getText(), campoTelefone.getText())))){
+                JOptionPane.showMessageDialog(this, "Paciente cadastrado com sucesso!");
+                new Tela_Principal().setVisible(true);
+                this.setVisible(false);
+            }else{
+                JOptionPane.showMessageDialog(this, "Erro ao cadastrar paciente");
+            }
+            
+            
+        }
+
+    }//GEN-LAST:event_btnCadastrarbtnCadastrarActionPerformed
+
+    private void campoNascimentocampoNascimentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoNascimentocampoNascimentoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_campoCidade5campoCidadeActionPerformed
+    }//GEN-LAST:event_campoNascimentocampoNascimentoActionPerformed
+
+    private void campoEspecificacaocampoCidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoEspecificacaocampoCidadeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_campoEspecificacaocampoCidadeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -482,20 +506,45 @@ public class Tela_Cadastro_Paciente extends javax.swing.JFrame {
     private javax.swing.JLabel Usuario53;
     private javax.swing.JLabel Usuario54;
     private javax.swing.JLabel Usuario55;
-    private javax.swing.JButton btnCadastrar4;
-    private javax.swing.JButton btnVoltar4;
-    private javax.swing.JTextField campoBairro4;
-    private javax.swing.JTextField campoCidade4;
-    private javax.swing.JTextField campoCidade5;
-    private javax.swing.JFormattedTextField campoCpf4;
-    private javax.swing.JFormattedTextField campoCpf5;
-    private javax.swing.JTextField campoEmail4;
-    private javax.swing.JTextField campoEstado4;
-    private javax.swing.JFormattedTextField campoNascimento4;
-    private javax.swing.JTextField campoNome4;
-    private javax.swing.JTextField campoRua4;
+    private javax.swing.JButton btnCadastrar;
+    private javax.swing.JButton btnVoltar;
+    private javax.swing.JTextField campoBairro;
+    private javax.swing.JTextField campoCidade;
+    private javax.swing.JFormattedTextField campoCpf;
+    private javax.swing.JTextField campoEmail;
+    private javax.swing.JTextField campoEspecificacao;
+    private javax.swing.JTextField campoEstado;
+    private javax.swing.JFormattedTextField campoNascimento;
+    private javax.swing.JTextField campoNome;
+    private javax.swing.JTextField campoRua;
+    private javax.swing.JFormattedTextField campoTelefone;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     // End of variables declaration//GEN-END:variables
+
+    private boolean verificarCampos() {
+
+        if (campoBairro.getText().length() == 0 || campoCidade.getText().length() == 0 || campoCpf.getText().equals("   .   .   -  ") || campoEmail.getText().length() == 0
+                || campoEstado.getText().length() == 0 || campoNascimento.getText().equals("  /  /    ") || campoNome.getText().length() == 0
+                || campoRua.getText().length() == 0 || campoTelefone.getText().equals("(  )          ")) {
+
+            JOptionPane.showMessageDialog(this, "Algum campo obrigatório não foi preenchido!\nTodos os campos são obrigatórios menos as especificações");
+
+            return false;
+
+        }
+        return true;
+
+    }
+
+    private boolean verificarCpf() {
+
+        if (dao.search(campoCpf.getText()) == null) {
+            return true;
+        }
+        JOptionPane.showMessageDialog(this, "Esse CPF já está cadastrado no sistema!\nVerifique se o CPF foi digitado corretamente.");
+        return false;
+
+    }
 }
