@@ -18,7 +18,7 @@ public class Teste {
     public static void main(String[] args) {
        
        /*
-        Medico pessoa = new Medico(20000, LocalDate.now(), "711.111.111-11", "Pessoa 7", LocalDate.now(), new Endereco("rua", "cidade", "bairro", "estado"), new Contato("pessoa7.tudook", "1111-1111"));
+        Medico pessoa = new Medico(20000, LocalDate.now(), "211.111.111-11", "Pessoa 2", LocalDate.now(), new Endereco("rua", "cidade", "bairro", "estado"), new Contato("pessoa7.tudook", "1111-1111"));
        
         DAO dao = new MedicoDAO();
         
@@ -31,16 +31,16 @@ public class Teste {
        
        */
        
-       
+       /*
        MedicoDAO dao = new MedicoDAO();
        
        
        
        System.out.println(dao.read());
-       
+       */
        
        /*
-       Paciente paciente = new Paciente("711.111.111-11", "Pessoa 7", LocalDate.now(), new Endereco("rua", "cidade", "bairro", "estado"), new Contato(null, "1111-1111"));
+       Paciente paciente = new Paciente("211.111.111-11", "Pessoa 2", LocalDate.now(), new Endereco("rua", "cidade", "bairro", "estado"), new Contato(null, "1111-1111"));
        paciente.addDescricao("Pressão alta");
        paciente.addDescricao("Enxaqueca");
 
@@ -96,7 +96,7 @@ public class Teste {
        /*
        ConsultaDAO teste = new ConsultaDAO();
         
-       teste.create(new Consulta("Pressão Alta", "711.111.111-11", "711.111.111-11", LocalDateTime.now()));
+       teste.create(new Consulta("Pressão Alta", "111.111.111-11", "711.111.111-11", LocalDateTime.now()));
        */
         
        /*
@@ -117,15 +117,16 @@ public class Teste {
        teste.update(1, new Exame(null, "Sangue", "oops", "711.111.111-11", LocalDateTime.now()));
        */
        
-       /*
+       
        ExameDAO teste = new ExameDAO();
        
-       System.out.println(teste.read(1));
-       */
+       System.out.println(teste.read("711.111.111-11"));
        
        
+       /*
        ConsultaDAO teste = new ConsultaDAO();
        
-       System.out.println(teste.read(2));
+       System.out.println(teste.read("711.111.111-11"));
+       */
     }
 }

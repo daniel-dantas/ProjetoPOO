@@ -54,8 +54,4 @@ public class Exame extends Procedimento{
     public String toString() {
         return "Exame{" +"cpf do pacinte="+getCpfDoPaciente()+",horario="+getHorario()+ ",descricaoDoExame=" + descricaoDoExame + ", tipoDeExame=" + tipoDeExame + ", resultado=" + resultado + '}';
     }
-
-    
-    
-    
 }

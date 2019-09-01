@@ -8,6 +8,8 @@ package com.ifpb.projetopoo.dao;
 import com.ifpb.projetopoo.model.Exame;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -50,19 +52,22 @@ public class ExameDAO extends ProcedimentoDAO{
         return retorno;
     }
     
-    public Exame read(int id) {
-        String sql = "SELECT * FROM Exame";
-        sql += " Where IdProcedimento='" + id + "'";
-        Conexao con = new Conexao();
-        try{
-            ResultSet consulta = con.executeQuery(sql);
-            consulta.next();
-            Exame retorno = (Exame) super.read(id, "exame");
-            retorno.setTipoDeExame(consulta.getString("Tipo"));
-            retorno.setResultado(consulta.getString("Resultado"));
-            return retorno;
-        }catch(SQLException e) {
-            return null;
+    public List<Exame> read(String Cpf) {
+        List <ProcedimentoDAO> procedimentos = super.readPrimario(Cpf);
+        List <Exame> exames = new ArrayList<>();
+        for(ProcedimentoDAO procedimento : procedimentos) {
+            String sql = "SELECT * FROM Exame";
+            sql += " Where IdProcedimento='" + procedimento.getId() + "'";
+            Conexao con = new Conexao();
+            try{
+                ResultSet consulta = con.executeQuery(sql);
+                consulta.next();
+                exames.add(new Exame(null, consulta.getString("Tipo"), consulta.getString("Resultado"), procedimento.getCpfPaciente(), procedimento.getMomento()));
+            }catch(SQLException e) {
+                System.out.println(e.getErrorCode());
+            }
         }
+        return exames;
     }
+    
 }
