@@ -392,18 +392,6 @@ public class Tela_Cadastro_Paciente extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void campoCidadecampoCidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoCidadecampoCidadeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_campoCidadecampoCidadeActionPerformed
-
-    private void campoEstadocampoEstadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoEstadocampoEstadoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_campoEstadocampoEstadoActionPerformed
-
-    private void campoBairrocampoBairroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoBairrocampoBairroActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_campoBairrocampoBairroActionPerformed
-
     private void campoRuacampoRuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoRuacampoRuaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_campoRuacampoRuaActionPerformed
@@ -453,6 +441,18 @@ public class Tela_Cadastro_Paciente extends javax.swing.JFrame {
     private void campoEspecificacaocampoCidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoEspecificacaocampoCidadeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_campoEspecificacaocampoCidadeActionPerformed
+
+    private void campoBairrocampoBairroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoBairrocampoBairroActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_campoBairrocampoBairroActionPerformed
+
+    private void campoEstadocampoEstadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoEstadocampoEstadoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_campoEstadocampoEstadoActionPerformed
+
+    private void campoCidadecampoCidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoCidadecampoCidadeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_campoCidadecampoCidadeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -525,8 +525,8 @@ public class Tela_Cadastro_Paciente extends javax.swing.JFrame {
 
     private boolean verificarCampos() {
 
-        if (campoBairro.getText().length() == 0 || campoCidade.getText().length() == 0 || campoCpf.getText().equals("   .   .   -  ") || campoEmail.getText().length() == 0
-                || campoEstado.getText().length() == 0 || campoNascimento.getText().equals("  /  /    ") || campoNome.getText().length() == 0
+        if ( campoRua.getText().length() == 0 || campoCidade.getText().length() == 0 || campoBairro.getText().length() == 0 || campoEstado.getText().length() == 0 ||campoCpf.getText().equals("   .   .   -  ") || campoEmail.getText().length() == 0
+             || campoNascimento.getText().equals("  /  /    ") || campoNome.getText().length() == 0
                 || campoRua.getText().length() == 0 || campoTelefone.getText().equals("(  )          ")) {
 
             JOptionPane.showMessageDialog(this, "Algum campo obrigatório não foi preenchido!\nTodos os campos são obrigatórios menos as especificações");

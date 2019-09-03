@@ -256,7 +256,8 @@ public class ListagemPacientes extends javax.swing.JFrame {
         System.out.println(Tabela.retornarValorIdentificador(tabelaDeBusca));
         Paciente pac = dao.search(Tabela.retornarValorIdentificador(tabelaDeBusca));
 
-        System.out.println(pac);
+        new Tela_Atualizar_Paciente(pac).setVisible(true);
+        this.setVisible(false);
 
 
     }//GEN-LAST:event_btnEditarActionPerformed

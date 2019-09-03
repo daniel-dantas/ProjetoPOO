@@ -19,15 +19,15 @@ import java.util.List;
  *
  * @author IFPB
  */
-public class PacienteDAO implements DAO<Paciente>{
-    
+public class PacienteDAO implements DAO<Paciente> {
+
     public boolean create(Paciente paciente) {
         boolean resultado;
         resultado = addPaciente(paciente);
-        List <String> descricao = paciente.getDescricao();
-        for(String aux : descricao) {
+        List<String> descricao = paciente.getDescricao();
+        for (String aux : descricao) {
             boolean resposta = addDescricao(paciente.getCpf(), aux);
-            if(!resposta){
+            if (!resposta) {
                 resultado = false;
             }
         }
@@ -36,22 +36,22 @@ public class PacienteDAO implements DAO<Paciente>{
 
     public boolean addPaciente(Paciente paciente) {
         String insertTo = "INSERT INTO Paciente(Cpf, Nome, Nascimento, Endereco";
-        String values = " VALUES('" + paciente.getCpf() + "','" + paciente.getNome() + "','" + Date.valueOf(paciente.getNascimento()) + "','" + 
-                paciente.getEndereco().getRua() + " " + paciente.getEndereco().getBairro() + " " + paciente.getEndereco().getCidade() + " " + 
-                paciente.getEndereco().getEstado() + "',";
-        
-        if(paciente.getContato().getEmail() != null){
+        String values = " VALUES('" + paciente.getCpf() + "','" + paciente.getNome() + "','" + Date.valueOf(paciente.getNascimento()) + "','"
+                + paciente.getEndereco().getRua() + " " + paciente.getEndereco().getBairro() + " " + paciente.getEndereco().getCidade() + " "
+                + paciente.getEndereco().getEstado() + "',";
+
+        if (paciente.getContato().getEmail() != null) {
             insertTo += ", Email";
             values += "'" + paciente.getContato().getEmail() + "',";
         }
         insertTo += ", Telefone)";
         values += "'" + paciente.getContato().getTelefone() + "')";
-        
+
         Conexao con = new Conexao();
         int res = con.executeUpdate(insertTo + values);
         return res >= 1;
     }
-    
+
     public boolean addDescricao(String cpfpaciente, String descricao) {
         String sql = "INSERT INTO Descricao VALUES('" + cpfpaciente + "','" + descricao + "')";
         Conexao con = new Conexao();
@@ -60,13 +60,12 @@ public class PacienteDAO implements DAO<Paciente>{
     }
 
     public boolean update(String Cpf, Paciente paciente) {
-        String sql = "UPDATE Paciente SET Nome='" + paciente.getNome() + "', Nascimento='" + paciente.getNascimento() + "', Endereco='" + paciente.getEndereco().getRua() + " " + 
-                paciente.getEndereco().getBairro() + " " + paciente.getEndereco().getCidade() + " " + paciente.getEndereco().getEstado() + "', Email='" + 
-                paciente.getContato().getEmail() + "', Telefone='" + paciente.getContato().getTelefone() + "'" + " WHERE Cpf='" + Cpf + "'";
-        
+        String sql = "UPDATE Paciente SET Nome='" + paciente.getNome() + "', Nascimento='" + paciente.getNascimento() + "', Endereco='" + paciente.getEndereco().getEnderecoCompleto()+"', Email='"
+                + paciente.getContato().getEmail() + "', Telefone='" + paciente.getContato().getTelefone() + "'" + " WHERE Cpf='" + Cpf + "'";
+
         Conexao con = new Conexao();
         int resultado = con.executeUpdate(sql);
-        
+
         return resultado >= 1;
     }
 
@@ -78,39 +77,38 @@ public class PacienteDAO implements DAO<Paciente>{
         String sql = "SELECT * FROM Paciente";
         sql += " Where Cpf='" + Cpf + "'";
         Conexao con = new Conexao();
-        try{
+        try {
             ResultSet consulta = con.executeQuery(sql);
             consulta.next();
-            return new Paciente(consulta.getString("Cpf"), consulta.getString("Nome"), consulta.getDate("Nascimento").toLocalDate(), new Endereco(consulta.getString("Endereco"), null, null, null), new Contato(consulta.getString("Email"), consulta.getString("Telefone")));
-        }catch(SQLException e) {
+            Endereco endereco = new Endereco(consulta.getString("Endereco"), null, null, null);
+            endereco.setEnderecoCompleto();
+            return new Paciente(consulta.getString("Cpf"), consulta.getString("Nome"), consulta.getDate("Nascimento").toLocalDate(), endereco, new Contato(consulta.getString("Email"), consulta.getString("Telefone")));
+        } catch (SQLException e) {
             return null;
         }
     }
-    
-    public List<Paciente> read(){
-        
+
+    public List<Paciente> read() {
+
         List<Paciente> pacientes = new ArrayList<>();
-        
+
         String sql = "SELECT * FROM Paciente";
-        
-        
+
         Conexao con = new Conexao();
-        try{
+        try {
             ResultSet consulta = con.executeQuery(sql);
-            
-            while(consulta.next()){
-                pacientes.add(new Paciente(consulta.getString("Cpf"), consulta.getString("Nome"), consulta.getDate("Nascimento").toLocalDate(), new Endereco(consulta.getString("Endereco"), null, null, null), new Contato(consulta.getString("Email"), consulta.getString("Telefone"))));
+
+            while (consulta.next()) {
+                Endereco endereco = new Endereco(consulta.getString("Endereco"), null, null, null);
+                endereco.setEnderecoCompleto();
+                pacientes.add(new Paciente(consulta.getString("Cpf"), consulta.getString("Nome"), consulta.getDate("Nascimento").toLocalDate(), endereco, new Contato(consulta.getString("Email"), consulta.getString("Telefone"))));
             }
-            
-            
-        }catch(SQLException e) {
+
+        } catch (SQLException e) {
             System.err.println("Erro ao listar");
         }
-        
-        
-        
+
         return pacientes;
     }
-    
 
 }

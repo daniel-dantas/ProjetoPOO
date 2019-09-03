@@ -3,14 +3,6 @@
 package com.ifpb.projetopoo.util;
 
 
-import com.ifpb.projetopoo.dao.DAO;
-import com.ifpb.projetopoo.model.Pessoa;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 

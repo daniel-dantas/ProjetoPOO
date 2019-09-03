@@ -11,6 +11,7 @@ package com.ifpb.projetopoo.model;
  */
 public class Endereco {
     
+    private String enderecoCompleto;
     private String rua;
     private String cidade;
     private String bairro;
@@ -58,6 +59,14 @@ public class Endereco {
     @Override
     public String toString() {
         return "Endereco{" + "rua=" + rua + ", cidade=" + cidade + ", bairro=" + bairro + ", estado=" + estado + '}';
+    }
+
+    public String getEnderecoCompleto() {
+        return enderecoCompleto;
+    }
+
+    public void setEnderecoCompleto() {
+        this.enderecoCompleto = this.rua;
     }
     
     
