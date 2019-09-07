@@ -421,7 +421,7 @@ public class Tela_Cadastro_Paciente extends javax.swing.JFrame {
             int mes = Integer.parseInt(nascimento.substring(3, 5));
             int ano = Integer.parseInt(nascimento.substring(6, 10));
             
-            if(dao.create(new Paciente(campoCpf.getText(), campoNome.getText(), LocalDate.of(ano, mes, dia), new Endereco(campoRua.getText(), campoCidade.getText(), campoBairro.getText(), campoEstado.getText()), new Contato(campoEmail.getText(), campoTelefone.getText())))){
+            if(dao.create(new Paciente(campoCpf.getText(), campoNome.getText(), LocalDate.of(ano, mes, dia), new Endereco(campoRua.getText()+campoCidade.getText()+campoBairro.getText()+campoEstado.getText(), null, null, null), new Contato(campoEmail.getText(), campoTelefone.getText())))){
                 JOptionPane.showMessageDialog(this, "Paciente cadastrado com sucesso!");
                 new Tela_Principal().setVisible(true);
                 this.setVisible(false);

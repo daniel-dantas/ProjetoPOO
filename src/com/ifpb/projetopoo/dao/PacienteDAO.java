@@ -60,7 +60,7 @@ public class PacienteDAO implements DAO<Paciente> {
     }
 
     public boolean update(String Cpf, Paciente paciente) {
-        String sql = "UPDATE Paciente SET Nome='" + paciente.getNome() + "', Nascimento='" + paciente.getNascimento() + "', Endereco='" + paciente.getEndereco().getEnderecoCompleto()+"', Email='"
+        String sql = "UPDATE Paciente SET Nome='" + paciente.getNome() + "', Nascimento='" + paciente.getNascimento() + "', Endereco='" + paciente.getEndereco().getRua()+"', Email='"
                 + paciente.getContato().getEmail() + "', Telefone='" + paciente.getContato().getTelefone() + "'" + " WHERE Cpf='" + Cpf + "'";
 
         Conexao con = new Conexao();
