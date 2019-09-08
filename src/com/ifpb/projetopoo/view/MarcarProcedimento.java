@@ -98,6 +98,11 @@ public class MarcarProcedimento extends javax.swing.JFrame {
         });
 
         btnMarcarConsulta.setText("Marcar Consulta");
+        btnMarcarConsulta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMarcarConsultaActionPerformed(evt);
+            }
+        });
 
         btnBusca.setText("Buscar");
         btnBusca.addActionListener(new java.awt.event.ActionListener() {
@@ -138,6 +143,11 @@ public class MarcarProcedimento extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tabelaDeBusca);
 
         btnMarcarExame.setText("Marcar Exame");
+        btnMarcarExame.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMarcarExameActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -235,6 +245,22 @@ public class MarcarProcedimento extends javax.swing.JFrame {
         btnMarcarConsulta.setEnabled(true);
         btnMarcarExame.setEnabled(true);
     }//GEN-LAST:event_tabelaDeBuscaMouseClicked
+
+    private void btnMarcarExameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMarcarExameActionPerformed
+        // TODO add your handling code here:
+        
+        new Tela_Marcacao_Exame().setVisible(true);
+        this.setVisible(false);
+        
+        
+    }//GEN-LAST:event_btnMarcarExameActionPerformed
+
+    private void btnMarcarConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMarcarConsultaActionPerformed
+        // TODO add your handling code here:
+        
+        new Tela_Marcacao_Consulta().setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnMarcarConsultaActionPerformed
 
     /**
      * @param args the command line arguments

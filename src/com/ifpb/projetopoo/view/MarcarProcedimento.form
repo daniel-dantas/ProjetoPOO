@@ -153,6 +153,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Marcar Consulta"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnMarcarConsultaActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnBusca">
           <Properties>
@@ -194,6 +197,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Marcar Exame"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnMarcarExameActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
