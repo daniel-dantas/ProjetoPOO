@@ -26,9 +26,9 @@ public class Teste {
         */
        
        /*
-       DAO dao = new MedicoDAO();
+       MedicoDAO dao = new MedicoDAO();
        
-       
+       dao.addEspecialidade("211.111.111-11", "pediatra");
        */
        
        /*
@@ -38,6 +38,12 @@ public class Teste {
        
        System.out.println(dao.read());
        */
+       
+       
+       DAO teste = new MedicoDAO();
+       
+       teste.remove("211.111.111-11");
+       
        
        /*
        Paciente paciente = new Paciente("211.111.111-11", "Pessoa 2", LocalDate.now(), new Endereco("rua", "cidade", "bairro", "estado"), new Contato(null, "1111-1111"));
@@ -63,9 +69,15 @@ public class Teste {
        
        System.out.println(teste.getNome());
        */
-        
+       
        /*
-       Atendente atendente = new Atendente(20000, LocalDate.now(), "411.111.111-11", "Pessoa 6", LocalDate.now(), "atendente1.com", "123", new Endereco("rua", "cidade", "bairro", "estado"), new Contato("1111-1111", null));
+       DAO dao = new PacienteDAO();
+       
+       dao.remove("211.111.111-11");
+       */
+       
+       /*
+       Atendente atendente = new Atendente(20000, LocalDate.now(), "111.111.111-11", "Pessoa 1", LocalDate.now(), "atendente1.com", "123", new Endereco("rua", "cidade", "bairro", "estado"), new Contato("1111-1111", null));
        
        DAO dao = new AtendenteDAO();
        
@@ -93,11 +105,17 @@ public class Teste {
        System.out.println(teste);
        */
        
+       /*
+       DAO teste = new AtendenteDAO();
        
+       teste.remove("111.111.111-11");
+       */
+       
+       /*
        ConsultaDAO teste = new ConsultaDAO();
         
        teste.create(new Consulta("Pressão Alta", "111.111.111-11", "711.111.111-11", LocalDateTime.now()));
-       
+       */
         
        /*
        ExameDAO teste = new ExameDAO();

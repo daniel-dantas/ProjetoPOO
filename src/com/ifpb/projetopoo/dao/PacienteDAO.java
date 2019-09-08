@@ -69,8 +69,14 @@ public class PacienteDAO implements DAO<Paciente> {
         return resultado >= 1;
     }
 
-    public boolean remove(Paciente elemento) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    @Override
+    public boolean remove(String elemento) {
+        String sql = "DELETE FROM Paciente WHERE Cpf='" + elemento + "'";
+        
+        Conexao con = new Conexao();
+        int resultado = con.executeUpdate(sql);
+        
+        return resultado >= 1;
     }
 
     public Paciente search(String Cpf) {

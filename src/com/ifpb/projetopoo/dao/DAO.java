@@ -33,7 +33,7 @@ public interface DAO<T>{
      * @param elemento Elemento a ser removido
      * @return Confirmação se a remoção foi realizada com sucesso
      */
-    boolean remove(T elemento);
+    boolean remove(String elemento);
     /**
      * 
      * @return Retorna um List de elementos de determinada tabela

@@ -58,16 +58,14 @@ public class AtendenteDAO implements DAO<Atendente>{
         return resultado >= 1;
     }
 
-    public boolean remove(Atendente elemento) {
-
-        for (int i = 0; i < listaAtendentes.size(); i++) {
-            if (listaAtendentes.get(i).equals(elemento)) {
-                listaAtendentes.remove(i);
-                return true;
-            }
-        }
-
-        return false;
+    @Override
+    public boolean remove(String elemento) {
+        String sql = "DELETE FROM Atendente WHERE Cpf='" + elemento + "'";
+        
+        Conexao con = new Conexao();
+        int resultado = con.executeUpdate(sql);
+        
+        return resultado >= 1;
     }
     
     public boolean authentication (String usuario, String senha) {
