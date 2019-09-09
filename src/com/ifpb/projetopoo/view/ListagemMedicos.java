@@ -6,7 +6,9 @@
 package com.ifpb.projetopoo.view;
 
 import com.ifpb.projetopoo.dao.AtendenteDAO;
+import com.ifpb.projetopoo.dao.MedicoDAO;
 import com.ifpb.projetopoo.dao.PacienteDAO;
+import com.ifpb.projetopoo.model.Medico;
 import com.ifpb.projetopoo.model.Paciente;
 import com.ifpb.projetopoo.util.Tabela;
 import java.util.List;
@@ -19,14 +21,14 @@ import javax.swing.table.TableColumn;
  *
  * @author daniel
  */
-public class ListagemPacientes extends javax.swing.JFrame {
+public class ListagemMedicos extends javax.swing.JFrame {
 
     /**
      * Creates new form ListagemPacientes
      */
-    public ListagemPacientes() {
+    public ListagemMedicos() {
 
-        setTitle("PACIENTES");
+        setTitle("MEDICOS");
         this.setExtendedState(MAXIMIZED_BOTH);
         initComponents();
         btnEditar.setEnabled(false);
@@ -75,7 +77,7 @@ public class ListagemPacientes extends javax.swing.JFrame {
 
         Text_4.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
         Text_4.setForeground(new java.awt.Color(241, 231, 254));
-        Text_4.setText("CPF do Paciente:");
+        Text_4.setText("CPF do Medico:");
 
         try {
             campoBusca.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
@@ -220,20 +222,14 @@ public class ListagemPacientes extends javax.swing.JFrame {
             Tabela.limparTabela(tabelaDeBusca);
             btnDeletar.setEnabled(false);
             btnEditar.setEnabled(false);
-            PacienteDAO dao = new PacienteDAO();
-            Paciente paciente = dao.search(campoBusca.getText());
+            MedicoDAO dao = new MedicoDAO();
+            Medico medico = dao.search(campoBusca.getText());
 
-            if (paciente != null) {
-                Tabela.addTabela(tabelaDeBusca, new String[]{paciente.getCpf(), paciente.getNome()});
+            if (medico != null) {
+                Tabela.addTabela(tabelaDeBusca, new String[]{medico.getCpf(), medico.getNome()});
             }
         } else {
-            Tabela.limparTabela(tabelaDeBusca);
-            PacienteDAO dao = new PacienteDAO();
-            List<Paciente> pacientes = dao.read();
-
-            for (Paciente p : pacientes) {
-                Tabela.addTabela(tabelaDeBusca, new String[]{p.getCpf(), p.getNome()});
-            }
+            preencherTabela();
         }
 
 
@@ -243,19 +239,16 @@ public class ListagemPacientes extends javax.swing.JFrame {
         // TODO add your handling code here:
 
         btnEditar.setEnabled(true);
+
         btnDeletar.setEnabled(true);
 
     }//GEN-LAST:event_tabelaDeBuscaMouseClicked
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
         // TODO add your handling code here:
-
-        PacienteDAO dao = new PacienteDAO();
+        MedicoDAO dao = new MedicoDAO();
         System.out.println(Tabela.retornarValorIdentificador(tabelaDeBusca));
-        Paciente pac = dao.search(Tabela.retornarValorIdentificador(tabelaDeBusca));
-
-        new Tela_Atualizar_Paciente(pac).setVisible(true);
-        this.setVisible(false);
+        Medico med = dao.search(Tabela.retornarValorIdentificador(tabelaDeBusca));
 
 
     }//GEN-LAST:event_btnEditarActionPerformed
@@ -263,18 +256,18 @@ public class ListagemPacientes extends javax.swing.JFrame {
     private void btnDeletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeletarActionPerformed
         // TODO add your handling code here:
 
-        PacienteDAO dao = new PacienteDAO();
+        MedicoDAO dao = new MedicoDAO();
+        System.out.println(Tabela.retornarValorIdentificador(tabelaDeBusca));
 
-        int opcao = JOptionPane.showConfirmDialog(this, "Deseja realmente exclui o paciente?");
+        int opcao = JOptionPane.showConfirmDialog(this, "Deseja realmente excluir?");
 
         if (opcao == JOptionPane.YES_OPTION) {
             dao.remove(Tabela.retornarValorIdentificador(tabelaDeBusca));
             preencherTabela();
             btnEditar.setEnabled(false);
             btnDeletar.setEnabled(false);
-            JOptionPane.showMessageDialog(this, "Paciente excluido com sucesso!");
+            JOptionPane.showMessageDialog(this, "Medico excluido com sucesso!");
         }
-
 
     }//GEN-LAST:event_btnDeletarActionPerformed
 
@@ -295,20 +288,23 @@ public class ListagemPacientes extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ListagemPacientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ListagemMedicos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ListagemPacientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ListagemMedicos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ListagemPacientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ListagemMedicos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ListagemPacientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ListagemMedicos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ListagemPacientes().setVisible(true);
+                new ListagemMedicos().setVisible(true);
 
             }
         });
@@ -329,12 +325,11 @@ public class ListagemPacientes extends javax.swing.JFrame {
 
     private void preencherTabela() {
         Tabela.limparTabela(tabelaDeBusca);
-        PacienteDAO dao = new PacienteDAO();
-        List<Paciente> pacientes = dao.read();
-        for (Paciente p : pacientes) {
+        MedicoDAO dao = new MedicoDAO();
+        List<Medico> medicos = dao.read();
 
-            Tabela.addTabela(tabelaDeBusca, new String[]{p.getCpf(), p.getNome()});
-
+        for (Medico m : medicos) {
+            Tabela.addTabela(tabelaDeBusca, new String[]{m.getCpf(), m.getNome()});
         }
     }
 
