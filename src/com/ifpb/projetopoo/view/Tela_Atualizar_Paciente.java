@@ -10,6 +10,8 @@ import com.ifpb.projetopoo.model.Contato;
 import com.ifpb.projetopoo.model.Endereco;
 import com.ifpb.projetopoo.model.Paciente;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeFormatterBuilder;
 import javax.swing.JOptionPane;
 
 /**
@@ -24,7 +26,9 @@ public class Tela_Atualizar_Paciente extends javax.swing.JFrame {
     
     private Paciente paciente;
     private final PacienteDAO dao;
+    private final DateTimeFormatter fm;
     public Tela_Atualizar_Paciente(Paciente paciente) {
+        fm = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         dao = new PacienteDAO();
         setExtendedState(MAXIMIZED_BOTH);
         this.paciente = paciente;
@@ -36,6 +40,7 @@ public class Tela_Atualizar_Paciente extends javax.swing.JFrame {
     public Tela_Atualizar_Paciente(){
         initComponents();
         dao = new PacienteDAO();
+        fm = DateTimeFormatter.ofPattern("dd/MM/yyyy");
     }
     
     /**
@@ -52,7 +57,6 @@ public class Tela_Atualizar_Paciente extends javax.swing.JFrame {
         CPF4 = new javax.swing.JLabel();
         Usuario45 = new javax.swing.JLabel();
         campoCpf = new javax.swing.JFormattedTextField();
-        campoNascimento = new javax.swing.JFormattedTextField();
         Usuario46 = new javax.swing.JLabel();
         Usuario47 = new javax.swing.JLabel();
         Usuario48 = new javax.swing.JLabel();
@@ -64,6 +68,7 @@ public class Tela_Atualizar_Paciente extends javax.swing.JFrame {
         campoEndereco = new javax.swing.JTextField();
         Usuario52 = new javax.swing.JLabel();
         campoTelefone = new javax.swing.JFormattedTextField();
+        campoNascimento = new javax.swing.JTextField();
         Left_Menu = new javax.swing.JPanel();
         Text_1 = new javax.swing.JLabel();
         Text_2 = new javax.swing.JLabel();
@@ -89,19 +94,6 @@ public class Tela_Atualizar_Paciente extends javax.swing.JFrame {
             ex.printStackTrace();
         }
         campoCpf.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
-
-        try {
-            campoNascimento.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
-        campoNascimento.setText("dd/mm/aaaa   ");
-        campoNascimento.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
-        campoNascimento.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                campoNascimentocampoNascimentoActionPerformed(evt);
-            }
-        });
 
         Usuario46.setFont(new java.awt.Font("Calibri", 1, 28)); // NOI18N
         Usuario46.setForeground(new java.awt.Color(241, 231, 254));
@@ -183,19 +175,23 @@ public class Tela_Atualizar_Paciente extends javax.swing.JFrame {
                     .addComponent(campoNome)
                     .addGroup(Right_Menu4Layout.createSequentialGroup()
                         .addGroup(Right_Menu4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(campoNascimento)
                             .addGroup(Right_Menu4Layout.createSequentialGroup()
                                 .addGroup(Right_Menu4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(Usuario45)
-                                    .addComponent(Usuario52)
-                                    .addComponent(Usuario46)
-                                    .addComponent(Usuario48))
-                                .addGap(0, 179, Short.MAX_VALUE))
-                            .addComponent(campoTelefone))
-                        .addGap(40, 40, 40)
+                                    .addGroup(Right_Menu4Layout.createSequentialGroup()
+                                        .addGroup(Right_Menu4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(Usuario45)
+                                            .addComponent(Usuario52)
+                                            .addComponent(Usuario46)
+                                            .addComponent(Usuario48))
+                                        .addGap(0, 212, Short.MAX_VALUE))
+                                    .addComponent(campoTelefone))
+                                .addGap(40, 40, 40))
+                            .addGroup(Right_Menu4Layout.createSequentialGroup()
+                                .addComponent(campoNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, 442, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addGroup(Right_Menu4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(Right_Menu4Layout.createSequentialGroup()
-                                .addGap(0, 152, Short.MAX_VALUE)
+                                .addGap(0, 203, Short.MAX_VALUE)
                                 .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(btnCadastrar))
@@ -223,10 +219,10 @@ public class Tela_Atualizar_Paciente extends javax.swing.JFrame {
                     .addComponent(Usuario46)
                     .addComponent(CPF4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(Right_Menu4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(campoNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(campoCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(Right_Menu4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(campoCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(campoNascimento, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(Right_Menu4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Usuario48)
                     .addComponent(Usuario47))
@@ -321,22 +317,13 @@ public class Tela_Atualizar_Paciente extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void campoNascimentocampoNascimentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoNascimentocampoNascimentoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_campoNascimentocampoNascimentoActionPerformed
-
     private void btnCadastrarbtnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarbtnCadastrarActionPerformed
         // TODO add your handling code here:
         
         
         if (verificarCampos()) {
-            String nascimento = campoNascimento.getText();
-
-            int dia = Integer.parseInt(nascimento.substring(0, 2));
-            int mes = Integer.parseInt(nascimento.substring(3, 5));
-            int ano = Integer.parseInt(nascimento.substring(6, 10));
-
-            if(dao.update(paciente.getCpf(),new Paciente(campoCpf.getText(), campoNome.getText(), LocalDate.of(ano, mes, dia), new Endereco(campoEndereco.getText(), "", "", ""), new Contato(campoEmail.getText(), campoTelefone.getText())))){
+            
+            if(dao.update(paciente.getCpf(),new Paciente(campoCpf.getText(), campoNome.getText(), LocalDate.parse(campoNascimento.getText(), fm), new Endereco(campoEndereco.getText(), "", "", ""), new Contato(campoEmail.getText(), campoTelefone.getText())))){
                 JOptionPane.showMessageDialog(this, "Paciente atualizado com sucesso!");
                 new Tela_Principal().setVisible(true);
                 this.setVisible(false);
@@ -419,7 +406,7 @@ public class Tela_Atualizar_Paciente extends javax.swing.JFrame {
     private javax.swing.JFormattedTextField campoCpf;
     private javax.swing.JTextField campoEmail;
     private javax.swing.JTextField campoEndereco;
-    private javax.swing.JFormattedTextField campoNascimento;
+    private javax.swing.JTextField campoNascimento;
     private javax.swing.JTextField campoNome;
     private javax.swing.JFormattedTextField campoTelefone;
     private javax.swing.JScrollPane jScrollPane1;
@@ -449,12 +436,16 @@ public class Tela_Atualizar_Paciente extends javax.swing.JFrame {
 
     private void preencherCampos() {
         
+        LocalDate data = paciente.getNascimento();
+        
+        LocalDate parsedDate = LocalDate.parse(data.format(fm), fm);
         campoCpf.setText(paciente.getCpf());
         campoEmail.setText(paciente.getContato().getEmail());
-        campoNascimento.setText("");
+        campoNascimento.setText(parsedDate.toString());
         campoNome.setText(paciente.getNome());
-        campoEndereco.setText(paciente.getEndereco().getEnderecoCompleto());
+        campoEndereco.setText(paciente.getEndereco().getRua());
         campoTelefone.setText(paciente.getContato().getTelefone());
+        
     }
     
     
