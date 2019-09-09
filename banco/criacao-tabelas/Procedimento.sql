@@ -5,4 +5,5 @@ CREATE TABLE Procedimento(
 	Hora TIME NOT NULL,
 	PRIMARY KEY (Id),
 	FOREIGN KEY (CpfPaciente) REFERENCES Paciente(Cpf)
+	ON DELETE CASCADE
 )
