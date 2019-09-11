@@ -58,6 +58,24 @@ public class PacienteDAO implements DAO<Paciente> {
         int res = con.executeUpdate(sql);
         return res >= 1;
     }
+    
+    public List<String> readDescricao(String cpfPaciente) {
+        List <String> descricao = new ArrayList<>();
+        
+        String sql = "SELECT * FROM Descricao WHERE CpfPaciente='" + cpfPaciente + "'";
+        
+        Conexao con = new Conexao();
+        try{
+            ResultSet consulta = con.executeQuery(sql);
+            while(consulta.next()){
+                descricao.add(consulta.getString("Descricao"));
+            }
+            
+            return descricao;
+        }catch(SQLException e) {
+            return null;
+        }
+    }
 
     public boolean update(String Cpf, Paciente paciente) {
         String sql = "UPDATE Paciente SET Nome='" + paciente.getNome() + "', Nascimento='" + paciente.getNascimento() + "', Endereco='" + paciente.getEndereco().getRua()+"', Email='"

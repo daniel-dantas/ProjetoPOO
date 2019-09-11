@@ -64,6 +64,24 @@ public class MedicoDAO implements DAO<Medico>{
         int res = con.executeUpdate(sql);
         return res >= 1;
     }
+    
+    public List<String> readEspecialidades(String cpfMedico) {
+        List <String> especialidades = new ArrayList<>();
+        
+        String sql = "SELECT * FROM Especialidade WHERE CpfMedico='" + cpfMedico + "'";
+        
+        Conexao con = new Conexao();
+        try{
+            ResultSet consulta = con.executeQuery(sql);
+            while(consulta.next()){
+                especialidades.add(consulta.getString("Especialidade"));
+            }
+            
+            return especialidades;
+        }catch(SQLException e) {
+            return null;
+        }
+    }
 
     public boolean update(String Cpf, Medico medico) {
         String sql = "UPDATE Medico SET Nome='" + medico.getNome() + "', Salario=" + medico.getSalario() + ", DataAdmissao='" + medico.getDataAdmissao() + 
