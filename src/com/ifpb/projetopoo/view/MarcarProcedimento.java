@@ -24,6 +24,7 @@ public class MarcarProcedimento extends javax.swing.JFrame {
     /**
      * Creates new form ListagemPacientes
      */
+    private PacienteDAO dao;
     public MarcarProcedimento() {
         
         setTitle("PACIENTES");
@@ -33,7 +34,7 @@ public class MarcarProcedimento extends javax.swing.JFrame {
         btnMarcarConsulta.setEnabled(false);
         btnMarcarExame.setEnabled(false);
         
-        PacienteDAO dao = new PacienteDAO();
+        dao = new PacienteDAO();
         List <Paciente> pacientes = dao.read();
         
         for(Paciente p : pacientes){
@@ -252,9 +253,10 @@ public class MarcarProcedimento extends javax.swing.JFrame {
     private void btnMarcarExameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMarcarExameActionPerformed
         // TODO add your handling code here:
         
-        new Tela_Marcacao_Exame().setVisible(true);
-        this.setVisible(false);
+        Paciente pac = dao.search(Tabela.retornarValorIdentificador(tabelaDeBusca));
         
+        
+        new Tela_Marcacao_Exame(pac).setVisible(true);
         
     }//GEN-LAST:event_btnMarcarExameActionPerformed
 
