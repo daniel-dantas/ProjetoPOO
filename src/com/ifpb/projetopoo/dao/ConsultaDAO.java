@@ -64,11 +64,29 @@ public class ConsultaDAO extends ProcedimentoDAO{
             try{
                 ResultSet consulta = con.executeQuery(sql);
                 consulta.next();
-                consultas.add(new Consulta(consulta.getString("Sintomas"), consulta.getString("CpfMedico"), procedimento.getCpfPaciente(), procedimento.getMomento()));
+                Consulta novo = new Consulta(consulta.getString("Sintomas"), consulta.getString("CpfMedico"), procedimento.getCpfPaciente(), procedimento.getMomento());
+                novo.setId(procedimento.getId());;
+                consultas.add(novo);
             }catch(SQLException e) {
                 return null;
             }
         }
         return consultas;
+    }
+    
+    public boolean remove(long id) {
+        boolean resposta = super.remove(id);
+        
+        if (resposta) {
+            String sql = "DELETE FROM Consulta WHERE IdProcedimento='" + id + "'";
+        
+            Conexao con = new Conexao();
+            int resultado = con.executeUpdate(sql);
+
+            return resultado >= 1;
+        }
+        
+        return false;
+        
     }
 }

@@ -5,6 +5,7 @@
  */
 package com.ifpb.projetopoo.view;
 
+import com.ifpb.projetopoo.model.Atendente;
 import com.ifpb.projetopoo.model.Paciente;
 import java.time.LocalDate;
 
@@ -17,12 +18,25 @@ public class Tela_Principal extends javax.swing.JFrame {
     /**
      * Creates new form Tela_Principal
      */
-    public Tela_Principal() {
+    
+    private final Atendente aten;
+    
+    public Tela_Principal(Atendente aten) {
+        this.aten = aten;
         initComponents();
         setTitle("Tela Principal");
         setExtendedState(MAXIMIZED_BOTH);
     }
-
+    public Tela_Principal() {
+        initComponents();
+        setTitle("Tela Principal");
+        aten = null;
+        setExtendedState(MAXIMIZED_BOTH);
+    }
+    
+    
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -53,7 +67,8 @@ public class Tela_Principal extends javax.swing.JFrame {
         Text_2 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
+        btnUsuario = new javax.swing.JMenu();
+        btnAlterarDados = new javax.swing.JMenuItem();
         btnLogout = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -241,7 +256,15 @@ public class Tela_Principal extends javax.swing.JFrame {
                 .addContainerGap(260, Short.MAX_VALUE))
         );
 
-        jMenu1.setText("Usuario");
+        btnUsuario.setText("Usuario");
+
+        btnAlterarDados.setText("Alterar Dados");
+        btnAlterarDados.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAlterarDadosActionPerformed(evt);
+            }
+        });
+        btnUsuario.add(btnAlterarDados);
 
         btnLogout.setText("Logout");
         btnLogout.addActionListener(new java.awt.event.ActionListener() {
@@ -249,9 +272,9 @@ public class Tela_Principal extends javax.swing.JFrame {
                 btnLogoutActionPerformed(evt);
             }
         });
-        jMenu1.add(btnLogout);
+        btnUsuario.add(btnLogout);
 
-        jMenuBar1.add(jMenu1);
+        jMenuBar1.add(btnUsuario);
 
         setJMenuBar(jMenuBar1);
 
@@ -322,6 +345,14 @@ public class Tela_Principal extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jButton4ActionPerformed
 
+    private void btnAlterarDadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarDadosActionPerformed
+        // TODO add your handling code here:
+        
+        new Tela_Atualizar_Atendente(aten).setVisible(true);
+        this.setVisible(false);
+        
+    }//GEN-LAST:event_btnAlterarDadosActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -363,15 +394,16 @@ public class Tela_Principal extends javax.swing.JFrame {
     private javax.swing.JLabel Text_4;
     private javax.swing.JLabel Text_5;
     private javax.swing.JLabel Text_6;
+    private javax.swing.JMenuItem btnAlterarDados;
     private javax.swing.JMenuItem btnLogout;
     private javax.swing.JButton btnMedicoCadastrar;
     private javax.swing.JButton btnPacienteCadastrar;
     private javax.swing.JButton btnPacientes;
     private javax.swing.JButton btnProcedimentos;
+    private javax.swing.JMenu btnUsuario;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
-    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

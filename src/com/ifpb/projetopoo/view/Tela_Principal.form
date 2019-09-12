@@ -4,11 +4,19 @@
   <NonVisualComponents>
     <Menu class="javax.swing.JMenuBar" name="jMenuBar1">
       <SubComponents>
-        <Menu class="javax.swing.JMenu" name="jMenu1">
+        <Menu class="javax.swing.JMenu" name="btnUsuario">
           <Properties>
             <Property name="text" type="java.lang.String" value="Usuario"/>
           </Properties>
           <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="btnAlterarDados">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Alterar Dados"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAlterarDadosActionPerformed"/>
+              </Events>
+            </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="btnLogout">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Logout"/>

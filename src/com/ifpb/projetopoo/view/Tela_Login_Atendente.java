@@ -6,6 +6,8 @@
 package com.ifpb.projetopoo.view;
 
 import com.ifpb.projetopoo.dao.AtendenteDAO;
+import com.ifpb.projetopoo.model.Atendente;
+import com.ifpb.projetopoo.model.Paciente;
 import javax.swing.JOptionPane;
 
 /**
@@ -227,8 +229,11 @@ public class Tela_Login_Atendente extends javax.swing.JFrame {
 
         if(dao.authentication(campoUsuario.getText(), campoSenha.getText())){
             
-            new Tela_Principal().setVisible(true);
+            Atendente ate = dao.search(dao.retornaCpf(campoUsuario.getText()));
+            
+            new Tela_Principal(ate).setVisible(true);
             this.setVisible(false);
+            
             JOptionPane.showMessageDialog(null, "Bem vindo!");
         }else{
             JOptionPane.showMessageDialog(this, "Usuario ou senha incorreto!");

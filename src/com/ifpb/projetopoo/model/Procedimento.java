@@ -15,6 +15,7 @@ import java.sql.Time;
  * @author daniel
  */
 public abstract class Procedimento implements MarcacaoProcedimento{
+    private long id;
     private final String cpfDoPaciente;
     private LocalDateTime horario;
 
@@ -27,6 +28,14 @@ public abstract class Procedimento implements MarcacaoProcedimento{
         return horario;
     }
 
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+    
     public void setHorario(LocalDateTime horario) {
         this.horario = horario;
     }

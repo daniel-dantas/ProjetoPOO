@@ -8,15 +8,11 @@ package com.ifpb.projetopoo.dao;
 import com.ifpb.projetopoo.model.Atendente;
 import com.ifpb.projetopoo.model.Contato;
 import com.ifpb.projetopoo.model.Endereco;
-import com.ifpb.projetopoo.model.Paciente;
 import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
-
 /**
  *
  * @author daniel
@@ -100,7 +96,22 @@ public class AtendenteDAO implements DAO<Atendente>{
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    
+    public String retornaCpf(String username){
+        
+        
+        String sql = "SELECT * FROM Atendente";
+        sql += " Where Username='" + username + "'";
+        Conexao con = new Conexao();
+        try{
+            ResultSet consulta = con.executeQuery(sql);
+            consulta.next();
+            return consulta.getString("Cpf");
+        }catch(SQLException e) {
+            return null;
+        }
+        
+        
+    }
     
     
     

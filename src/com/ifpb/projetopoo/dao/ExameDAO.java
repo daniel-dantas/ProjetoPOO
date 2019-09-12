@@ -52,6 +52,22 @@ public class ExameDAO extends ProcedimentoDAO{
         return retorno;
     }
     
+    public boolean remove(long id) {
+        boolean resposta = super.remove(id);
+        
+        if (resposta) {
+            String sql = "DELETE FROM Exame WHERE IdProcedimento='" + id + "'";
+        
+            Conexao con = new Conexao();
+            int resultado = con.executeUpdate(sql);
+
+            return resultado >= 1;
+        }
+        
+        return false;
+        
+    }
+    
     public List<Exame> read(String Cpf) {
         List <ProcedimentoDAO> procedimentos = super.readPrimario(Cpf);
         List <Exame> exames = new ArrayList<>();
@@ -62,7 +78,9 @@ public class ExameDAO extends ProcedimentoDAO{
             try{
                 ResultSet consulta = con.executeQuery(sql);
                 consulta.next();
-                exames.add(new Exame(null, consulta.getString("Tipo"), consulta.getString("Resultado"), procedimento.getCpfPaciente(), procedimento.getMomento()));
+                Exame novo = new Exame(null, consulta.getString("Tipo"), consulta.getString("Resultado"), procedimento.getCpfPaciente(), procedimento.getMomento());
+                novo.setId(procedimento.getId());
+                exames.add(novo);
             }catch(SQLException e) {
                 System.out.println(e.getErrorCode());
             }

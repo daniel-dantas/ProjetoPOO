@@ -264,7 +264,8 @@ public class ListagemMedicos extends javax.swing.JFrame {
         MedicoDAO dao = new MedicoDAO();
         System.out.println(Tabela.retornarValorIdentificador(tabelaDeBusca));
         Medico med = dao.search(Tabela.retornarValorIdentificador(tabelaDeBusca));
-
+        new Tela_Atualizar_Medico(med).setVisible(true);
+        this.setVisible(false);
 
     }//GEN-LAST:event_btnEditarActionPerformed
 

@@ -5,7 +5,6 @@
  */
 package com.ifpb.projetopoo.model;
 
-import com.ifpb.projetopoo.dao.Conexao;
 import java.time.LocalDateTime;
 
 /**

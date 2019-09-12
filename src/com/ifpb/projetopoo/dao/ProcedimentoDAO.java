@@ -79,6 +79,15 @@ public class ProcedimentoDAO {
         return resultado >= 1;
     }
     
+    public boolean remove(long id) {
+        String sql = "DELETE FROM Procedimento WHERE Id='" + id + "'";
+        
+        Conexao con = new Conexao();
+        int resultado = con.executeUpdate(sql);
+        
+        return resultado >= 1;
+    }
+    
     public List <ProcedimentoDAO> readPrimario(String Cpf){
         List <ProcedimentoDAO> procedimentos = new ArrayList<>();
         String sql = "SELECT * FROM Procedimento";
