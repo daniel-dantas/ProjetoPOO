@@ -71,7 +71,6 @@ public class Tela_Atualizar_Paciente extends javax.swing.JFrame {
         campoNascimento = new javax.swing.JTextField();
         Left_Menu = new javax.swing.JPanel();
         Text_1 = new javax.swing.JLabel();
-        Text_2 = new javax.swing.JLabel();
         Text_3 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
@@ -161,84 +160,75 @@ public class Tela_Atualizar_Paciente extends javax.swing.JFrame {
         }
         campoTelefone.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
 
+        campoNascimento.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
+
         javax.swing.GroupLayout Right_Menu4Layout = new javax.swing.GroupLayout(Right_Menu4);
         Right_Menu4.setLayout(Right_Menu4Layout);
         Right_Menu4Layout.setHorizontalGroup(
             Right_Menu4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Right_Menu4Layout.createSequentialGroup()
-                .addGap(376, 376, 376)
-                .addComponent(Usuario49)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(Right_Menu4Layout.createSequentialGroup()
                 .addGap(33, 33, 33)
                 .addGroup(Right_Menu4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(campoNome)
-                    .addGroup(Right_Menu4Layout.createSequentialGroup()
-                        .addGroup(Right_Menu4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(Right_Menu4Layout.createSequentialGroup()
-                                .addGroup(Right_Menu4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(Right_Menu4Layout.createSequentialGroup()
-                                        .addGroup(Right_Menu4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(Usuario45)
-                                            .addComponent(Usuario52)
-                                            .addComponent(Usuario46)
-                                            .addComponent(Usuario48))
-                                        .addGap(0, 212, Short.MAX_VALUE))
-                                    .addComponent(campoTelefone))
-                                .addGap(40, 40, 40))
-                            .addGroup(Right_Menu4Layout.createSequentialGroup()
-                                .addComponent(campoNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, 442, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addGroup(Right_Menu4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(Right_Menu4Layout.createSequentialGroup()
-                                .addGap(0, 203, Short.MAX_VALUE)
-                                .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnCadastrar))
-                            .addComponent(campoEmail)
-                            .addComponent(campoCpf, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 454, Short.MAX_VALUE)
-                            .addGroup(Right_Menu4Layout.createSequentialGroup()
-                                .addGroup(Right_Menu4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(CPF4)
-                                    .addComponent(Usuario47))
-                                .addGap(0, 356, Short.MAX_VALUE))))
+                    .addComponent(Usuario45, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Usuario46, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Usuario48, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(campoNome, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(campoNascimento, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(campoTelefone, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 353, Short.MAX_VALUE))
+                .addGap(72, 72, 72)
+                .addGroup(Right_Menu4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Usuario52)
+                    .addComponent(CPF4)
+                    .addComponent(Usuario47)
+                    .addComponent(campoCpf, javax.swing.GroupLayout.DEFAULT_SIZE, 354, Short.MAX_VALUE)
+                    .addComponent(campoEmail)
                     .addComponent(campoEndereco))
-                .addGap(41, 41, 41))
+                .addGap(50, 50, 50))
+            .addGroup(Right_Menu4Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnCadastrar)
+                .addGap(58, 58, 58))
+            .addGroup(Right_Menu4Layout.createSequentialGroup()
+                .addGap(319, 319, 319)
+                .addComponent(Usuario49)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         Right_Menu4Layout.setVerticalGroup(
             Right_Menu4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Right_Menu4Layout.createSequentialGroup()
-                .addGap(26, 26, 26)
+                .addGap(25, 25, 25)
                 .addComponent(Usuario49)
-                .addGap(30, 30, 30)
-                .addComponent(Usuario45)
+                .addGap(31, 31, 31)
+                .addGroup(Right_Menu4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Usuario45)
+                    .addComponent(CPF4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(campoNome, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(Right_Menu4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(campoNome, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(campoCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(Right_Menu4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Usuario46)
-                    .addComponent(CPF4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(Right_Menu4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(campoCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(campoNascimento, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(Right_Menu4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Usuario48)
                     .addComponent(Usuario47))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(Right_Menu4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(campoEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(campoTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(Usuario52)
+                    .addComponent(campoNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(campoEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(campoEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 180, Short.MAX_VALUE)
                 .addGroup(Right_Menu4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(109, 109, 109))
+                    .addComponent(Usuario48)
+                    .addComponent(Usuario52))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(Right_Menu4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(campoTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(campoEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(108, 108, 108)
+                .addGroup(Right_Menu4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(89, Short.MAX_VALUE))
         );
 
         jScrollPane1.setViewportView(Right_Menu4);
@@ -248,11 +238,7 @@ public class Tela_Atualizar_Paciente extends javax.swing.JFrame {
 
         Text_1.setFont(new java.awt.Font("Calibri", 1, 36)); // NOI18N
         Text_1.setForeground(new java.awt.Color(241, 231, 254));
-        Text_1.setText("Cadastro");
-
-        Text_2.setFont(new java.awt.Font("Calibri", 1, 36)); // NOI18N
-        Text_2.setForeground(new java.awt.Color(241, 231, 254));
-        Text_2.setText("de");
+        Text_1.setText("Atualizar");
 
         Text_3.setFont(new java.awt.Font("Calibri", 1, 36)); // NOI18N
         Text_3.setForeground(new java.awt.Color(241, 231, 254));
@@ -278,25 +264,19 @@ public class Tela_Atualizar_Paciente extends javax.swing.JFrame {
                             .addComponent(Text_1))
                         .addGap(0, 31, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(Left_MenuLayout.createSequentialGroup()
-                .addGap(93, 93, 93)
-                .addComponent(Text_2)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         Left_MenuLayout.setVerticalGroup(
             Left_MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Left_MenuLayout.createSequentialGroup()
-                .addGap(245, 245, 245)
+                .addGap(183, 183, 183)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Text_1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Text_2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Text_3)
                 .addGap(18, 18, 18)
+                .addComponent(Text_3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(283, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -306,12 +286,12 @@ public class Tela_Atualizar_Paciente extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(Left_Menu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1076, Short.MAX_VALUE))
+                .addComponent(jScrollPane1))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(Left_Menu, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+            .addComponent(jScrollPane1)
         );
 
         pack();
@@ -393,7 +373,6 @@ public class Tela_Atualizar_Paciente extends javax.swing.JFrame {
     private javax.swing.JPanel Left_Menu;
     private javax.swing.JPanel Right_Menu4;
     private javax.swing.JLabel Text_1;
-    private javax.swing.JLabel Text_2;
     private javax.swing.JLabel Text_3;
     private javax.swing.JLabel Usuario45;
     private javax.swing.JLabel Usuario46;

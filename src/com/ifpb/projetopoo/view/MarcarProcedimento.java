@@ -117,6 +117,7 @@ public class MarcarProcedimento extends javax.swing.JFrame {
         });
 
         tabelaDeBusca.setBackground(new java.awt.Color(160, 184, 177));
+        tabelaDeBusca.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
         tabelaDeBusca.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -172,8 +173,8 @@ public class MarcarProcedimento extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(Text_4)
                         .addGap(18, 18, 18)
-                        .addComponent(campoBusca, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(campoBusca)
+                        .addGap(18, 18, 18)
                         .addComponent(btnBusca, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
