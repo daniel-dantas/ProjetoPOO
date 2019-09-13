@@ -6,6 +6,7 @@
 package com.ifpb.projetopoo.model;
 
 import com.ifpb.projetopoo.dao.Conexao;
+import java.io.Serializable;
 import java.sql.Date;
 
 import java.time.LocalDate;
@@ -17,7 +18,7 @@ import javax.swing.JOptionPane;
  *
  * @author IGOR
  */
-public class Atendente extends Pessoa {
+public class Atendente extends Pessoa implements Serializable{
     
     private float salario;
     private LocalDate dataAdmissao;

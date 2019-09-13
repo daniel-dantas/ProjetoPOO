@@ -231,7 +231,10 @@ public class Tela_Login_Atendente extends javax.swing.JFrame {
             
             Atendente ate = dao.search(dao.retornaCpf(campoUsuario.getText()));
             
-            new Tela_Principal(ate).setVisible(true);
+            
+            
+            
+            new Tela_Principal().setVisible(true);
             this.setVisible(false);
             
             JOptionPane.showMessageDialog(null, "Bem vindo!");

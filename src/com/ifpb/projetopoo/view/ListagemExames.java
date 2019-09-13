@@ -10,6 +10,7 @@ import com.ifpb.projetopoo.dao.PacienteDAO;
 import com.ifpb.projetopoo.model.Paciente;
 import com.ifpb.projetopoo.util.Tabela;
 import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
@@ -18,30 +19,21 @@ import javax.swing.table.TableColumn;
  *
  * @author daniel
  */
-public class MarcarProcedimento extends javax.swing.JFrame {
-    
-    
+public class ListagemExames extends javax.swing.JFrame {
+
     /**
      * Creates new form ListagemPacientes
      */
-    private PacienteDAO dao;
-    public MarcarProcedimento() {
-        
+    public ListagemExames() {
+
         setTitle("PACIENTES");
         this.setExtendedState(MAXIMIZED_BOTH);
         initComponents();
-        
-        btnMarcarConsulta.setEnabled(false);
-        btnMarcarExame.setEnabled(false);
-        
-        dao = new PacienteDAO();
-        List <Paciente> pacientes = dao.read();
-        
-        for(Paciente p : pacientes){
-            
-            Tabela.addTabela(tabelaDeBusca, new String[]{p.getCpf(), p.getNome()});
-            
-        }
+        btnEditar.setEnabled(false);
+        btnDeletar.setEnabled(false);
+
+        preencherTabela();
+
     }
 
     /**
@@ -54,29 +46,40 @@ public class MarcarProcedimento extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        Text_1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         Text_4 = new javax.swing.JLabel();
         campoBusca = new javax.swing.JFormattedTextField();
         btnVoltar = new javax.swing.JButton();
-        btnMarcarConsulta = new javax.swing.JButton();
+        btnEditar = new javax.swing.JButton();
+        btnDeletar = new javax.swing.JButton();
         btnBusca = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabelaDeBusca = new javax.swing.JTable();
-        btnMarcarExame = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(36, 37, 42));
 
+        Text_1.setFont(new java.awt.Font("Calibri", 1, 36)); // NOI18N
+        Text_1.setForeground(new java.awt.Color(241, 231, 254));
+        Text_1.setText("Exames");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 239, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(53, 53, 53)
+                .addComponent(Text_1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(44, 44, 44))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(309, 309, 309)
+                .addComponent(Text_1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addGap(291, 291, 291))
         );
 
         jPanel2.setBackground(new java.awt.Color(102, 51, 153));
@@ -100,12 +103,19 @@ public class MarcarProcedimento extends javax.swing.JFrame {
             }
         });
 
-        btnMarcarConsulta.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
-        btnMarcarConsulta.setText("Marcar Consulta");
-        btnMarcarConsulta.setPreferredSize(new java.awt.Dimension(199, 49));
-        btnMarcarConsulta.addActionListener(new java.awt.event.ActionListener() {
+        btnEditar.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
+        btnEditar.setText("Remarcar");
+        btnEditar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnMarcarConsultaActionPerformed(evt);
+                btnEditarActionPerformed(evt);
+            }
+        });
+
+        btnDeletar.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
+        btnDeletar.setText("Deletar");
+        btnDeletar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeletarActionPerformed(evt);
             }
         });
 
@@ -118,19 +128,20 @@ public class MarcarProcedimento extends javax.swing.JFrame {
         });
 
         tabelaDeBusca.setBackground(new java.awt.Color(160, 184, 177));
+        tabelaDeBusca.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         tabelaDeBusca.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "CPF", "Nome"
+                "CPF", "Nome", "Horário"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false
+                false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -148,14 +159,6 @@ public class MarcarProcedimento extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tabelaDeBusca);
 
-        btnMarcarExame.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
-        btnMarcarExame.setText("Marcar Exame");
-        btnMarcarExame.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnMarcarExameActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -164,36 +167,36 @@ public class MarcarProcedimento extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(btnVoltar, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
-                        .addGap(123, 123, 123)
-                        .addComponent(btnMarcarExame, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(101, 101, 101)
-                        .addComponent(btnMarcarConsulta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(jScrollPane1)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(Text_4)
                         .addGap(18, 18, 18)
-                        .addComponent(campoBusca, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnBusca, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(campoBusca)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnBusca, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane1)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(btnVoltar, javax.swing.GroupLayout.DEFAULT_SIZE, 136, Short.MAX_VALUE)
+                        .addGap(165, 165, 165)
+                        .addComponent(btnEditar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(166, 166, 166)
+                        .addComponent(btnDeletar, javax.swing.GroupLayout.DEFAULT_SIZE, 147, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(75, 75, 75)
+                .addGap(44, 44, 44)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Text_4)
-                    .addComponent(campoBusca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnBusca))
+                    .addComponent(campoBusca, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBusca, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 420, Short.MAX_VALUE)
-                .addGap(35, 35, 35)
+                .addComponent(jScrollPane1)
+                .addGap(30, 30, 30)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnMarcarExame, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnMarcarConsulta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(17, 17, 17))
+                    .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnDeletar, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(32, 32, 32))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -227,45 +230,68 @@ public class MarcarProcedimento extends javax.swing.JFrame {
 
     private void btnBuscaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscaActionPerformed
         // TODO add your handling code here:
-        
-        Tabela.limparTabela(tabelaDeBusca);
-        btnMarcarConsulta.setEnabled(false);
-        PacienteDAO dao = new PacienteDAO();
-        Paciente paciente = dao.search(campoBusca.getText());
-        
-        
-        if(paciente != null){
-            Tabela.addTabela(tabelaDeBusca, new String[]{paciente.getCpf(), paciente.getNome()});
+
+        if (!campoBusca.getText().equals("   .   .   -  ")) {
+            Tabela.limparTabela(tabelaDeBusca);
+            btnDeletar.setEnabled(false);
+            btnEditar.setEnabled(false);
+            PacienteDAO dao = new PacienteDAO();
+            Paciente paciente = dao.search(campoBusca.getText());
+
+            if (paciente != null) {
+                Tabela.addTabela(tabelaDeBusca, new String[]{paciente.getCpf(), paciente.getNome()});
+            }
+        } else {
+            Tabela.limparTabela(tabelaDeBusca);
+            PacienteDAO dao = new PacienteDAO();
+            List<Paciente> pacientes = dao.read();
+
+            for (Paciente p : pacientes) {
+                Tabela.addTabela(tabelaDeBusca, new String[]{p.getCpf(), p.getNome()});
+            }
         }
-        
-            
-        
-        
+
+
     }//GEN-LAST:event_btnBuscaActionPerformed
 
     private void tabelaDeBuscaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaDeBuscaMouseClicked
         // TODO add your handling code here:
-        
-        btnMarcarConsulta.setEnabled(true);
-        btnMarcarExame.setEnabled(true);
+
+        btnEditar.setEnabled(true);
+        btnDeletar.setEnabled(true);
+
     }//GEN-LAST:event_tabelaDeBuscaMouseClicked
 
-    private void btnMarcarExameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMarcarExameActionPerformed
+    private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
         // TODO add your handling code here:
-        
-        Paciente pac = dao.search(Tabela.retornarValorIdentificador(tabelaDeBusca));
-        
-        
-        new Tela_Marcacao_Exame(pac).setVisible(true);
-        
-    }//GEN-LAST:event_btnMarcarExameActionPerformed
 
-    private void btnMarcarConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMarcarConsultaActionPerformed
-        // TODO add your handling code here:
+        PacienteDAO dao = new PacienteDAO();
+        System.out.println(Tabela.retornarValorIdentificador(tabelaDeBusca));
         Paciente pac = dao.search(Tabela.retornarValorIdentificador(tabelaDeBusca));
-        new Tela_Marcacao_Consulta(pac).setVisible(true);
-        
-    }//GEN-LAST:event_btnMarcarConsultaActionPerformed
+
+        new Tela_Atualizar_Paciente(pac).setVisible(true);
+        this.setVisible(false);
+
+
+    }//GEN-LAST:event_btnEditarActionPerformed
+
+    private void btnDeletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeletarActionPerformed
+        // TODO add your handling code here:
+
+        PacienteDAO dao = new PacienteDAO();
+
+        int opcao = JOptionPane.showConfirmDialog(this, "Deseja realmente exclui o paciente?");
+
+        if (opcao == JOptionPane.YES_OPTION) {
+            dao.remove(Tabela.retornarValorIdentificador(tabelaDeBusca));
+            preencherTabela();
+            btnEditar.setEnabled(false);
+            btnDeletar.setEnabled(false);
+            JOptionPane.showMessageDialog(this, "Paciente excluido com sucesso!");
+        }
+
+
+    }//GEN-LAST:event_btnDeletarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -284,33 +310,32 @@ public class MarcarProcedimento extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MarcarProcedimento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ListagemExames.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MarcarProcedimento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ListagemExames.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MarcarProcedimento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ListagemExames.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MarcarProcedimento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ListagemExames.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MarcarProcedimento().setVisible(true);
-                
+                new ListagemExames().setVisible(true);
+
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Text_1;
     private javax.swing.JLabel Text_4;
     private javax.swing.JButton btnBusca;
-    private javax.swing.JButton btnMarcarConsulta;
-    private javax.swing.JButton btnMarcarExame;
+    private javax.swing.JButton btnDeletar;
+    private javax.swing.JButton btnEditar;
     private javax.swing.JButton btnVoltar;
     private javax.swing.JFormattedTextField campoBusca;
     private javax.swing.JPanel jPanel1;
@@ -319,6 +344,15 @@ public class MarcarProcedimento extends javax.swing.JFrame {
     private javax.swing.JTable tabelaDeBusca;
     // End of variables declaration//GEN-END:variables
 
-    
-    
+    private void preencherTabela() {
+        Tabela.limparTabela(tabelaDeBusca);
+        PacienteDAO dao = new PacienteDAO();
+        List<Paciente> pacientes = dao.read();
+        for (Paciente p : pacientes) {
+
+            Tabela.addTabela(tabelaDeBusca, new String[]{p.getCpf(), p.getNome()});
+
+        }
+    }
+
 }
