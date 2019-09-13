@@ -22,13 +22,14 @@ public class Tela_Atualizar_Atendente extends javax.swing.JFrame {
     /**
      * Creates new form Tela_Cadastro_Atendente
      */
-    private Atendente atendente;
+    private final Atendente atendente;
     private final AtendenteDAO dao;
     private final DateTimeFormatter fm;
 
     public Tela_Atualizar_Atendente() {
         fm = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         dao = new AtendenteDAO();
+        atendente = null;
         initComponents();
         setExtendedState(MAXIMIZED_BOTH);
     }

@@ -22,7 +22,7 @@ public class Tela_Principal extends javax.swing.JFrame {
     private final Atendente aten;
     
     public Tela_Principal(Atendente aten) {
-        this.aten = null;
+        this.aten = aten;
         initComponents();
         setTitle("Tela Principal");
         setExtendedState(MAXIMIZED_BOTH);
