@@ -68,6 +68,40 @@ public class ExameDAO extends ProcedimentoDAO{
         
     }
     
+    public List<Exame> fullRead() {
+        List <Exame> exames = new ArrayList<>();
+        List <Integer> ids = new ArrayList<>();
+        String sql = "SELECT IdProcedimento FROM Exame";
+        
+        Conexao con = new Conexao();
+        try{
+            ResultSet consulta = con.executeQuery(sql);
+            while(consulta.next()){
+                ids.add(consulta.getInt("IdProcedimento"));
+            }
+        }catch(SQLException e) {
+            return null;
+        }
+        
+        List <ProcedimentoDAO> procedimentos = super.readFullPrimario(ids);
+        
+        for(ProcedimentoDAO procedimento : procedimentos) {
+            String sql2 = "SELECT * FROM Exame";
+            sql2 += " Where IdProcedimento='" + procedimento.getId() + "'";
+            Conexao con2 = new Conexao();
+            try{
+                ResultSet consulta = con2.executeQuery(sql2);
+                consulta.next();
+                Exame novo = new Exame(null, consulta.getString("Tipo"), consulta.getString("Resultado"), procedimento.getCpfPaciente(), procedimento.getMomento());
+                novo.setId(procedimento.getId());
+                exames.add(novo);
+            }catch(SQLException e) {
+                System.out.println(e.getErrorCode());
+            }
+        }
+        return exames;
+    }
+    
     public List<Exame> read(String Cpf) {
         List <ProcedimentoDAO> procedimentos = super.readPrimario(Cpf);
         List <Exame> exames = new ArrayList<>();

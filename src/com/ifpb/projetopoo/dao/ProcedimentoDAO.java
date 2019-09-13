@@ -88,7 +88,25 @@ public class ProcedimentoDAO {
         return resultado >= 1;
     }
     
-    
+    public List <ProcedimentoDAO> readFullPrimario(List <Integer> ids) {
+        List <ProcedimentoDAO> procedimentos = new ArrayList<>();
+        String sql = "SELECT * FROM Procedimento WHERE Id IN (";
+        for(int id : ids) {
+            sql += id + ",";
+        }
+        sql = sql.substring(0, sql.length()-1);
+        sql += ")";
+        Conexao con = new Conexao();
+        try{
+            ResultSet consulta = con.executeQuery(sql);
+            while(consulta.next()){
+                procedimentos.add(new ProcedimentoDAO(consulta.getInt("Id"), consulta.getString("CpfPaciente"), LocalDateTime.of(consulta.getDate("Dia").toLocalDate(), consulta.getTime("Hora").toLocalTime())));
+            }
+            return procedimentos;
+        }catch(SQLException e) {
+            return null;
+        }
+    }
     
     public List <ProcedimentoDAO> readPrimario(String Cpf){
         List <ProcedimentoDAO> procedimentos = new ArrayList<>();

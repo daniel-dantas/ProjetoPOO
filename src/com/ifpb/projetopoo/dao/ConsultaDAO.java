@@ -54,7 +54,39 @@ public class ConsultaDAO extends ProcedimentoDAO{
         return retorno;
     }
     
-    
+    public List<Consulta> fullRead() {
+        List <Consulta> consultas = new ArrayList<>();
+        List <Integer> ids = new ArrayList<>();
+        String sql = "SELECT IdProcedimento FROM Consulta";
+        
+        Conexao con = new Conexao();
+        try{
+            ResultSet consulta = con.executeQuery(sql);
+            while(consulta.next()){
+                ids.add(consulta.getInt("IdProcedimento"));
+            }
+        }catch(SQLException e) {
+            return null;
+        }
+        
+        List <ProcedimentoDAO> procedimentos = super.readFullPrimario(ids);
+        
+        for(ProcedimentoDAO procedimento : procedimentos){
+            String sql2 = "SELECT * FROM Consulta";
+            sql2 += " Where IdProcedimento='" + procedimento.getId() + "'";
+            Conexao con2 = new Conexao();
+            try{
+                ResultSet consulta = con2.executeQuery(sql2);
+                consulta.next();
+                Consulta novo = new Consulta(consulta.getString("Sintomas"), consulta.getString("CpfMedico"), procedimento.getCpfPaciente(), procedimento.getMomento());
+                novo.setId(procedimento.getId());;
+                consultas.add(novo);
+            }catch(SQLException e) {
+                return null;
+            }
+        }
+        return consultas;
+    }
     
     public List<Consulta> read(String Cpf) {
         List <Consulta> consultas = new ArrayList<>();
