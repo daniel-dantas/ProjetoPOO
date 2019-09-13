@@ -234,7 +234,7 @@ public class Tela_Login_Atendente extends javax.swing.JFrame {
             
             
             
-            new Tela_Principal().setVisible(true);
+            new Tela_Principal(ate).setVisible(true);
             this.setVisible(false);
             
             JOptionPane.showMessageDialog(null, "Bem vindo!");

@@ -109,9 +109,19 @@ public class Tela_Principal extends javax.swing.JFrame {
 
         jButton5.setFont(new java.awt.Font("Calibri", 0, 30)); // NOI18N
         jButton5.setText("Consultas");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         jButton6.setFont(new java.awt.Font("Calibri", 0, 30)); // NOI18N
         jButton6.setText("Exames");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
 
         jSeparator2.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
@@ -352,6 +362,23 @@ public class Tela_Principal extends javax.swing.JFrame {
         this.setVisible(false);
         
     }//GEN-LAST:event_btnAlterarDadosActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        // TODO add your handling code here:
+        
+        new ListagemExames().setVisible(true);
+        this.setVisible(false);
+        
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+        
+        
+        new ListagemConsultas().setVisible(true);
+        this.setVisible(false);
+        
+    }//GEN-LAST:event_jButton5ActionPerformed
 
     /**
      * @param args the command line arguments

@@ -63,9 +63,9 @@
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
-                  <EmptySpace min="-2" pref="270" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="309" max="-2" attributes="0"/>
                   <Component id="Text_1" pref="0" max="32767" attributes="0"/>
-                  <EmptySpace min="-2" pref="333" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="291" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -79,7 +79,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="fe" green="e7" red="f1" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Consultas"/>
+            <Property name="text" type="java.lang.String" value="Exames"/>
           </Properties>
         </Component>
       </SubComponents>
@@ -106,11 +106,11 @@
                       </Group>
                       <Component id="jScrollPane1" alignment="0" max="32767" attributes="0"/>
                       <Group type="102" attributes="0">
-                          <Component id="btnVoltar" pref="120" max="32767" attributes="0"/>
+                          <Component id="btnVoltar" pref="136" max="32767" attributes="0"/>
                           <EmptySpace min="-2" pref="165" max="-2" attributes="0"/>
                           <Component id="btnEditar" max="32767" attributes="0"/>
                           <EmptySpace min="-2" pref="166" max="-2" attributes="0"/>
-                          <Component id="btnDeletar" pref="133" max="32767" attributes="0"/>
+                          <Component id="btnDeletar" pref="147" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace min="-2" max="-2" attributes="0"/>
@@ -221,7 +221,8 @@
                   <Font name="Calibri" size="14" style="0"/>
                 </Property>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                  <Table columnCount="3" rowCount="0">
+                  <Table columnCount="4" rowCount="0">
+                    <Column editable="false" title="ID" type="java.lang.String"/>
                     <Column editable="false" title="CPF" type="java.lang.String"/>
                     <Column editable="false" title="Nome" type="java.lang.String"/>
                     <Column editable="false" title="Hor&#xe1;rio" type="java.lang.String"/>

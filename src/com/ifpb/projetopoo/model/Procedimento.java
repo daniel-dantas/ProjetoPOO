@@ -44,29 +44,7 @@ public class Procedimento implements MarcacaoProcedimento{
     public String getCpfDoPaciente() {
         return cpfDoPaciente;
     }
-
-    @Override
-    public int hashCode() {
-        int hash = 3;
-        hash = 89 * hash + Objects.hashCode(this.horario);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Procedimento other = (Procedimento) obj;
-        if (!Objects.equals(this.horario, other.horario)) {
-            return false;
-        }
-        return true;
-    }
-
+    
     
     
     @Override

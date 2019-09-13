@@ -6,9 +6,16 @@
 package com.ifpb.projetopoo.view;
 
 import com.ifpb.projetopoo.dao.AtendenteDAO;
+import com.ifpb.projetopoo.dao.ConsultaDAO;
+import com.ifpb.projetopoo.dao.ExameDAO;
 import com.ifpb.projetopoo.dao.PacienteDAO;
+import com.ifpb.projetopoo.model.Consulta;
+import com.ifpb.projetopoo.model.Exame;
 import com.ifpb.projetopoo.model.Paciente;
 import com.ifpb.projetopoo.util.Tabela;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
@@ -31,7 +38,6 @@ public class ListagemConsultas extends javax.swing.JFrame {
         initComponents();
         btnEditar.setEnabled(false);
         btnDeletar.setEnabled(false);
-
         preencherTabela();
 
     }
@@ -63,7 +69,7 @@ public class ListagemConsultas extends javax.swing.JFrame {
 
         Text_1.setFont(new java.awt.Font("Calibri", 1, 36)); // NOI18N
         Text_1.setForeground(new java.awt.Color(241, 231, 254));
-        Text_1.setText("Consultas");
+        Text_1.setText("Exames");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -77,9 +83,9 @@ public class ListagemConsultas extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(270, 270, 270)
+                .addGap(309, 309, 309)
                 .addComponent(Text_1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                .addGap(333, 333, 333))
+                .addGap(291, 291, 291))
         );
 
         jPanel2.setBackground(new java.awt.Color(102, 51, 153));
@@ -134,14 +140,14 @@ public class ListagemConsultas extends javax.swing.JFrame {
 
             },
             new String [] {
-                "CPF", "Nome", "Horário"
+                "ID", "CPF", "Nome", "Horário"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false
+                false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -174,11 +180,11 @@ public class ListagemConsultas extends javax.swing.JFrame {
                         .addComponent(btnBusca, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane1)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(btnVoltar, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
+                        .addComponent(btnVoltar, javax.swing.GroupLayout.DEFAULT_SIZE, 136, Short.MAX_VALUE)
                         .addGap(165, 165, 165)
                         .addComponent(btnEditar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(166, 166, 166)
-                        .addComponent(btnDeletar, javax.swing.GroupLayout.DEFAULT_SIZE, 133, Short.MAX_VALUE)))
+                        .addComponent(btnDeletar, javax.swing.GroupLayout.DEFAULT_SIZE, 147, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -235,20 +241,22 @@ public class ListagemConsultas extends javax.swing.JFrame {
             Tabela.limparTabela(tabelaDeBusca);
             btnDeletar.setEnabled(false);
             btnEditar.setEnabled(false);
-            PacienteDAO dao = new PacienteDAO();
-            Paciente paciente = dao.search(campoBusca.getText());
-
-            if (paciente != null) {
-                Tabela.addTabela(tabelaDeBusca, new String[]{paciente.getCpf(), paciente.getNome()});
+            
+            ConsultaDAO dao = new ConsultaDAO();
+            PacienteDAO pacienteDAO = new PacienteDAO();
+            List<Consulta> consultas = dao.fullRead();
+            
+            
+            for(Consulta e: consultas){
+                Paciente paciente = pacienteDAO.search(campoBusca.getText());
+                Tabela.addTabela(tabelaDeBusca, new String[]{e.getId()+"",paciente.getCpf(), paciente.getNome(), e.getHorario().toString()});
             }
+            
+            
+            
         } else {
             Tabela.limparTabela(tabelaDeBusca);
-            PacienteDAO dao = new PacienteDAO();
-            List<Paciente> pacientes = dao.read();
-
-            for (Paciente p : pacientes) {
-                Tabela.addTabela(tabelaDeBusca, new String[]{p.getCpf(), p.getNome()});
-            }
+            preencherTabela();
         }
 
 
@@ -264,13 +272,24 @@ public class ListagemConsultas extends javax.swing.JFrame {
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
         // TODO add your handling code here:
-
-        PacienteDAO dao = new PacienteDAO();
+        
+        ConsultaDAO dao = new ConsultaDAO();
+        
         System.out.println(Tabela.retornarValorIdentificador(tabelaDeBusca));
-        Paciente pac = dao.search(Tabela.retornarValorIdentificador(tabelaDeBusca));
+        
+        List<Consulta> consultas = dao.fullRead();
+        
+        
+        
+        for(Consulta e: consultas){
+            if(e.getId() == Long.parseLong(Tabela.retornarValorIdentificador(tabelaDeBusca))){
+                new Tela_Marcacao_Consulta(e).setVisible(true);
+            }
+        }
+        
+        
 
-        new Tela_Atualizar_Paciente(pac).setVisible(true);
-        this.setVisible(false);
+        
 
 
     }//GEN-LAST:event_btnEditarActionPerformed
@@ -278,16 +297,16 @@ public class ListagemConsultas extends javax.swing.JFrame {
     private void btnDeletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeletarActionPerformed
         // TODO add your handling code here:
 
-        PacienteDAO dao = new PacienteDAO();
+        ConsultaDAO dao = new ConsultaDAO();
 
-        int opcao = JOptionPane.showConfirmDialog(this, "Deseja realmente exclui o paciente?");
+        int opcao = JOptionPane.showConfirmDialog(this, "Deseja realmente exclui a consulta?");
 
         if (opcao == JOptionPane.YES_OPTION) {
-            dao.remove(Tabela.retornarValorIdentificador(tabelaDeBusca));
+            dao.remove(Long.parseLong(Tabela.retornarValorIdentificador(tabelaDeBusca)));
             preencherTabela();
             btnEditar.setEnabled(false);
             btnDeletar.setEnabled(false);
-            JOptionPane.showMessageDialog(this, "Paciente excluido com sucesso!");
+            JOptionPane.showMessageDialog(this, "Consulta excluido com sucesso!");
         }
 
 
@@ -348,13 +367,42 @@ public class ListagemConsultas extends javax.swing.JFrame {
 
     private void preencherTabela() {
         Tabela.limparTabela(tabelaDeBusca);
-        PacienteDAO dao = new PacienteDAO();
-        List<Paciente> pacientes = dao.read();
-        for (Paciente p : pacientes) {
-
-            Tabela.addTabela(tabelaDeBusca, new String[]{p.getCpf(), p.getNome()});
+        ConsultaDAO dao = new ConsultaDAO();
+        List<Consulta> consultas = filtrarHorario(dao.fullRead());
+        PacienteDAO daoPaciente = new PacienteDAO();
+        
+        
+        for (Consulta e : filtrarHorario(consultas)) {
+            Paciente pac = daoPaciente.search(e.getCpfDoPaciente());
+            Tabela.addTabela(tabelaDeBusca, new String[]{e.getId()+"",pac.getCpf(), pac.getNome(), e.getHorario().toString()});
 
         }
+    }
+
+    private List<Consulta> filtrarHorario(List<Consulta> fullRead) {
+        
+        List<Consulta> consultashj = new ArrayList<>();
+        
+        for(Consulta e : fullRead){
+            if(verificarHorario(e.getHorario())){
+                consultashj.add(e);
+            }
+        }
+        return consultashj;
+        
+    }
+    
+    private boolean verificarHorario(LocalDateTime horario){
+        
+        LocalDate hj = LocalDate.now();
+        
+        if(horario.getDayOfMonth() == hj.getDayOfMonth() && horario.getMonthValue() == hj.getMonthValue() && horario.getYear() == hj.getYear()){
+            return true;
+        }
+        
+        
+        return false;
+        
     }
 
 }

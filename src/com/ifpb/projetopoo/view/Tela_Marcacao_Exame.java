@@ -6,6 +6,7 @@
 package com.ifpb.projetopoo.view;
 
 import com.ifpb.projetopoo.dao.ExameDAO;
+import com.ifpb.projetopoo.dao.PacienteDAO;
 import com.ifpb.projetopoo.model.Exame;
 import com.ifpb.projetopoo.model.Paciente;
 import java.time.LocalDateTime;
@@ -25,17 +26,32 @@ public class Tela_Marcacao_Exame extends javax.swing.JFrame {
     private final Paciente paciente;
     private final ExameDAO dao;
     private final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
-            
+    private final boolean edicao;
+    private final Exame ex;
     public Tela_Marcacao_Exame(Paciente paciente) {
         initComponents();
-        this.paciente = paciente;
         dao = new ExameDAO();
+        this.paciente = paciente;
+        this.edicao = false;
+        this.ex = null;
     }
 
     public Tela_Marcacao_Exame() {
         paciente = null;
         dao = null;
         initComponents();
+        this.edicao = false;
+        this.ex = null;
+    }
+
+    public Tela_Marcacao_Exame(Exame exame) {
+        PacienteDAO daoPaciente = new PacienteDAO();
+        this.paciente = daoPaciente.search(exame.getCpfDoPaciente());
+        dao = new ExameDAO();
+        initComponents();
+        this.edicao = true;
+        this.ex = exame;
+        btnAgendar.setText("Remarcar");
     }
 
     /**
@@ -253,17 +269,31 @@ public class Tela_Marcacao_Exame extends javax.swing.JFrame {
         System.out.println(campoTipoExame.getSelectedItem().toString());
 
         if (verificarCampos()) {
-            
-            if(dao.create(new Exame("",campoTipoExame.getSelectedItem().toString(), "", paciente.getCpf(), LocalDateTime.parse(campoNascimento.getText()+" "+campoHora.getText(), formatter)))){
+
+            if (edicao) {
                 
-                JOptionPane.showMessageDialog(this, "Exame marcado com sucesso!");
-                this.setVisible(false);
+                if (dao.update((int)ex.getId(),new Exame("", campoTipoExame.getSelectedItem().toString(), "", paciente.getCpf(), LocalDateTime.parse(campoNascimento.getText() + " " + campoHora.getText(), formatter)))) {
+
+                    JOptionPane.showMessageDialog(this, "Exame remarcado com sucesso!");
+                    this.setVisible(false);
+
+                } else {
+                    JOptionPane.showMessageDialog(this, "Erro ao remarcar exame!");
+                }
                 
-            }else{
-                JOptionPane.showMessageDialog(this, "Erro ao marcar exame!");
+                
+            } else {
+                if (dao.create(new Exame("", campoTipoExame.getSelectedItem().toString(), "", paciente.getCpf(), LocalDateTime.parse(campoNascimento.getText() + " " + campoHora.getText(), formatter)))) {
+
+                    JOptionPane.showMessageDialog(this, "Exame marcado com sucesso!");
+                    this.setVisible(false);
+
+                } else {
+                    JOptionPane.showMessageDialog(this, "Erro ao marcar exame!");
+                }
             }
 
-        }else{
+        } else {
             JOptionPane.showMessageDialog(this, "Verifique se algum campo está em branco!");
         }
 
@@ -272,9 +302,9 @@ public class Tela_Marcacao_Exame extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        
+
         this.setVisible(false);
-        
+
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**

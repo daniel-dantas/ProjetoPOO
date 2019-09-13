@@ -6,9 +6,14 @@
 package com.ifpb.projetopoo.view;
 
 import com.ifpb.projetopoo.dao.AtendenteDAO;
+import com.ifpb.projetopoo.dao.ExameDAO;
 import com.ifpb.projetopoo.dao.PacienteDAO;
+import com.ifpb.projetopoo.model.Exame;
 import com.ifpb.projetopoo.model.Paciente;
 import com.ifpb.projetopoo.util.Tabela;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
@@ -31,7 +36,6 @@ public class ListagemExames extends javax.swing.JFrame {
         initComponents();
         btnEditar.setEnabled(false);
         btnDeletar.setEnabled(false);
-
         preencherTabela();
 
     }
@@ -134,14 +138,14 @@ public class ListagemExames extends javax.swing.JFrame {
 
             },
             new String [] {
-                "CPF", "Nome", "Horário"
+                "ID", "CPF", "Nome", "Horário"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false
+                false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -235,20 +239,22 @@ public class ListagemExames extends javax.swing.JFrame {
             Tabela.limparTabela(tabelaDeBusca);
             btnDeletar.setEnabled(false);
             btnEditar.setEnabled(false);
-            PacienteDAO dao = new PacienteDAO();
-            Paciente paciente = dao.search(campoBusca.getText());
-
-            if (paciente != null) {
-                Tabela.addTabela(tabelaDeBusca, new String[]{paciente.getCpf(), paciente.getNome()});
+            
+            ExameDAO dao = new ExameDAO();
+            PacienteDAO pacienteDAO = new PacienteDAO();
+            List<Exame> exames = dao.fullRead();
+            
+            
+            for(Exame e: exames){
+                Paciente paciente = pacienteDAO.search(campoBusca.getText());
+                Tabela.addTabela(tabelaDeBusca, new String[]{e.getId()+"",paciente.getCpf(), paciente.getNome(), e.getHorario().toString()});
             }
+            
+            
+            
         } else {
             Tabela.limparTabela(tabelaDeBusca);
-            PacienteDAO dao = new PacienteDAO();
-            List<Paciente> pacientes = dao.read();
-
-            for (Paciente p : pacientes) {
-                Tabela.addTabela(tabelaDeBusca, new String[]{p.getCpf(), p.getNome()});
-            }
+            preencherTabela();
         }
 
 
@@ -264,13 +270,24 @@ public class ListagemExames extends javax.swing.JFrame {
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
         // TODO add your handling code here:
-
-        PacienteDAO dao = new PacienteDAO();
+        
+        ExameDAO dao = new ExameDAO();
+        
         System.out.println(Tabela.retornarValorIdentificador(tabelaDeBusca));
-        Paciente pac = dao.search(Tabela.retornarValorIdentificador(tabelaDeBusca));
+        
+        List<Exame> exames = dao.fullRead();
+        
+        
+        
+        for(Exame e: exames){
+            if(e.getId() == Long.parseLong(Tabela.retornarValorIdentificador(tabelaDeBusca))){
+                new Tela_Marcacao_Exame(e).setVisible(true);
+            }
+        }
+        
+        
 
-        new Tela_Atualizar_Paciente(pac).setVisible(true);
-        this.setVisible(false);
+        
 
 
     }//GEN-LAST:event_btnEditarActionPerformed
@@ -278,16 +295,16 @@ public class ListagemExames extends javax.swing.JFrame {
     private void btnDeletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeletarActionPerformed
         // TODO add your handling code here:
 
-        PacienteDAO dao = new PacienteDAO();
+        ExameDAO dao = new ExameDAO();
 
-        int opcao = JOptionPane.showConfirmDialog(this, "Deseja realmente exclui o paciente?");
+        int opcao = JOptionPane.showConfirmDialog(this, "Deseja realmente exclui o exame?");
 
         if (opcao == JOptionPane.YES_OPTION) {
-            dao.remove(Tabela.retornarValorIdentificador(tabelaDeBusca));
+            dao.remove(Long.parseLong(Tabela.retornarValorIdentificador(tabelaDeBusca)));
             preencherTabela();
             btnEditar.setEnabled(false);
             btnDeletar.setEnabled(false);
-            JOptionPane.showMessageDialog(this, "Paciente excluido com sucesso!");
+            JOptionPane.showMessageDialog(this, "Exame excluido com sucesso!");
         }
 
 
@@ -346,13 +363,42 @@ public class ListagemExames extends javax.swing.JFrame {
 
     private void preencherTabela() {
         Tabela.limparTabela(tabelaDeBusca);
-        PacienteDAO dao = new PacienteDAO();
-        List<Paciente> pacientes = dao.read();
-        for (Paciente p : pacientes) {
-
-            Tabela.addTabela(tabelaDeBusca, new String[]{p.getCpf(), p.getNome()});
+        ExameDAO dao = new ExameDAO();
+        List<Exame> exames = filtrarHorario(dao.fullRead());
+        PacienteDAO daoPaciente = new PacienteDAO();
+        
+        
+        for (Exame e : filtrarHorario(exames)) {
+            Paciente pac = daoPaciente.search(e.getCpfDoPaciente());
+            Tabela.addTabela(tabelaDeBusca, new String[]{e.getId()+"",pac.getCpf(), pac.getNome(), e.getHorario().toString()});
 
         }
+    }
+
+    private List<Exame> filtrarHorario(List<Exame> fullRead) {
+        
+        List<Exame> examesHj = new ArrayList<>();
+        
+        for(Exame e : fullRead){
+            if(verificarHorario(e.getHorario())){
+                examesHj.add(e);
+            }
+        }
+        return examesHj;
+        
+    }
+    
+    private boolean verificarHorario(LocalDateTime horario){
+        
+        LocalDate hj = LocalDate.now();
+        
+        if(horario.getDayOfMonth() == hj.getDayOfMonth() && horario.getMonthValue() == hj.getMonthValue() && horario.getYear() == hj.getYear()){
+            return true;
+        }
+        
+        
+        return false;
+        
     }
 
 }
