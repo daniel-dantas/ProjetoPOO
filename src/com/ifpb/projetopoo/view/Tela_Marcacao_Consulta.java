@@ -5,6 +5,14 @@
  */
 package com.ifpb.projetopoo.view;
 
+import com.ifpb.projetopoo.dao.ConsultaDAO;
+import com.ifpb.projetopoo.dao.ExameDAO;
+import com.ifpb.projetopoo.model.Consulta;
+import com.ifpb.projetopoo.model.Paciente;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author daniel
@@ -14,10 +22,19 @@ public class Tela_Marcacao_Consulta extends javax.swing.JFrame {
     /**
      * Creates new form Tela_MarcacaoConsulta
      */
-    
-    
-    
+    private final Paciente paciente;
+    private final ConsultaDAO dao;
+    private final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
+
+    public Tela_Marcacao_Consulta(Paciente paciente) {
+        this.paciente = paciente;
+        dao = new ConsultaDAO();
+        initComponents();
+    }
+
     public Tela_Marcacao_Consulta() {
+        paciente = null;
+        dao = null;
         initComponents();
     }
 
@@ -30,6 +47,7 @@ public class Tela_Marcacao_Consulta extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         Text_1 = new javax.swing.JLabel();
         Text_2 = new javax.swing.JLabel();
@@ -38,9 +56,14 @@ public class Tela_Marcacao_Consulta extends javax.swing.JFrame {
         Usuario45 = new javax.swing.JLabel();
         campoNascimento = new javax.swing.JFormattedTextField();
         Usuario46 = new javax.swing.JLabel();
-        campoNascimento1 = new javax.swing.JFormattedTextField();
+        campoHora = new javax.swing.JFormattedTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        campoSintomas = new javax.swing.JTextArea();
+        Usuario47 = new javax.swing.JLabel();
+
+        jLabel1.setText("jLabel1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -112,14 +135,14 @@ public class Tela_Marcacao_Consulta extends javax.swing.JFrame {
         Usuario46.setText("Data:");
 
         try {
-            campoNascimento1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##:##")));
+            campoHora.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##:##")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        campoNascimento1.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
-        campoNascimento1.addActionListener(new java.awt.event.ActionListener() {
+        campoHora.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
+        campoHora.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                campoNascimento1campoNascimentoActionPerformed(evt);
+                campoHoracampoNascimentoActionPerformed(evt);
             }
         });
 
@@ -134,6 +157,14 @@ public class Tela_Marcacao_Consulta extends javax.swing.JFrame {
         jButton2.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
         jButton2.setText("Voltar");
 
+        campoSintomas.setColumns(20);
+        campoSintomas.setRows(5);
+        jScrollPane1.setViewportView(campoSintomas);
+
+        Usuario47.setFont(new java.awt.Font("Calibri", 1, 28)); // NOI18N
+        Usuario47.setForeground(new java.awt.Color(241, 231, 254));
+        Usuario47.setText("Sintomas:");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -142,20 +173,25 @@ public class Tela_Marcacao_Consulta extends javax.swing.JFrame {
                 .addGap(293, 293, 293)
                 .addComponent(Usuario46)
                 .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(165, 165, 165)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane1)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 96, Short.MAX_VALUE)
+                        .addComponent(jButton1))
+                    .addComponent(campoHora)
+                    .addComponent(campoNascimento))
+                .addGap(159, 159, 159))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(295, 295, 295)
                 .addComponent(Usuario45)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(165, 165, 165)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 96, Short.MAX_VALUE)
-                        .addComponent(jButton1))
-                    .addComponent(campoNascimento1)
-                    .addComponent(campoNascimento))
-                .addGap(159, 159, 159))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(Usuario47)
+                .addGap(247, 247, 247))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -167,7 +203,11 @@ public class Tela_Marcacao_Consulta extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(Usuario45)
                 .addGap(18, 18, 18)
-                .addComponent(campoNascimento1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(campoHora, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(13, 13, 13)
+                .addComponent(Usuario47)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton2)
@@ -197,12 +237,28 @@ public class Tela_Marcacao_Consulta extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_campoNascimentocampoNascimentoActionPerformed
 
-    private void campoNascimento1campoNascimentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoNascimento1campoNascimentoActionPerformed
+    private void campoHoracampoNascimentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoHoracampoNascimentoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_campoNascimento1campoNascimentoActionPerformed
+    }//GEN-LAST:event_campoHoracampoNascimentoActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        
+        if (verificarCampos()) {
+            
+            if(dao.create(new Consulta(campoSintomas.getText(), "", paciente.getCpf(), LocalDateTime.parse(campoNascimento.getText()+" "+campoHora.getText(), formatter)))){
+                JOptionPane.showMessageDialog(this, "Consulta agendada com sucesso!");
+            }else{
+                JOptionPane.showMessageDialog(this, "Problema ao agendar consulta!");
+            }
+            
+            
+            
+        }else{
+            JOptionPane.showMessageDialog(this, "Alguem campo não está preenchido!");
+        }
+        
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -246,12 +302,30 @@ public class Tela_Marcacao_Consulta extends javax.swing.JFrame {
     private javax.swing.JLabel Text_2;
     private javax.swing.JLabel Usuario45;
     private javax.swing.JLabel Usuario46;
+    private javax.swing.JLabel Usuario47;
+    private javax.swing.JFormattedTextField campoHora;
     private javax.swing.JFormattedTextField campoNascimento;
-    private javax.swing.JFormattedTextField campoNascimento1;
+    private javax.swing.JTextArea campoSintomas;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     // End of variables declaration//GEN-END:variables
+    private boolean verificarCampos() {
+
+        if (campoHora.equals("  :  ") || campoNascimento.equals("  /  /   ")) {
+            
+            
+            
+            
+            
+            
+            return false;
+        }
+
+        return true;
+    }
 }

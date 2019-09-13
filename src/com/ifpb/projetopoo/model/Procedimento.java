@@ -9,12 +9,13 @@ import com.ifpb.projetopoo.dao.Conexao;
 import java.time.LocalDateTime;
 import java.sql.Date;
 import java.sql.Time;
+import java.util.Objects;
 
 /**
  *
  * @author daniel
  */
-public abstract class Procedimento implements MarcacaoProcedimento{
+public class Procedimento implements MarcacaoProcedimento{
     private long id;
     private final String cpfDoPaciente;
     private LocalDateTime horario;
@@ -44,6 +45,30 @@ public abstract class Procedimento implements MarcacaoProcedimento{
         return cpfDoPaciente;
     }
 
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 89 * hash + Objects.hashCode(this.horario);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Procedimento other = (Procedimento) obj;
+        if (!Objects.equals(this.horario, other.horario)) {
+            return false;
+        }
+        return true;
+    }
+
+    
+    
     @Override
     public String toString() {
         return "Procedimento{" + "cpfDoPaciente=" + cpfDoPaciente + ", horario=" + horario + '}';

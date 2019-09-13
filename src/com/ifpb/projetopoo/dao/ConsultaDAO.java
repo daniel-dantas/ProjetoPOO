@@ -54,6 +54,8 @@ public class ConsultaDAO extends ProcedimentoDAO{
         return retorno;
     }
     
+    
+    
     public List<Consulta> read(String Cpf) {
         List <Consulta> consultas = new ArrayList<>();
         List <ProcedimentoDAO> procedimentos = super.readPrimario(Cpf);

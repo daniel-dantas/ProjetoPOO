@@ -88,6 +88,8 @@ public class ProcedimentoDAO {
         return resultado >= 1;
     }
     
+    
+    
     public List <ProcedimentoDAO> readPrimario(String Cpf){
         List <ProcedimentoDAO> procedimentos = new ArrayList<>();
         String sql = "SELECT * FROM Procedimento";
