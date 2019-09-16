@@ -177,18 +177,14 @@ public class Tela_Atualizar_Paciente extends javax.swing.JFrame {
                         .addGroup(Right_Menu4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(Right_Menu4Layout.createSequentialGroup()
                                 .addGroup(Right_Menu4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(Right_Menu4Layout.createSequentialGroup()
-                                        .addGroup(Right_Menu4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(Usuario45)
-                                            .addComponent(Usuario52)
-                                            .addComponent(Usuario46)
-                                            .addComponent(Usuario48))
-                                        .addGap(0, 212, Short.MAX_VALUE))
-                                    .addComponent(campoTelefone))
-                                .addGap(40, 40, 40))
-                            .addGroup(Right_Menu4Layout.createSequentialGroup()
-                                .addComponent(campoNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, 442, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                    .addComponent(Usuario45)
+                                    .addComponent(Usuario52)
+                                    .addComponent(Usuario46)
+                                    .addComponent(Usuario48))
+                                .addGap(0, 212, Short.MAX_VALUE))
+                            .addComponent(campoTelefone)
+                            .addComponent(campoNascimento))
+                        .addGap(40, 40, 40)
                         .addGroup(Right_Menu4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(Right_Menu4Layout.createSequentialGroup()
                                 .addGap(0, 203, Short.MAX_VALUE)
@@ -244,7 +240,7 @@ public class Tela_Atualizar_Paciente extends javax.swing.JFrame {
         jScrollPane1.setViewportView(Right_Menu4);
 
         Left_Menu.setBackground(new java.awt.Color(36, 37, 42));
-        Left_Menu.setBorder(javax.swing.BorderFactory.createBevelBorder(0, java.awt.Color.darkGray, java.awt.Color.darkGray, java.awt.Color.darkGray, java.awt.Color.darkGray));
+        Left_Menu.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.darkGray, java.awt.Color.darkGray, java.awt.Color.darkGray, java.awt.Color.darkGray));
 
         Text_1.setFont(new java.awt.Font("Calibri", 1, 36)); // NOI18N
         Text_1.setForeground(new java.awt.Color(241, 231, 254));

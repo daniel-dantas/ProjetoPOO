@@ -75,20 +75,20 @@ public class Tela_Atualizar_Atendente extends javax.swing.JFrame {
         btnCadastrar4 = new javax.swing.JButton();
         btnVoltar4 = new javax.swing.JButton();
         Usuario50 = new javax.swing.JLabel();
-        campoDataDeAdmissao = new javax.swing.JFormattedTextField();
         campoNome = new javax.swing.JTextField();
         campoNascimento = new javax.swing.JTextField();
         campoEndereco = new javax.swing.JTextField();
         Usuario52 = new javax.swing.JLabel();
         campoUsuario = new javax.swing.JTextField();
         campoTelefone = new javax.swing.JFormattedTextField();
-        campoEmail1 = new javax.swing.JTextField();
+        campoAdmissao = new javax.swing.JTextField();
+        campoEmail = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Tela de Cadastro");
 
         Left_Menu.setBackground(new java.awt.Color(36, 37, 42));
-        Left_Menu.setBorder(javax.swing.BorderFactory.createBevelBorder(0, java.awt.Color.darkGray, java.awt.Color.darkGray, java.awt.Color.darkGray, java.awt.Color.darkGray));
+        Left_Menu.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.darkGray, java.awt.Color.darkGray, java.awt.Color.darkGray, java.awt.Color.darkGray));
 
         Text_1.setFont(new java.awt.Font("Calibri", 1, 36)); // NOI18N
         Text_1.setForeground(new java.awt.Color(241, 231, 254));
@@ -220,19 +220,6 @@ public class Tela_Atualizar_Atendente extends javax.swing.JFrame {
         Usuario50.setForeground(new java.awt.Color(241, 231, 254));
         Usuario50.setText("Data de Admissão:");
 
-        try {
-            campoDataDeAdmissao.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
-        campoDataDeAdmissao.setText("dd/mm/aaaa   ");
-        campoDataDeAdmissao.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
-        campoDataDeAdmissao.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                campoDataDeAdmissaocampoDataDeAdmissaoActionPerformed(evt);
-            }
-        });
-
         campoNome.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
         campoNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -272,10 +259,17 @@ public class Tela_Atualizar_Atendente extends javax.swing.JFrame {
         }
         campoTelefone.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
 
-        campoEmail1.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
-        campoEmail1.addActionListener(new java.awt.event.ActionListener() {
+        campoAdmissao.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
+        campoAdmissao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                campoEmail1campoEmailActionPerformed(evt);
+                campoAdmissaocampoEmailActionPerformed(evt);
+            }
+        });
+
+        campoEmail.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
+        campoEmail.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                campoEmailcampoEmailActionPerformed(evt);
             }
         });
 
@@ -324,20 +318,16 @@ public class Tela_Atualizar_Atendente extends javax.swing.JFrame {
                                         .addComponent(btnVoltar4, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, 18)
                                         .addComponent(btnCadastrar4))
-                                    .addComponent(campoDataDeAdmissao)
                                     .addComponent(campoCpf, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 443, Short.MAX_VALUE)
                                     .addGroup(Right_Menu4Layout.createSequentialGroup()
                                         .addGroup(Right_Menu4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(CPF4)
                                             .addComponent(Usuario50)
                                             .addComponent(Usuario47))
-                                        .addGap(0, 0, Short.MAX_VALUE)))))))
+                                        .addGap(0, 0, Short.MAX_VALUE))
+                                    .addComponent(campoAdmissao)
+                                    .addComponent(campoEmail, javax.swing.GroupLayout.Alignment.TRAILING))))))
                 .addContainerGap())
-            .addGroup(Right_Menu4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(Right_Menu4Layout.createSequentialGroup()
-                    .addGap(571, 571, 571)
-                    .addComponent(campoEmail1)
-                    .addGap(31, 31, 31)))
         );
         Right_Menu4Layout.setVerticalGroup(
             Right_Menu4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -369,15 +359,17 @@ public class Tela_Atualizar_Atendente extends javax.swing.JFrame {
                     .addComponent(Usuario46)
                     .addComponent(Usuario47))
                 .addGap(18, 18, 18)
-                .addComponent(campoNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(Right_Menu4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(campoNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(campoEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(12, 12, 12)
                 .addGroup(Right_Menu4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Usuario48)
                     .addComponent(Usuario50))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(Right_Menu4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(campoDataDeAdmissao, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(campoTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(campoTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(campoAdmissao, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(Usuario52)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -387,11 +379,6 @@ public class Tela_Atualizar_Atendente extends javax.swing.JFrame {
                     .addComponent(btnCadastrar4, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnVoltar4, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(42, Short.MAX_VALUE))
-            .addGroup(Right_Menu4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(Right_Menu4Layout.createSequentialGroup()
-                    .addGap(371, 371, 371)
-                    .addComponent(campoEmail1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(395, Short.MAX_VALUE)))
         );
 
         jScrollPane1.setViewportView(Right_Menu4);
@@ -445,10 +432,6 @@ public class Tela_Atualizar_Atendente extends javax.swing.JFrame {
         new Tela_Principal(atendente).setVisible(true);
     }//GEN-LAST:event_btnVoltar4btnVoltarActionPerformed
 
-    private void campoDataDeAdmissaocampoDataDeAdmissaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoDataDeAdmissaocampoDataDeAdmissaoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_campoDataDeAdmissaocampoDataDeAdmissaoActionPerformed
-
     private void campoNomecampoNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoNomecampoNomeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_campoNomecampoNomeActionPerformed
@@ -465,9 +448,13 @@ public class Tela_Atualizar_Atendente extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_campoUsuariocampoUsuarioActionPerformed
 
-    private void campoEmail1campoEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoEmail1campoEmailActionPerformed
+    private void campoAdmissaocampoEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoAdmissaocampoEmailActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_campoEmail1campoEmailActionPerformed
+    }//GEN-LAST:event_campoAdmissaocampoEmailActionPerformed
+
+    private void campoEmailcampoEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoEmailcampoEmailActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_campoEmailcampoEmailActionPerformed
 
     /**
      * @param args the command line arguments
@@ -523,9 +510,9 @@ public class Tela_Atualizar_Atendente extends javax.swing.JFrame {
     private javax.swing.JLabel Usuario52;
     private javax.swing.JButton btnCadastrar4;
     private javax.swing.JButton btnVoltar4;
+    private javax.swing.JTextField campoAdmissao;
     private javax.swing.JFormattedTextField campoCpf;
-    private javax.swing.JFormattedTextField campoDataDeAdmissao;
-    private javax.swing.JTextField campoEmail1;
+    private javax.swing.JTextField campoEmail;
     private javax.swing.JTextField campoEndereco;
     private javax.swing.JTextField campoNascimento;
     private javax.swing.JTextField campoNome;
@@ -540,7 +527,7 @@ public class Tela_Atualizar_Atendente extends javax.swing.JFrame {
 
     private boolean verificarCampos() {
 
-        if (campoCpf.getText().equals("   .   .   -  ") || campoDataDeAdmissao.getText().equals("  /  /    ")
+        if (campoCpf.getText().equals("   .   .   -  ") || campoAdmissao.getText().length() == 0
                 || campoNascimento.equals("  /  /    ") || campoNome.getText().length() == 0 || campoEndereco.getText().length() == 0 || campoSenha.getText().length() == 0
                 || campoTelefone.getText().length() == 0 || campoUsuario.getText().length() == 0) {
 
@@ -557,13 +544,15 @@ public class Tela_Atualizar_Atendente extends javax.swing.JFrame {
         
         LocalDate parsedDate = LocalDate.parse(data.format(fm), fm);
         campoCpf.setText(atendente.getCpf());
-        campoNascimento.setText(atendente.getContato().getEmail());
+        campoEmail.setText(atendente.getContato().getEmail());
         campoNascimento.setText(parsedDate.toString());
         campoNome.setText(atendente.getNome());
         campoEndereco.setText(atendente.getEndereco().getRua());
         campoTelefone.setText(atendente.getContato().getTelefone());
         campoUsuario.setText(atendente.getUsuario());
         campoSenha.setText(atendente.getSenha());
+        parsedDate = LocalDate.parse(atendente.getDataAdmissao().format(fm), fm);
+        campoAdmissao.setText(parsedDate.toString());
         
     }
     
